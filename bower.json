@@ -1,0 +1,17 @@
+{
+  "name": "sldsTrial",
+  "version": "0.0.0",
+  "authors": [
+    "Dom <swervo@papersnail.co.uk>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "lib"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "moment": "~2.10.6"
+  }
+}

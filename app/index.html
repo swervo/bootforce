@@ -1,0 +1,234 @@
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+    <title>Salesforce Lightning Design System Trailhead Module</title>
+    <link rel="stylesheet" type="text/css" href="styles/hack.css">
+    <link rel="stylesheet" type="text/css" href="slds/assets/styles/salesforce-lightning-design-system.css">
+</head>
+
+<body>
+  <div class="container">
+      <div class="slds-tabs--scoped">
+          <ul class="slds-tabs--scoped__nav" role="tablist">
+              <li class="slds-tabs__item slds-text-heading--label slds-active" title="Item One" role="presentation"><a href="#" role="tab" tabindex="0" aria-selected="true">Item One</a></li>
+              <li class="slds-tabs__item slds-text-heading--label" title="Item Two" role="presentation"><a href="#" role="tab" tabindex="-1" aria-selected="false">Item Two</a></li>
+              <li class="slds-tabs__item slds-text-heading--label" title="Item Three" role="presentation"><a href="#" role="tab" tabindex="-1" aria-selected="false">Item Three</a></li>
+          </ul>
+          <div class="slds-tabs__content slds-show" role="tabpanel">
+              <!-- PAGE HEADER -->
+              <div class="slds-page-header" role="banner">
+                  <!-- PAGE HEADER TOP ROW -->
+                  <div class="slds-grid">
+                      <!-- PAGE HEADER / ROW 1 / COLUMN 1 -->
+                      <div class="slds-col">
+                          <!-- HEADING AREA -->
+                          <!-- MEDIA OBJECT = FIGURE + BODY -->
+                          <div class="slds-media">
+                              <div class="slds-media__figure">
+                                  <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+                                      <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#user"></use>
+                                  </svg>
+                              </div>
+                              <div class="slds-media__body">
+                                  <p class="slds-text-heading--label">Account</p>
+                                  <h1 class="slds-text-heading--medium">SLDS Inc.</h1>
+                              </div>
+                          </div>
+                          <!-- / MEDIA OBJECT -->
+                          <!-- HEADING AREA -->
+                      </div>
+                      <!-- / PAGE HEADER / ROW 1 / COLUMN 1 -->
+                      <!-- PAGE HEADER / ROW 1 / COLUMN 2 -->
+                      <div class="slds-col slds-no-flex slds-align-middle">
+                          <div class="slds-button-group" role="group">
+                              <button class="slds-button slds-button--neutral">
+                                  Contact
+                              </button>
+                              <button class="slds-button slds-button--neutral">
+                                  More
+                              </button>
+                          </div>
+                      </div>
+                      <!-- / PAGE HEADER / ROW 1 / COLUMN 2 -->
+                  </div>
+                  <!-- / PAGE HEADER TOP ROW -->
+                  <!-- PAGE HEADER DETAIL ROW -->
+                  <div class="slds-grid slds-page-header__detail-row">
+                      <!-- PAGE HEADER / ROW 2 / COLUMN 1 -->
+                      <div class="slds-col--padded slds-size--1-of-4">
+                          <dl>
+                              <dt>
+                                  <p class="slds-text-heading--label slds-truncate">Field 1</p>
+                              </dt>
+                              <dd>
+                                  <p class="slds-text-body--regular slds-truncate">Description that demonstrates truncation with a long text field</p>
+                              </dd>
+                          </dl>
+                      </div>
+                      <!-- PAGE HEADER / ROW 2 / COLUMN 2 -->
+                      <div class="slds-col--padded slds-size--1-of-4">
+                          <dl>
+                              <dt>
+                                  <p class="slds-text-heading--label slds-truncate">Field 2</p>
+                              </dt>
+                              <dd><a href="#">Hyperlink 2</a></dd>
+                          </dl>
+                      </div>
+                      <!-- PAGE HEADER / ROW 2 / COLUMN 3 -->
+                      <div class="slds-col--padded slds-size--1-of-4">
+                          <dl>
+                              <dt>
+                                  <p class="slds-text-heading--label slds-truncate">Field 3</p>
+                              </dt>
+                              <dd><a href="#">Hyperlink 3</a></dd>
+                          </dl>
+                      </div>
+                      <!-- PAGE HEADER / ROW 2 / COLUMN 4 -->
+                      <div class="slds-col--padded slds-size--1-of-4">
+                          <dl>
+                              <dt>
+                                  <p class="slds-text-heading--label slds-truncate">Field 4</p>
+                              </dt>
+                              <dd><a href="#">Hyperlink 4</a></dd>
+                          </dl>
+                      </div>
+                  </div>
+                  <!-- / PAGE HEADER DETAIL ROW -->
+              </div>
+              <!-- / PAGE HEADER -->
+              <!-- PRIMARY CONTENT WRAPPER -->
+              <div class="myapp">
+                  <!-- RELATED LIST CARDS-->
+                  <div class="slds-grid slds-m-top--large">
+                      <!-- MAIN CARD -->
+                      <div class="slds-col slds-col-rule--right slds-p-right--large slds-size--8-of-12">
+                          <div class="slds-card">
+                              <header class="slds-card__header slds-grid">
+                                  <div class="slds-col slds-media slds-media--center">
+                                      <div class="slds-media__figure">
+                                          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+                                              <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                                          </svg>
+                                      </div>
+                                      <div class="slds-media__body">
+                                          <h3 class="slds-text-heading--small">Contacts</h3>
+                                      </div>
+                                  </div>
+                                  <div class="slds-col slds-no-flex">
+                                      <button class="slds-button slds-button--neutral slds-button--small">Add</button>
+                                  </div>
+                              </header>
+                              <!-- CARD BODY = TABLE -->
+                              <section class="slds-card__body">
+                                  <div class="slds-scrollable--x">
+                                      <table class="slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                                          <thead>
+                                              <tr class="slds-no-hover">
+                                                  <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Name</th>
+                                                  <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Company</th>
+                                                  <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Title</th>
+                                                  <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Email</th>
+                                                  <th class="slds-row-action" scope="col">
+                                                      <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                                                          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                                                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                                          </svg>
+                                                          <span class="slds-assistive-text">Show More</span>
+                                                      </button>
+                                                  </th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr class="slds-hint-parent">
+                                                  <td class="slds-size--1-of-4" data-label="Name">Adam Choi</td>
+                                                  <td class="slds-size--1-of-4" data-label="Company">Company One</td>
+                                                  <td class="slds-size--1-of-4" data-label="Title">Director of Operations</td>
+                                                  <td class="slds-size--1-of-4" data-label="Email">adam@company.com</td>
+                                                  <td>
+                                                      <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                                                          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                                                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                                          </svg>
+                                                          <span class="slds-assistive-text">Show More</span>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </section>
+                              <!-- / CARD BODY = SECTION + TABLE -->
+                              <footer class="slds-card__footer">
+                                  <a href="#">View All</a>
+                              </footer>
+                          </div>
+                      </div>
+                      <!-- / MAIN CARD -->
+                      <!-- COMPACT CARD -->
+                      <div class="slds-col slds-p-left--large slds-size--4-of-12">
+                          <div class="slds-card">
+                              <header class="slds-card__header">
+                                  <div class="slds-media slds-media--center">
+                                      <div class="slds-media__figure">
+                                          <svg aria-hidden="true" class="slds-icon slds-icon-standard-lead slds-icon--small">
+                                              <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+                                          </svg>
+                                      </div>
+                                      <div class="slds-media__body">
+                                          <h3 class="slds-text-heading--small">Team</h3>
+                                      </div>
+                                  </div>
+                              </header>
+                              <section class="slds-card__body">
+                                  <!-- LIST WITH ONE ITEM -->
+                                  <ul>
+                                      <li class="slds-tile slds-hint-parent">
+                                          <p class="tile__title slds-truncate"><a href="#">Anne Choi</a></p>
+                                          <div class="tile__detail">
+                                              <dl class="dl--horizontal slds-text-body--small">
+                                                  <dt class="slds-dl--horizontal__label">
+                                                      <p class="slds-truncate">Email:</p>
+                                                  </dt>
+                                                  <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                                                      <p class="slds-truncate">achoi@burlingtion.com</p>
+                                                  </dd>
+                                              </dl>
+                                          </div>
+                                      </li>
+                                  </ul>
+                                  <!-- LIST WITH ONE ITEM -->
+                              </section>
+                              <footer class="slds-card__footer">
+                                  <a href="#">View All</a>
+                              </footer>
+                          </div>
+                      </div>
+                      <!-- / COMPACT CARD -->
+                  </div>
+                  <!-- / RELATED LIST CARDS -->
+              </div>
+              <!-- / PRIMARY CONTENT WRAPPER -->
+          </div>
+          <div class="slds-tabs__content slds-hide" role="tabpanel">
+              <h2>Item Two Content</h2>
+          </div>
+          <div class="slds-tabs__content slds-hide" role="tabpanel">
+              <h2>Item Three Content</h2>
+          </div>
+      </div>
+
+      
+      <!-- FOOTER -->
+      <footer role="contentinfo" class="slds-p-around--large">
+          <!-- LAYOUT GRID -->
+          <div class="slds-grid slds-grid--align-spread">
+              <p class="slds-col">Salesforce Lightning Design System Example</p>
+              <p class="slds-col">&copy; Your Name Here</p>
+          </div>
+          <!-- / LAYOUT GRID -->
+      </footer>
+      <!-- / FOOTER -->
+  </div>
+</body>
+
+</html>
