@@ -2,6 +2,8 @@
 
 module.exports = function(grunt) {
     'use strict';
+    require('load-grunt-tasks')(grunt);
+
     grunt.initConfig({
         'bower-install-simple': {
             options: {
@@ -24,6 +26,19 @@ module.exports = function(grunt) {
             options: {
                 globals: {
                     jQuery: false
+                }
+            }
+        },
+        'sass': {
+            options: {
+                sourceMap: true,
+                outputStyle: 'expanded',
+                sourceComments: false,
+                includePaths: ['app/slds/scss']
+            },
+            dist: {
+                files: {
+                    'app/styles/main.css': 'app/sass/main.scss'
                 }
             }
         },
@@ -90,7 +105,7 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        copy: {
+        'copy': {
             static: {
                 files: [{
                     expand: true,
@@ -113,16 +128,16 @@ module.exports = function(grunt) {
                     ]
                 }]
             }
+        },
+        'notify': {
+            sass: {
+                options: {
+                    title: 'SASS task done',
+                    message: 'Styles have been recompiled'
+                }
+            }
         }
     });
-
-    grunt.loadNpmTasks('grunt-bower-install-simple');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // Bower integration
     grunt.registerTask('bower', [
@@ -133,6 +148,9 @@ module.exports = function(grunt) {
     grunt.registerTask('server-dev', ['connect:build']);
     grunt.registerTask('server-prod', ['connect:deploy']);
     grunt.registerTask('server', ['server-dev']);
+
+    // SASS build
+    grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
     // Used by travis
     grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'imagemin', 'copy:static']);

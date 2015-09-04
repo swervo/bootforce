@@ -1,0 +1,27 @@
+/**
+ * This is the root SASS file
+ * Do not put css/sass in here directly just use this for
+ * importing other sass partials (ie., files like this _partialName.scss)
+ */
+
+@import 'colours/overrides';
+
+@import 'hacks/hacks';
+
+/**
+ * Import the SLDS here
+ */
+@import
+  "design-tokens",
+  "dependencies/namespace",
+  "dependencies/pathing",
+  "dependencies/index",
+  "core/font",
+
+  "vendor/normalize",
+  "core/root",
+
+  "components/index",
+  "utilities/index",
+  "vendor/html5boilerplate-print";
+
