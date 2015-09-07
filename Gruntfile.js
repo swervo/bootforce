@@ -21,6 +21,14 @@ module.exports = function(grunt) {
                 }
             }
         },
+        'watch': {
+            files: 'app/sass/**/*.scss',
+            tasks: ['sassCompile'],
+            options: {
+                spawn: false,
+                livereload: true
+            }
+        },
         'jshint': {
             files: ['Gruntfile.js', 'app/scripts/**/*.js'],
             options: {
@@ -47,7 +55,8 @@ module.exports = function(grunt) {
                 options: {
                     port: 8000,
                     base: 'app',
-                    keepalive: true
+                    keepalive: false,
+                    livereload: true
                 }
             },
             deploy: {
@@ -156,5 +165,5 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'imagemin', 'copy:static']);
     grunt.registerTask('test', []);
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['server-dev', 'watch']);
 };
