@@ -21,8 +21,30 @@ module.exports = function(grunt) {
                 }
             }
         },
+        'env': {
+            options: {
+                /* Shared Options Hash */
+                //globalOption : 'foo'
+            },
+            dev: {
+                NODE_ENV: 'DEVELOPMENT'
+            },
+            prod: {
+                NODE_ENV: 'PRODUCTION'
+            }
+        },
+        'preprocess': {
+            dev: {
+                src: 'app/tmpl/index.html',
+                dest: 'app/index.html'
+            },
+            prod: {
+                src: 'app/tmpl/index.html',
+                dest: 'dist/index.html'
+            }
+        },
         'watch': {
-            files: 'app/sass/**/*.scss',
+            files: ['app/sass/**/*.scss', 'app/scripts/**/*.js'],
             tasks: ['sassCompile'],
             options: {
                 spawn: false,
@@ -71,20 +93,21 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     baseUrl: 'app/scripts',
-                    name: 'main',
-                    out: 'dist/scripts/main.js',
+                    name: '../lib/almond/almond',
+                    include: ['main'],
+                    insertRequire: ['main'],
+                    out: 'dist/scripts/main-built.js',
                     mainConfigFile: 'app/scripts/main.js',
                     optimize: 'uglify2',
                     uglify2: {
                         screwIE8: true,
-                        mangle: true,
+                        mangle: false,
                         sourceMap: true,
                         compress: {
                             dead_code: true,
                         },
-                        warnings: false,
-                    },
-                    fileExclusionRegExp: /^assets$/, // ignore assets directory, imagemin will handle this instead
+                        warnings: true,
+                    }
                 }
             }
         },
@@ -122,18 +145,11 @@ module.exports = function(grunt) {
                     cwd: 'app',
                     dest: 'dist',
                     src: [
-                        '*.html',
                         'styles/{,*/}**',
                         'assets/fonts/{,*/}**',
+                        'assets/icons/{,*/}**',
+                        'assets/images/{,*/}**',
                         'assets/sfx/{,*/}**'
-                    ]
-                }, {
-                    expand: true,
-                    dot: true,
-                    cwd: 'app/lib/requirejs',
-                    dest: 'dist/lib/requirejs',
-                    src: [
-                        'require.js'
                     ]
                 }]
             }
@@ -162,8 +178,9 @@ module.exports = function(grunt) {
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
     // Used by travis
-    grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'imagemin', 'copy:static']);
+    grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'env:prod',
+                                    'copy:static', 'preprocess:prod']);
     grunt.registerTask('test', []);
 
-    grunt.registerTask('default', ['server-dev', 'watch']);
+    grunt.registerTask('default', ['env:dev', 'preprocess:dev', 'server-dev', 'watch']);
 };
