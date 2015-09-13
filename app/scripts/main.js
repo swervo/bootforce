@@ -15,11 +15,12 @@
  
     require([
         'jquery',
-        'knockout'
-    ], function ($, ko) {
-        console.log('loaded');
+        'knockout',
+        'modules/tab'
+    ], function ($, ko, tab) {
         console.log($);
         console.log(ko);
+        console.log(tab);
 
     });
 }());
