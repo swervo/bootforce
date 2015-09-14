@@ -9,3 +9,6 @@ app/lib
 
 # Deploy directory
 dist
+
+# Generated from template
+app/index.html
