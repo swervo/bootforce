@@ -341,7 +341,7 @@ th {
 
 html {
   height: 100%;
-  font: 100%/1.5 "Salesforce Sans", Arial, sans-serif;
+  font: 100%/1.5 "gill sans";
   background: white;
   color: #16325c;
   -webkit-tap-highlight-color: transparent;
@@ -1115,7 +1115,7 @@ a.slds-button--inverse:focus {
   padding: 0;
   border-radius: 0.25rem;
   background-clip: padding-box;
-  background-color: yellow;
+  background-color: #f4f6f9;
   border: 1px solid #d8dde6;
 }
 
@@ -2671,7 +2671,7 @@ a.slds-button--inverse:focus {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
   padding: 0.75rem 1rem;
-  background-color: yellow;
+  background-color: #f4f6f9;
   text-align: right;
 }
 
@@ -3020,7 +3020,7 @@ a.slds-button--inverse:focus {
 .slds-tabs--scoped__nav {
   display: flex;
   align-items: flex-start;
-  background-color: yellow;
+  background-color: #f4f6f9;
   border: 1px solid #d8dde6;
   border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -6370,7 +6370,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 .slds-page-header {
   padding: 1.5rem 1.5rem 0.75rem;
   border-bottom: 1px solid #d8dde6;
-  background: yellow;
+  background: #f4f6f9;
 }
 
 /* Lightning Design System v0.8.0 */
@@ -6395,7 +6395,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 }
 
 .slds-theme--shade {
-  background-color: yellow;
+  background-color: #f4f6f9;
 }
 
 .slds-theme--inverse {
