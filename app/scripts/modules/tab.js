@@ -67,7 +67,7 @@
 
             function next() {
                 $active
-                    .removeClass('slds-show')
+                    .removeClass('slds-active')
                     .find('> .dropdown-menu > .slds-active')
                     .removeClass('slds-active')
                     .end()
@@ -75,7 +75,7 @@
                     .attr('aria-expanded', false);
 
                 element
-                    .addClass('slds-show')
+                    .addClass('slds-active')
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', true);
 
