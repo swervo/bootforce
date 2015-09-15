@@ -61,23 +61,30 @@
         };
 
         Tab.prototype.activate = function(element, container, callback) {
-            var $active = container.find('> .slds-active');
+            var activeSuffix = 'active';
+            if (callback) {
+                // this is the toggle content call
+                activeSuffix = 'show';
+            }
+            var $active = container.find('> .slds-' + activeSuffix);
             var transition = callback && $.support.transition &&
                 ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length);
 
             function next() {
                 $active
-                    .removeClass('slds-active')
-                    .find('> .dropdown-menu > .slds-active')
-                    .removeClass('slds-active')
+                    .removeClass('slds-' + activeSuffix)
+                    .find('> .dropdown-menu > .slds-' + activeSuffix)
+                    .removeClass('slds-' + activeSuffix)
                     .end()
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', false);
 
+
                 element
-                    .addClass('slds-active')
+                    .addClass('slds-' + activeSuffix)
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', true);
+
 
                 if (transition) {
                     element[0].offsetWidth; // reflow for transition
@@ -89,7 +96,7 @@
                 if (element.parent('.dropdown-menu').length) {
                     element
                         .closest('li.dropdown')
-                        .addClass('slds-active')
+                        .addClass('slds-' + activeSuffix)
                         .end()
                         .find('[data-toggle="tab"]')
                         .attr('aria-expanded', true);
