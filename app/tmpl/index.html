@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <head>
-  <title>New Title</title>
+  <title>SLDS Exploration</title>
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
@@ -40,10 +40,10 @@
             <!-- PAGE HEADER / ROW 1 / COLUMN 2 -->
             <div class="slds-col slds-no-flex slds-align-middle">
               <div class="slds-button-group" role="group">
-                <button class="slds-button slds-button--neutral">
+                <button class="slds-button slds-button--neutral" data-toggle="modal" data-target="#modalOne">
                   Contact
                 </button>
-                <button class="slds-button slds-button--neutral">
+                <button class="slds-button slds-button--neutral" data-toggle="modal" data-target="#modalTwo">
                   More
                 </button>
               </div>
@@ -227,30 +227,50 @@
     <!-- / FOOTER -->
   </div>
   <!-- login -->
-  <div>
-    <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
-      <div class="slds-modal__container">
-        <div class="slds-modal__header">
-          <h2 class="slds-text-heading--medium">Log in</h2>
-          <button class="slds-button slds-modal__close">
-            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
-              <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
-            </svg>
-            <span class="slds-assistive-text">Close</span>
-          </button>
-        </div>
-        <div class="slds-modal__content">
-          <div>
-            <p>Replace me with form elements</p>
-          </div>
-        </div>
-        <div class="slds-modal__footer">
-          <button class="slds-button slds-button--neutral">Cancel</button>
-          <button class="slds-button slds-button--neutral slds-button--brand">Save</button>
+  <div id="modalOne" aria-hidden="false" role="dialog" class="slds-modal" style="display:none">
+    <div class="slds-modal__container" data-dismiss="modal">
+      <div class="slds-modal__header">
+        <h2 class="slds-text-heading--medium">Log in</h2>
+        <button class="slds-button slds-modal__close" data-dismiss="modal">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+          </svg>
+          <span class="slds-assistive-text">Close</span>
+        </button>
+      </div>
+      <div class="slds-modal__content">
+        <div>
+          <p>Replace me with form elements</p>
         </div>
       </div>
+      <div class="slds-modal__footer">
+        <button class="slds-button slds-button--neutral">Cancel</button>
+        <button class="slds-button slds-button--neutral slds-button--brand">Save</button>
+      </div>
     </div>
-    <div class="slds-modal-backdrop slds-modal-backdrop--open"></div>
+  </div>
+  <!-- dupModal -->
+  <div id="modalTwo" aria-hidden="false" role="dialog" class="slds-modal" style="display:none">
+    <div class="slds-modal__container" data-dismiss="modal">
+      <div class="slds-modal__header">
+        <h2 class="slds-text-heading--medium">Do something else</h2>
+        <button class="slds-button slds-modal__close" data-dismiss="modal">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+          </svg>
+          <span class="slds-assistive-text">Close</span>
+        </button>
+      </div>
+      <div class="slds-modal__content">
+        <div>
+          <p>Replace me with form elements</p>
+        </div>
+      </div>
+      <div class="slds-modal__footer">
+        <button class="slds-button slds-button--neutral">Cancel</button>
+        <button class="slds-button slds-button--neutral slds-button--brand">Save</button>
+      </div>
+    </div>
   </div>
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
   <script data-main="scripts/main" src="lib/requirejs/require.js"></script>

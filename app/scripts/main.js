@@ -17,9 +17,11 @@
         'jquery',
         'knockout',
         'jsforce',
-        'modules/tab'
-    ], function($, ko, f, tab) {
-        console.log(f);
+        'utils/transition',
+        'modules/tab',
+        'modules/modal'
+    ], function($, ko, f) {
+        // console.log(f);
         var conn = new f.Connection({
             oauth2: {
                 // you can change loginUrl to connect to sandbox or prerelease env.

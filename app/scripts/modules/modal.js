@@ -9,7 +9,6 @@
 
 (function() {
     'use strict';
-
     require([
         'jquery'
     ], function($) {
@@ -21,20 +20,12 @@
             this.options = options;
             this.$body = $(document.body);
             this.$element = $(element);
-            this.$dialog = this.$element.find('.modal-dialog');
+            this.$dialog = this.$element.find('.slds-modal__container');
             this.$backdrop = null;
             this.isShown = null;
             this.originalBodyPad = null;
             this.scrollbarWidth = 0;
             this.ignoreBackdropClick = false;
-
-            if (this.options.remote) {
-                this.$element
-                    .find('.modal-content')
-                    .load(this.options.remote, $.proxy(function() {
-                        this.$element.trigger('loaded.bs.modal');
-                    }, this));
-            }
         };
 
         Modal.VERSION = '3.3.5';
@@ -100,7 +91,7 @@
                     that.$element[0].offsetWidth; // force reflow
                 }
 
-                that.$element.addClass('in');
+                that.$element.addClass('slds-fade-in-open');
 
                 that.enforceFocus();
 
@@ -139,7 +130,7 @@
             $(document).off('focusin.bs.modal');
 
             this.$element
-                .removeClass('in')
+                .removeClass('slds-fade-in-open')
                 .off('click.dismiss.bs.modal')
                 .off('mouseup.dismiss.bs.modal');
 
@@ -203,9 +194,16 @@
             if (this.isShown && this.options.backdrop) {
                 var doAnimate = $.support.transition && animate;
 
+                // this.$backdrop = $('#slds-modal-backdrop');
                 this.$backdrop = $(document.createElement('div'))
-                    .addClass('modal-backdrop ' + animate)
+                    .addClass('slds-modal-backdrop')
                     .appendTo(this.$body);
+                setTimeout(function(aScope) {
+                    aScope.$backdrop.addClass('slds-modal-backdrop--open');
+                }, 0, this);
+                // this.$backdrop = $(document.createElement('div'))
+                //     .addClass('modal-backdrop ' + animate)
+                //     .appendTo(this.$body);
 
                 this.$element.on('click.dismiss.bs.modal', $.proxy(function(e) {
                     if (this.ignoreBackdropClick) {
@@ -222,8 +220,6 @@
                     this.$backdrop[0].offsetWidth; // force reflow
                 }
 
-                this.$backdrop.addClass('in');
-
                 if (!callback) {
                     return;
                 }
@@ -235,17 +231,20 @@
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('in');
+                this.$backdrop.removeClass('slds-modal-backdrop--open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();
                     callback && callback();
                 };
-                $.support.transition && this.$element.hasClass('fade') ?
-                    this.$backdrop
+                this.$backdrop
                     .one('bsTransitionEnd', callbackRemove)
-                    .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-                    callbackRemove();
+                    .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION);
+                // $.support.transition && this.$element.hasClass('fade') ?
+                //     this.$backdrop
+                //     .one('bsTransitionEnd', callbackRemove)
+                //     .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
+                //     callbackRemove();
 
             } else if (callback) {
                 callback();
