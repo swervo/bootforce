@@ -44,8 +44,8 @@ module.exports = function(grunt) {
             }
         },
         'watch': {
-            files: ['app/sass/**/*.scss', 'app/scripts/**/*.js'],
-            tasks: ['sassCompile'],
+            files: ['app/sass/**/*.scss', 'app/scripts/**/*.js', 'app/tmpl/**/*.html'],
+            tasks: ['preprocess', 'sassCompile'],
             options: {
                 spawn: false,
                 livereload: true
