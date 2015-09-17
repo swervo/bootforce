@@ -20,6 +20,8 @@
             this.options = options;
             this.$body = $(document.body);
             this.$element = $(element);
+            this.$element.attr('tabindex', -1);
+            this.$element.attr('style', 'display: none');
             this.$dialog = this.$element.find('.slds-modal__container');
             this.$backdrop = null;
             this.isShown = null;
