@@ -19,7 +19,8 @@
         'jsforce',
         'utils/transition',
         'modules/tab',
-        'modules/modal'
+        'modules/modal',
+        'modules/tooltip'
     ], function($, ko, f) {
         // console.log(f);
         var conn = new f.Connection({
