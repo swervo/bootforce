@@ -32,6 +32,7 @@
                 redirectUri: 'http://localhost:8000/#/callback'
             }
         });
+        $('[data-toggle="tooltip"]').tooltip();
         // conn.login('swervo@papersnail.co.uk', 'x#L304QyuLFCdfJXq1MyusESpX79K2KMl', function(err, userInfo) {
         //     if (err) {
         //         return console.error(err);

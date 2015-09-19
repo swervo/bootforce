@@ -16,7 +16,6 @@
 
         // TOOLTIP PUBLIC CLASS DEFINITION
         // ===============================
-        debugger;
         var Tooltip = function(element, options) {
             this.type = null;
             this.options = null;
@@ -133,7 +132,6 @@
         };
 
         Tooltip.prototype.enter = function(obj) {
-            debugger;
             var self = obj instanceof this.constructor ?
                 obj : $(obj.currentTarget).data('bs.' + this.type);
 
@@ -209,7 +207,6 @@
 
         Tooltip.prototype.show = function() {
             var e = $.Event('show.bs.' + this.type);
-            debugger;
             if (this.hasContent() && this.enabled) {
                 this.$element.trigger(e);
 
