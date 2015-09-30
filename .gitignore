@@ -1,0 +1,14 @@
+# Logs
+logs
+*.log
+.DS_store
+
+# Dependency directory
+node_modules
+app/lib
+
+# Deploy directory
+dist
+
+# Generated from template
+app/index.html
