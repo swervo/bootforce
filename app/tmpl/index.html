@@ -119,7 +119,7 @@
                 </header>
                 <!-- CARD BODY = TABLE -->
                 <section class="slds-card__body">
-                  <div class="slds-scrollable--x">
+                  <div>
                     <table class="slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal">
                       <thead>
                         <tr class="slds-no-hover">
@@ -139,17 +139,27 @@
                       </thead>
                       <tbody>
                         <tr class="slds-hint-parent">
-                          <td class="slds-size--1-of-4" data-label="Name">Adam Choi</td>
-                          <td class="slds-size--1-of-4" data-label="Company">Company One</td>
+                          <td class="slds-size--1-of-4" data-label="Name">Dominic Butler</td>
+                          <td class="slds-size--1-of-4" data-label="Company">Salesforce</td>
                           <td class="slds-size--1-of-4" data-label="Title">Director of Operations</td>
                           <td class="slds-size--1-of-4" data-label="Email">adam@company.com</td>
                           <td>
-                            <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
-                              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                                <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                              </svg>
-                              <span class="slds-assistive-text">Show More</span>
-                            </button>
+                            <div class="slds-dropdown-trigger">
+                              <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small slds-dropdown-trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                                  <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Show More</span>
+                              </button>
+                              <div class="slds-dropdown slds-dropdown--right slds-dropdown--actions slds-dropdown--menu">
+                                <ul id="menu2" class="slds-dropdown__list" aria-labelledby="drop5">
+                                  <li class="slds-dropdown__item"><a href="#">Action</a></li>
+                                  <li class="slds-dropdown__item"><a href="#">Another action</a></li>
+                                  <li class="slds-dropdown__item"><a href="#">Something else here</a></li>
+                                  <li class="slds-dropdown__item"><a href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+                            </div>
                           </td>
                         </tr>
                       </tbody>
@@ -207,6 +217,22 @@
           <!-- / RELATED LIST CARDS -->
         </div>
         <!-- / PRIMARY CONTENT WRAPPER -->
+        <div class="slds-dropdown-trigger">
+          <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small slds-dropdown-trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+            </svg>
+            <span class="slds-assistive-text">Show More</span>
+          </button>
+          <div class="slds-dropdown slds-dropdown--right slds-dropdown--actions slds-dropdown--menu">
+            <ul id="menu2" class="slds-dropdown__list" aria-labelledby="drop5">
+              <li class="slds-dropdown__item"><a href="#">Action</a></li>
+              <li class="slds-dropdown__item"><a href="#">Another action</a></li>
+              <li class="slds-dropdown__item"><a href="#">Something else here</a></li>
+              <li class="slds-dropdown__item"><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div id="tabTwo" class="slds-tabs__content slds-hide" role="tabpanel">
         <ul class="slds-timeline">
@@ -402,8 +428,156 @@
           </li>
         </ul>
       </div>
+      <!-- TAB THREE -->
       <div id="tabThree" class="slds-tabs__content slds-hide" role="tabpanel">
-        <h2>Item Three Content</h2>
+        <table class="slds-table slds-table--bordered">
+          <thead>
+            <tr class="slds-text-heading--label">
+              <th class="slds-cell-shrink" scope="col">
+                <label class="slds-checkbox" for="select-all">
+                  <input name="checkbox" type="checkbox" id="select-all" />
+                  <span class="slds-checkbox--faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">select all</span>
+                </label>
+              </th>
+              <th class="slds-is-sortable" scope="col">
+                <span class="slds-truncate">Opportunity Name</span>
+                <button class="slds-button slds-button--icon-bare slds-button--icon-border-small">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--small">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Sort</span>
+                </button>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Account Name</span>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Close Date</span>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Stage</span>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Confidence</span>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Amount</span>
+              </th>
+              <th scope="col">
+                <span class="slds-truncate">Contact</span>
+              </th>
+              <th class="slds-row-action" scope="col">
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="slds-hint-parent">
+              <td class="slds-row-select">
+                <label class="slds-checkbox" for="select-row1">
+                  <input name="select-row1" type="checkbox" id="select-row1" />
+                  <span class="slds-checkbox--faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">select row1</span>
+                </label>
+              </td>
+              <th data-label="opportunity-name" role="row"><a href="#" class="slds-truncate">Acme 25</a></th>
+              <td data-label="account"><a href="#" class="slds-truncate">Acme</a></td>
+              <td data-label="activity">
+                <span class="slds-truncate">4/14/2015</span>
+              </td>
+              <td data-label="stage">
+                <span class="slds-truncate">Prospecting</span>
+              </td>
+              <td data-label="confidence">
+                <span class="slds-truncate">20%</span>
+              </td>
+              <td data-label="amount">
+                <span class="slds-truncate">$25k</span>
+              </td>
+              <td data-label="contact">
+                <span class="slds-truncate">--</span>
+              </td>
+              <td class="slds-row-action">
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="slds-hint-parent">
+              <td class="slds-row-select">
+                <label class="slds-checkbox" for="select-row2">
+                  <input name="select-row2" type="checkbox" id="select-row2" />
+                  <span class="slds-checkbox--faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">select row2</span>
+                </label>
+              </td>
+              <th data-label="opportunity-name" role="row"><a href="#" class="slds-truncate">Cloudhub + Anypoint Connectors</a></th>
+              <td data-label="account"><a href="#" class="slds-truncate">Cloudhub</a></td>
+              <td data-label="activity">
+                <span class="slds-truncate">9/30/2015</span>
+              </td>
+              <td data-label="stage">
+                <span class="slds-truncate">Closing</span>
+              </td>
+              <td data-label="confidence">
+                <span class="slds-truncate">90%</span>
+              </td>
+              <td data-label="amount">
+                <span class="slds-truncate">$40k</span>
+              </td>
+              <td data-label="contact"><a href="#" class="slds-truncate">jrogers@cloudhub.com</a></td>
+              <td class="slds-row-action">
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="slds-hint-parent">
+              <td class="slds-row-select">
+                <label class="slds-checkbox" for="select-row3">
+                  <input name="select-row3" type="checkbox" id="select-row3" />
+                  <span class="slds-checkbox--faux"></span>
+                  <span class="slds-form-element__label slds-assistive-text">select row3</span>
+                </label>
+              </td>
+              <th data-label="opportunity-name" role="row"><a href="#" class="slds-truncate">Rohde Corp 30</a></th>
+              <td data-label="account"><a href="#" class="slds-truncate">Rohde Corp</a></td>
+              <td data-label="activity">
+                <span class="slds-truncate">6/18/2015</span>
+              </td>
+              <td data-label="stage">
+                <span class="slds-truncate">Prospecting</span>
+              </td>
+              <td data-label="confidence">
+                <span class="slds-truncate">40%</span>
+              </td>
+              <td data-label="amount">
+                <span class="slds-truncate">$30k</span>
+              </td>
+              <td data-label="contact"><a href="#" class="slds-truncate">achoi@rohdecorp.com</a></td>
+              <td class="slds-row-action">
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <!-- FOOTER -->
@@ -463,7 +637,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
   <script data-main="scripts/main" src="lib/requirejs/require.js"></script>
   <!-- @endif -->

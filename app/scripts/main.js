@@ -20,7 +20,8 @@
         'utils/transition',
         'modules/tab',
         'modules/modal',
-        'modules/tooltip'
+        'modules/tooltip',
+        'modules/dropdown'
     ], function($, ko, f) {
         // console.log(f);
         var conn = new f.Connection({
