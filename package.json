@@ -1,6 +1,6 @@
 {
   "name": "sldsTrial",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "SLDS investigation",
   "main": "Gruntfile.js",
   "dependencies": {},
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:domSalesforce/sldstrial.git"
+    "url": "git@github.com:swervo/bootforce.git"
   },
   "author": "swervo"
 }
