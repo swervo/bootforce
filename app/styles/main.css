@@ -37,6 +37,20 @@
 }
 
 /**
+ * Helper classes taken from Bootstrap.css
+ */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+/**
  * Import the SLDS here
  */
 /* Lightning Design System 0.9.2 */

@@ -9,9 +9,9 @@
   <div class="container">
     <div class="slds-tabs--scoped">
       <ul class="slds-tabs--scoped__nav" role="tablist">
-        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Item One" role="presentation"><a href="#tabOne" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Item One</a></li>
-        <li class="slds-tabs__item slds-text-heading--label" title="Item Two" role="presentation"><a href="#tabTwo" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Item Two</a></li>
-        <li class="slds-tabs__item slds-text-heading--label" title="Item Three" role="presentation"><a href="#tabThree" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Item Three</a></li>
+        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Tab One" role="presentation"><a href="#tabOne" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Tab One</a></li>
+        <li class="slds-tabs__item slds-text-heading--label" title="Tab Two" role="presentation"><a href="#tabTwo" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Tab Two</a></li>
+        <li class="slds-tabs__item slds-text-heading--label" title="Tab Three" role="presentation"><a href="#tabThree" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Tab Three</a></li>
       </ul>
       <div id="tabOne" class="slds-tabs__content slds-hide slds-show" role="tabpanel">
         <!-- PAGE HEADER -->
@@ -41,10 +41,10 @@
             <div class="slds-col slds-no-flex slds-align-middle">
               <div class="slds-button-group" role="group">
                 <button class="slds-button slds-button--neutral" data-toggle="modal" data-target="#modalOne">
-                  Contact
+                  Modal One
                 </button>
                 <button class="slds-button slds-button--neutral" data-toggle="modal" data-target="#modalTwo">
-                  More
+                  Modal Two
                 </button>
               </div>
             </div>
@@ -60,7 +60,7 @@
                   <p class="slds-text-heading--label slds-truncate">Field 1</p>
                 </dt>
                 <dd>
-                  <p class="slds-text-body--regular slds-truncate">Description that demonstrates truncation with a long text field</p>
+                  <a href="#" data-toggle="tooltip" data-placement="right" title="Tooltip content for the tooltip right example">Tooltip right</a>
                 </dd>
               </dl>
             </div>
@@ -70,7 +70,9 @@
                 <dt>
                   <p class="slds-text-heading--label slds-truncate">Field 2</p>
                 </dt>
-                <dd><a href="#">Hyperlink 2</a></dd>
+                <dd>
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip content for the tooltip top example">Tooltip top</a>
+                </dd>
               </dl>
             </div>
             <!-- PAGE HEADER / ROW 2 / COLUMN 3 -->
@@ -79,7 +81,9 @@
                 <dt>
                   <p class="slds-text-heading--label slds-truncate">Field 3</p>
                 </dt>
-                <dd><a href="#">Hyperlink 3</a></dd>
+                <dd>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Tooltip content for the tooltip bottom example">Tooltip bottom</a>
+                </dd>
               </dl>
             </div>
             <!-- PAGE HEADER / ROW 2 / COLUMN 4 -->
@@ -88,7 +92,7 @@
                 <dt>
                   <p class="slds-text-heading--label slds-truncate">Field 4</p>
                 </dt>
-                <dd><a href="#" data-toggle="tooltip" title="Some tooltip text!">Hyperlink 4</a></dd>
+                <dd><a href="#" data-toggle="tooltip" data-placement="left" title="Tooltip content for the tooltip left example">Tooltip left</a></dd>
               </dl>
             </div>
           </div>

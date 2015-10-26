@@ -28,7 +28,8 @@
             oauth2: {
                 // you can change loginUrl to connect to sandbox or prerelease env.
                 loginUrl : 'https://login.salesforce.com',
-                clientId: '3MVG9Rd3qC6oMalUsp2rPGB248uHAGVxkr6GZbLeF87wvo_z46PbBonmZ.xPfY8_pUdHwygzhfgRpSigiyF9e',
+                clientId: '3MVG9Rd3qC6oMalUsp2rPGB248uHAGVxkr6GZb'
+                    + 'LeF87wvo_z46PbBonmZ.xPfY8_pUdHwygzhfgRpSigiyF9e',
                 clientSecret: '8932558667950573739',
                 redirectUri: 'http://localhost:8000/#/callback'
             }
@@ -43,8 +44,8 @@
         //     console.log(conn.accessToken);
         //     console.log(conn.instanceUrl);
         //     // logged in user property
-        //     console.log("User ID: " + userInfo.id);
-        //     console.log("Org ID: " + userInfo.organizationId);
+        //     console.log('User ID: ' + userInfo.id);
+        //     console.log('Org ID: ' + userInfo.organizationId);
         //     conn.query('SELECT Id, Name FROM Account', function(err, res) {
         //         if (err) {
         //             console.log(err);

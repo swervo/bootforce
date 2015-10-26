@@ -36,7 +36,7 @@
             animation: true,
             placement: 'right',
             selector: false,
-            template: '<div class="slds-tooltip slds-nubbin--left" role="tooltip">'
+            template: '<div class="slds-tooltip" role="tooltip">'
                         + '<div class="slds-tooltip__content">'
                         + '<div class="slds-tooltip__body">This is some body content'
                         + '</div></div></div>',
@@ -50,6 +50,7 @@
                 padding: 0
             }
         };
+
 
         Tooltip.prototype.init = function(type, element, options) {
             this.enabled = true;
@@ -101,6 +102,13 @@
                 this.fixTitle();
         };
 
+        Tooltip.prototype.SLDSPOSCLASSES = {
+            'top': 'slds-nubbin--bottom',
+            'right': 'slds-nubbin--left',
+            'bottom': 'slds-nubbin--top',
+            'left': 'slds-nubbin--right'
+        };
+        
         Tooltip.prototype.getDefaults = function() {
             return Tooltip.DEFAULTS;
         };
@@ -245,7 +253,7 @@
                         left: 0,
                         display: 'block'
                     })
-                    .addClass(placement)
+                    .addClass(this.getSLDSNubbinClass(placement))
                     .data('bs.' + this.type, this);
 
                 this.options.container ?
@@ -363,18 +371,19 @@
         Tooltip.prototype.setContent = function() {
             var $tip = this.tip();
             var title = this.getTitle();
-
-            $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title);
+            $tip.find('.slds-tooltip__body')[this.options.html ? 'html' : 'text'](title);
             $tip.removeClass('fade in top bottom left right');
         };
 
         Tooltip.prototype.hide = function(callback) {
+
             var that = this;
             var $tip = $(this.$tip);
             var e = $.Event('hide.bs.' + this.type);
 
             function complete() {
                 if (that.hoverState !== 'in') {
+                    // detach tip here;
                     $tip.detach();
                 }
                 that.$element
@@ -510,8 +519,11 @@
                         (typeof o.title === 'function' ?
                             o.title.call($e[0])
                             : o.title);
-
             return title;
+        };
+
+        Tooltip.prototype.getSLDSNubbinClass = function(aPos) {
+            return this.SLDSPOSCLASSES[aPos];
         };
 
         Tooltip.prototype.getUID = function(prefix) {
