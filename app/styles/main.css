@@ -7098,4 +7098,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   position: absolute;
 }
 
+.slds-button--neutral.active {
+  background-color: #eef1f6;
+}
+
+.slds-button--brand.active {
+  background-color: #00396b;
+}
+
 /*# sourceMappingURL=main.css.map */

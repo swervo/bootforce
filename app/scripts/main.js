@@ -19,6 +19,7 @@
         'jsforce',
         'utils/transition',
         'modules/tab',
+        'modules/button',
         'modules/modal',
         'modules/tooltip',
         'modules/dropdown'

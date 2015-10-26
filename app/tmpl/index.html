@@ -117,8 +117,15 @@
                       <h3 class="slds-text-heading--small">Contacts</h3>
                     </div>
                   </div>
+                  <div class="slds-col slds-no-flex slds-m-right--medium">
+                    <div class="slds-button-group" role="group" data-toggle="buttons">
+                      <button class="slds-button slds-button--neutral slds-button--small">A</button>
+                      <button class="slds-button slds-button--neutral slds-button--small">Button</button>
+                      <button class="slds-button slds-button--neutral slds-button--small slds-button--last">Mux</button>
+                    </div>
+                  </div>
                   <div class="slds-col slds-no-flex">
-                    <button class="slds-button slds-button--neutral slds-button--small">Add</button>
+                    <button data-toggle="button" aria-pressed="false" class="slds-button slds-button--brand slds-button--small">Single toggle</button>
                   </div>
                 </header>
                 <!-- CARD BODY = TABLE -->
@@ -131,14 +138,6 @@
                           <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Company</th>
                           <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Title</th>
                           <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Email</th>
-                          <th class="slds-row-action" scope="col">
-                            <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
-                              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                                <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                              </svg>
-                              <span class="slds-assistive-text">Show More</span>
-                            </button>
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -172,7 +171,13 @@
                 </section>
                 <!-- / CARD BODY = SECTION + TABLE -->
                 <footer class="slds-card__footer">
-                  <a href="#">View All</a>
+                  <div class="slds-col slds-no-flex">
+                    <div class="slds-button-group" role="group" data-toggle="buttons" data-grouptype="checkbox">
+                      <button class="slds-button slds-button--brand slds-button--small">Latching</button>
+                      <button class="slds-button slds-button--brand slds-button--small">Button</button>
+                      <button class="slds-button slds-button--brand slds-button--small slds-button--last">Set</button>
+                    </div>
+                  </div>
                 </footer>
               </div>
             </div>
@@ -221,22 +226,6 @@
           <!-- / RELATED LIST CARDS -->
         </div>
         <!-- / PRIMARY CONTENT WRAPPER -->
-        <div class="slds-dropdown-trigger">
-          <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small slds-dropdown-trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-            </svg>
-            <span class="slds-assistive-text">Show More</span>
-          </button>
-          <div class="slds-dropdown slds-dropdown--right slds-dropdown--actions slds-dropdown--menu">
-            <ul id="menu2" class="slds-dropdown__list" aria-labelledby="drop5">
-              <li class="slds-dropdown__item"><a href="#">Action</a></li>
-              <li class="slds-dropdown__item"><a href="#">Another action</a></li>
-              <li class="slds-dropdown__item"><a href="#">Something else here</a></li>
-              <li class="slds-dropdown__item"><a href="#">Separated link</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
       <div id="tabTwo" class="slds-tabs__content slds-hide" role="tabpanel">
         <ul class="slds-timeline">

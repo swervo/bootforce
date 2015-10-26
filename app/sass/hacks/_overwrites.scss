@@ -1,3 +1,15 @@
 .slds-tooltip {
     position: absolute;
 }
+
+.slds-button--neutral {
+    &.active {
+        background-color: $color-background-button-default-active;
+    }
+}
+
+.slds-button--brand {
+    &.active {
+        background-color: $color-background-button-brand-active;
+    }
+}
