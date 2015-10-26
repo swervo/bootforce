@@ -132,7 +132,7 @@
                 if (!data) {
                     $this.data('bs.tab', (data = new Tab(this)));
                 }
-                if (typeof option == 'string') {
+                if (typeof option === 'string') {
                     data[option]();
                 }
             });

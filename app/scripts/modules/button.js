@@ -127,8 +127,8 @@
                 }
                 Plugin.call($btn, 'toggle');
                 // doesnt look like this applies for slds
-                if (!($(e.target).is('input[type="radio"]')
-                    || $(e.target).is('input[type="checkbox"]'))) {
+                if (!($(e.target).is('input[type="radio"]') ||
+                    $(e.target).is('input[type="checkbox"]'))) {
                     e.preventDefault();
                 }
             })

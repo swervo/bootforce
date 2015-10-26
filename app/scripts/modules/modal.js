@@ -76,6 +76,7 @@
                 });
             });
 
+
             this.backdrop(function() {
                 var transition = $.support.transition && that.$element.hasClass('fade');
 
@@ -119,7 +120,6 @@
             e = $.Event('hide.bs.modal');
 
             this.$element.trigger(e);
-
             if (!this.isShown || e.isDefaultPrevented()) {
                 return;
             }
@@ -140,9 +140,9 @@
 
             $.support.transition && this.$element.hasClass('fade') ?
                 this.$element
-                .one('bsTransitionEnd', $.proxy(this.hideModal, this))
-                .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
-                this.hideModal();
+                    .one('bsTransitionEnd', $.proxy(this.hideModal, this))
+                    .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
+                    this.hideModal();
         };
 
         Modal.prototype.enforceFocus = function() {
@@ -158,7 +158,7 @@
         Modal.prototype.escape = function() {
             if (this.isShown && this.options.keyboard) {
                 this.$element.on('keydown.dismiss.bs.modal', $.proxy(function(e) {
-                    e.which == 27 && this.hide();
+                    e.which === 27 && this.hide();
                 }, this));
             } else if (!this.isShown) {
                 this.$element.off('keydown.dismiss.bs.modal');
@@ -215,7 +215,7 @@
                     if (e.target !== e.currentTarget) {
                         return;
                     }
-                    this.options.backdrop == 'static' ? this.$element[0].focus() : this.hide();
+                    this.options.backdrop === 'static' ? this.$element[0].focus() : this.hide();
                 }, this));
 
                 if (doAnimate) {
@@ -314,12 +314,13 @@
             return this.each(function() {
                 var $this = $(this);
                 var data = $this.data('bs.modal');
-                var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option);
+                var options = $.extend({}, Modal.DEFAULTS,
+                    $this.data(), typeof option === 'object' && option);
 
                 if (!data) {
                     $this.data('bs.modal', (data = new Modal(this, options)));
                 }
-                if (typeof option == 'string') {
+                if (typeof option === 'string') {
                     data[option](_relatedTarget);
                 } else if (options.show) {
                     data.show(_relatedTarget);

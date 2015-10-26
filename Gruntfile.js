@@ -54,9 +54,7 @@ module.exports = function(grunt) {
         'jshint': {
             files: ['Gruntfile.js', 'app/scripts/**/*.js'],
             options: {
-                globals: {
-                    jQuery: false
-                }
+                jshintrc: true
             }
         },
         'sass': {
@@ -177,7 +175,6 @@ module.exports = function(grunt) {
     // SASS build
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
-    // Used by travis
     grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'env:prod',
                                     'copy:static', 'preprocess:prod']);
     grunt.registerTask('test', []);

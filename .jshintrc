@@ -49,7 +49,6 @@
     
     "jquery": true,
     "esnext": false,
-    "es5": true,
     
     "strict": true,
 
