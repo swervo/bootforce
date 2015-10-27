@@ -20,8 +20,8 @@
                 console.log(res);
             });
         });
-        loginButton.on('click', function() {
-            f.browser.login();
-        });
+        // loginButton.on('click', function() {
+        //     f.browser.login();
+        // });
     });
 }());
