@@ -13,3 +13,10 @@
         background-color: $color-background-button-brand-active;
     }
 }
+
+/**
+ * This is required in order to position the login button
+ */
+.slds-tabs--scoped {
+    position: relative;
+}

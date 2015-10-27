@@ -7189,4 +7189,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background-color: #00396b;
 }
 
+/**
+ * This is required in order to position the login button
+ */
+.slds-tabs--scoped {
+  position: relative;
+}
+
+.slds-tabs__login {
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
 /*# sourceMappingURL=main.css.map */
