@@ -7,15 +7,18 @@
  * look in that file to find out which values to change.
  */
 
-// Here is an example
-
-// This is the original value taken from the design-tokens file above:
-// $color-background: rgb(244, 246, 249) !default;
-
-// Here is my override.
+/**
+ * EXAMPLE
+ * This is the original value taken from the design-tokens file above:
+ * $color-background: rgb(244, 246, 249) !default;
+ * Here is the override:
+ */
 $color-background: powderblue;
-// $color-border: pink;
-$font-family: 'gill sans';
 
-// $border-width-thin: 5px;
-// $border-width-thick: 20px;
+/**
+ * EXAMPLE
+ * This is the original value taken from the design-tokens file above:
+ * $font-family: 'Salesforce Sans', Arial, sans-serif !default;
+ * Here is the override:
+ */
+$font-family: 'gill sans';

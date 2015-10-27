@@ -11,6 +11,18 @@
  *
  * look in that file to find out which values to change.
  */
+/**
+ * EXAMPLE
+ * This is the original value taken from the design-tokens file above:
+ * $color-background: rgb(244, 246, 249) !default;
+ * Here is the override:
+ */
+/**
+ * EXAMPLE
+ * This is the original value taken from the design-tokens file above:
+ * $font-family: 'Salesforce Sans', Arial, sans-serif !default;
+ * Here is the override:
+ */
 .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -53,22 +65,6 @@
 /**
  * Import the SLDS here
  */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 @font-face {
   font-family: "Salesforce Sans";
   src: url("/assets/fonts/webfonts/SalesforceSans-Light.woff2") format("woff2"), url("/assets/fonts/webfonts/SalesforceSans-Light.woff") format("woff");
@@ -327,7 +323,6 @@ th {
   padding: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 *,
 *:before,
 *:after {
@@ -371,7 +366,7 @@ body {
 }
 
 ::selection {
-  background: #ffffb0;
+  background: #faffbd;
   text-shadow: none;
 }
 
@@ -421,13 +416,9 @@ ul {
 }
 
 a {
+  color: #0070d2;
   text-decoration: none;
   transition: color 0.1s linear;
-}
-
-a:link,
-a:visited {
-  color: #0070d2;
 }
 
 a:hover,
@@ -453,7 +444,7 @@ dfn {
 }
 
 mark {
-  background-color: #ffffb0;
+  background-color: #faffbd;
 }
 
 abbr[title] {
@@ -496,8 +487,6 @@ img {
   height: auto;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-media--timeline {
   border-left: 2px solid transparent;
   padding-bottom: 2rem;
@@ -548,13 +537,11 @@ img {
   padding-left: calc(((2rem / 2) + (2px / 2) + 1rem));
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-page-header__detail-row {
   margin: 1.5rem 0 0.75rem 3rem;
   /* This takes the width of the icon into account for alignment */
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-breadcrumb .slds-list__item {
   position: relative;
 }
@@ -565,6 +552,15 @@ img {
   left: -0.25rem;
 }
 
+.slds-breadcrumb .slds-list__item > a {
+  display: block;
+  padding: 0 0.5rem;
+}
+
+.slds-breadcrumb .slds-list__item > a:hover {
+  text-decoration: none;
+}
+
 .slds-breadcrumb .slds-list__item:first-child > a {
   padding-left: 0;
 }
@@ -573,7 +569,6 @@ img {
   content: "";
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button-group {
   display: flex;
 }
@@ -612,7 +607,8 @@ img {
   border-radius: .25rem;
 }
 
-.slds-button-group + .slds-button-group {
+.slds-button-group + .slds-button-group,
+.slds-button-group + .slds-button {
   margin-left: 0.25rem;
 }
 
@@ -629,24 +625,6 @@ img {
   border-radius: 0 0.25rem 0.25rem 0;
 }
 
-/* Lightning Design System 0.9.2 */
-.slds-button--icon-inverse:hover,
-.slds-button--icon-inverse:focus {
-  border: 1px solid #d8dde6;
-}
-
-.slds-button--icon-inverse:hover:hover,
-.slds-button--icon-inverse:hover:focus,
-.slds-button--icon-inverse:focus:hover,
-.slds-button--icon-inverse:focus:focus {
-  background-color: #f4f6f9;
-}
-
-.slds-button--icon-inverse:hover:active,
-.slds-button--icon-inverse:focus:active {
-  background-color: #eef1f6;
-}
-
 .slds-button-group .slds-button:first-child.slds-button--inverse[disabled] {
   border-left-color: rgba(255, 255, 255, 0.15);
 }
@@ -655,7 +633,6 @@ img {
   border-left: 1px solid #d8dde6;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button-group .slds-button--icon-border.slds-is-selected + .slds-button--icon-border.slds-is-selected {
   border-left: 1px solid #d8dde6;
 }
@@ -669,7 +646,6 @@ img {
   border-left-width: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button {
   position: relative;
   display: inline-block;
@@ -695,11 +671,6 @@ img {
   text-decoration: none;
 }
 
-.slds-button:link,
-.slds-button:visited {
-  color: #0070d2;
-}
-
 .slds-button:hover,
 .slds-button:focus {
   color: #005fb2;
@@ -718,14 +689,24 @@ img {
   color: #d8dde6;
 }
 
+.slds-button:hover .slds-button__icon,
+.slds-button:focus .slds-button__icon,
+.slds-button:active .slds-button__icon,
+.slds-button[disabled] .slds-button__icon {
+  fill: currentColor;
+}
+
 .slds-button + .slds-button,
-.slds-button + .slds-button-group,
-.slds-button-group + .slds-button {
+.slds-button + .slds-button-group {
   margin-left: 0.25rem;
 }
 
 .slds-button-space-left {
   margin-left: 0.25rem;
+}
+
+a.slds-button {
+  text-align: center;
 }
 
 a.slds-button:focus {
@@ -739,7 +720,6 @@ a.slds-button:focus {
   /* Forces icon-only buttons to be the same height as small buttons since they're svg and line-height has no effect on them */
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--neutral {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -779,7 +759,6 @@ a.slds-button:focus {
   color: #0070d2;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button__icon--left {
   margin-right: 0.5rem;
 }
@@ -788,7 +767,6 @@ a.slds-button:focus {
   margin-left: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--brand {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -821,7 +799,39 @@ a.slds-button:focus {
   color: white;
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-button--destructive {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #c23934;
+  border: 1px solid #c23934;
+  color: white;
+}
+
+.slds-button--destructive:link,
+.slds-button--destructive:visited,
+.slds-button--destructive:active {
+  color: white;
+}
+
+.slds-button--destructive:hover,
+.slds-button--destructive:focus {
+  background-color: #A61A14;
+  color: white;
+}
+
+.slds-button--destructive:active {
+  background-color: #870500;
+  border-color: #870500;
+}
+
+.slds-button--destructive[disabled] {
+  background: #e0e5ee;
+  border-color: transparent;
+  color: white;
+}
+
 /*
 Copyright (c) 2015, salesforce.com, inc. All rights reserved.
 
@@ -878,7 +888,6 @@ a.slds-button--inverse:focus {
   box-shadow: 0 0 3px #E0E5EE;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--neutral.slds-is-selected {
   border-color: transparent;
   background-color: transparent;
@@ -915,17 +924,20 @@ a.slds-button--inverse:focus {
   display: none;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--inverse.slds-is-selected {
   border-color: transparent;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--icon-container,
 .slds-button--icon-border,
 .slds-button--icon-border-filled,
-.slds-button--icon-bare {
+.slds-button--icon-bare,
+.slds-button--icon-more {
   vertical-align: middle;
+  color: #54698d;
+}
+
+.slds-button--icon-bare {
   line-height: 1;
 }
 
@@ -958,30 +970,17 @@ a.slds-button--inverse:focus {
   height: 2.25rem;
 }
 
-.slds-button--icon-container:hover .slds-button__icon,
-.slds-button--icon-container:focus .slds-button__icon,
-.slds-button--icon-border:hover .slds-button__icon,
-.slds-button--icon-border:focus .slds-button__icon,
-.slds-button--icon-border-filled:hover .slds-button__icon,
-.slds-button--icon-border-filled:focus .slds-button__icon {
-  fill: #0070d2;
-}
-
-.slds-button--icon-container:active .slds-button__icon,
-.slds-button--icon-border:active .slds-button__icon,
-.slds-button--icon-border-filled:active .slds-button__icon {
-  fill: #00396b;
-}
-
-.slds-button--icon-container[disabled] .slds-button__icon,
-.slds-button--icon-border[disabled] .slds-button__icon,
-.slds-button--icon-border-filled[disabled] .slds-button__icon {
-  fill: #d8dde6;
-}
-
 .slds-button--icon-small {
   width: 2rem;
   height: 2rem;
+  line-height: 1.875rem;
+}
+
+.slds-button--icon-x-small {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.125rem;
+  line-height: 1;
 }
 
 .slds-button--icon-border-filled {
@@ -996,7 +995,7 @@ a.slds-button--inverse:focus {
 .slds-button__icon {
   width: 1rem;
   height: 1rem;
-  fill: #54698d;
+  fill: currentColor;
 }
 
 .slds-button__icon--large {
@@ -1020,15 +1019,8 @@ a.slds-button--inverse:focus {
   height: 1.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button__icon--hint {
   fill: #9faab5;
-}
-
-.slds-button--icon-border-small {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 0.125rem;
 }
 
 .slds-hint-parent:hover .slds-button__icon--hint,
@@ -1036,7 +1028,6 @@ a.slds-button--inverse:focus {
   fill: #54698d;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--icon-more {
   padding: 0 0.5rem;
   vertical-align: middle;
@@ -1077,7 +1068,6 @@ a.slds-button--inverse:focus {
   fill: #d8dde6;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-button--icon-border.slds-is-selected {
   background-color: #0070d2;
   border: 1px solid #0070d2;
@@ -1109,25 +1099,40 @@ a.slds-button--inverse:focus {
   fill: white;
 }
 
-/* Lightning Design System 0.9.2 */
-.slds-button__icon--inverse {
-  fill: white;
+.slds-button--icon-inverse {
+  color: white;
 }
 
-.slds-button__icon--inverse:hover,
-.slds-button__icon--inverse:focus {
-  fill: rgba(255, 255, 255, 0.75);
+.slds-button--icon-inverse:hover,
+.slds-button--icon-inverse:focus {
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.slds-button__icon--inverse:active {
-  fill: rgba(255, 255, 255, 0.5);
+.slds-button--icon-inverse:active {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.slds-button[disabled] .slds-button__icon--inverse {
-  fill: rgba(255, 255, 255, 0.15);
+.slds-button--icon-inverse[disabled] {
+  color: rgba(255, 255, 255, 0.15);
 }
 
-/* Lightning Design System 0.9.2 */
+/*
+Copyright (c) 2015, salesforce.com, inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of salesforce.com, inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+@media (max-width: 29.9375em) {
+  .slds-max-small-button--stretch {
+    display: block;
+    width: 100%;
+  }
+}
+
 .slds-card {
   padding: 0;
   border-radius: 0.25rem;
@@ -1157,12 +1162,10 @@ a.slds-button--inverse:focus {
   padding: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-card--empty .slds-card__body {
   text-align: center;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-form-element {
   position: relative;
 }
@@ -1180,13 +1183,6 @@ a.slds-button--inverse:focus {
   margin-bottom: 0.25rem;
 }
 
-.slds-is-required > .slds-form-element__label:before {
-  content: '*';
-  color: #c23934;
-  position: absolute;
-  left: -0.5rem;
-}
-
 .slds-form-element__label:empty {
   margin: 0;
 }
@@ -1197,11 +1193,6 @@ a.slds-button--inverse:focus {
   display: block;
 }
 
-.slds-has-error .slds-form-element__help {
-  color: #c23934;
-}
-
-/* Lightning Design System 0.9.2 */
 .slds-input {
   background-color: white;
   color: #16325c;
@@ -1224,7 +1215,8 @@ a.slds-button--inverse:focus {
   box-shadow: 0 0 3px #0070D2;
 }
 
-.slds-input[disabled] {
+.slds-input[disabled],
+.slds-input.slds-is-disabled {
   background-color: #e0e5ee;
   border-color: #a8b7c7;
   cursor: not-allowed;
@@ -1232,20 +1224,10 @@ a.slds-button--inverse:focus {
 }
 
 .slds-input[disabled]:focus,
-.slds-input[disabled]:active {
+.slds-input[disabled]:active,
+.slds-input.slds-is-disabled:focus,
+.slds-input.slds-is-disabled:active {
   box-shadow: none;
-}
-
-.slds-has-error .slds-input {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box;
-}
-
-.slds-has-error .slds-input:focus,
-.slds-has-error .slds-input:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
 }
 
 .slds-input--small {
@@ -1280,18 +1262,10 @@ a.slds-button--inverse:focus {
   font-size: 0.875rem;
 }
 
-.slds-input--big {
-  padding: 0.5rem;
-  min-height: calc(2.125rem + 0.75rem + 2px);
-  /* For IE */
-}
-
 .slds-input--bare {
   background-color: transparent;
   border: none;
   color: #16325c;
-  font-weight: 300;
-  font-size: 1.125rem;
 }
 
 .slds-input--bare:focus,
@@ -1330,7 +1304,6 @@ a.slds-button--inverse:focus {
   padding-right: 2rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-textarea {
   background-color: white;
   color: #16325c;
@@ -1350,7 +1323,8 @@ a.slds-button--inverse:focus {
   box-shadow: 0 0 3px #0070D2;
 }
 
-.slds-textarea[disabled] {
+.slds-textarea[disabled],
+.slds-textarea.slds-is-disabled {
   background-color: #e0e5ee;
   border-color: #a8b7c7;
   cursor: not-allowed;
@@ -1358,23 +1332,12 @@ a.slds-button--inverse:focus {
 }
 
 .slds-textarea[disabled]:focus,
-.slds-textarea[disabled]:active {
+.slds-textarea[disabled]:active,
+.slds-textarea.slds-is-disabled:focus,
+.slds-textarea.slds-is-disabled:active {
   box-shadow: none;
 }
 
-.slds-has-error .slds-textarea {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box;
-}
-
-.slds-has-error .slds-textarea:focus,
-.slds-has-error .slds-textarea:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
-}
-
-/* Lightning Design System 0.9.2 */
 .slds-radio {
   display: inline-block;
 }
@@ -1408,14 +1371,12 @@ a.slds-button--inverse:focus {
   position: absolute;
 }
 
-.slds-form-element .slds-radio [type="radio"] ~ .slds-radio--faux {
-  margin-right: 0.5rem;
-}
-
+.slds-radio [type="radio"]:checked > .slds-radio--faux,
 .slds-radio [type="radio"]:checked ~ .slds-radio--faux {
   background: white;
 }
 
+.slds-radio [type="radio"]:checked > .slds-radio--faux:after,
 .slds-radio [type="radio"]:checked ~ .slds-radio--faux:after {
   width: 0.5rem;
   height: 0.5rem;
@@ -1428,6 +1389,7 @@ a.slds-button--inverse:focus {
   background: #1589ee;
 }
 
+.slds-radio [type="radio"]:focus > .slds-radio--faux,
 .slds-radio [type="radio"]:focus ~ .slds-radio--faux {
   border-color: #1589ee;
   box-shadow: 0 0 3px #0070D2;
@@ -1443,20 +1405,24 @@ a.slds-button--inverse:focus {
   border-color: #a8b7c7;
 }
 
+.slds-has-error .slds-radio [type="radio"] > .slds-radio--faux,
 .slds-has-error .slds-radio [type="radio"] ~ .slds-radio--faux {
   border-color: #c23934;
   border-width: 2px;
 }
 
+.slds-has-error .slds-radio [type="radio"]:checked > .slds-radio--faux,
 .slds-has-error .slds-radio [type="radio"]:checked ~ .slds-radio--faux {
   background: white;
 }
 
+.slds-has-error .slds-radio [type="radio"]:checked > .slds-radio--faux:after,
 .slds-has-error .slds-radio [type="radio"]:checked ~ .slds-radio--faux:after {
   background: #d4504c;
 }
 
-.slds-is-required > .slds-radio [type="radio"] ~ .slds-radio--faux:after {
+.slds-is-required > .slds-radio [type="radio"] > .slds-form-element__label:before,
+.slds-is-required > .slds-radio [type="radio"] ~ .slds-form-element__label:before {
   content: '*';
   color: #c23934;
   position: absolute;
@@ -1467,7 +1433,11 @@ a.slds-button--inverse:focus {
   display: block;
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-form-element .slds-radio [type="radio"] > .slds-radio--faux,
+.slds-form-element .slds-radio [type="radio"] ~ .slds-radio--faux {
+  margin-right: 0.5rem;
+}
+
 .slds-checkbox {
   display: inline-block;
 }
@@ -1501,10 +1471,7 @@ a.slds-button--inverse:focus {
   position: absolute;
 }
 
-.slds-form-element .slds-checkbox [type="checkbox"] ~ .slds-checkbox--faux {
-  margin-right: 0.5rem;
-}
-
+.slds-checkbox [type="checkbox"]:checked > .slds-checkbox--faux:after,
 .slds-checkbox [type="checkbox"]:checked ~ .slds-checkbox--faux:after {
   display: block;
   content: '';
@@ -1518,48 +1485,60 @@ a.slds-button--inverse:focus {
   border-left: 2px solid #1589ee;
 }
 
+.slds-checkbox [type="checkbox"]:focus > .slds-checkbox--faux,
 .slds-checkbox [type="checkbox"]:focus ~ .slds-checkbox--faux {
   content: '';
   border-color: #1589ee;
   box-shadow: 0 0 3px #0070D2;
 }
 
+.slds-checkbox [type="checkbox"]:focus:checked > .slds-checkbox--faux,
 .slds-checkbox [type="checkbox"]:focus:checked ~ .slds-checkbox--faux {
   border-color: #1589ee;
   background-color: white;
 }
 
+.slds-checkbox [type="checkbox"][disabled] > .slds-checkbox--faux,
 .slds-checkbox [type="checkbox"][disabled] ~ .slds-checkbox--faux {
   background-color: #e0e5ee;
   border-color: #a8b7c7;
 }
 
+.slds-checkbox [type="checkbox"][disabled] > .slds-checkbox--faux:after,
 .slds-checkbox [type="checkbox"][disabled] ~ .slds-checkbox--faux:after {
   border-color: white;
 }
 
+.slds-has-error .slds-checkbox [type="checkbox"] > .slds-checkbox--faux,
 .slds-has-error .slds-checkbox [type="checkbox"] ~ .slds-checkbox--faux {
   border-color: #c23934;
   border-width: 2px;
 }
 
+.slds-has-error .slds-checkbox [type="checkbox"]:checked > .slds-checkbox--faux,
 .slds-has-error .slds-checkbox [type="checkbox"]:checked ~ .slds-checkbox--faux {
   border-color: #c23934;
   background-color: white;
 }
 
+.slds-has-error .slds-checkbox [type="checkbox"]:checked > .slds-checkbox--faux:after,
 .slds-has-error .slds-checkbox [type="checkbox"]:checked ~ .slds-checkbox--faux:after {
   border-color: #d4504c;
 }
 
-.slds-is-required > .slds-checkbox [type="checkbox"] ~ .slds-checkbox--faux:after {
+.slds-is-required > .slds-checkbox [type="checkbox"] > .slds-form-element__label:before,
+.slds-is-required > .slds-checkbox [type="checkbox"] ~ .slds-form-element__label:before {
   content: '*';
   color: #c23934;
   position: absolute;
   left: -0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-form-element .slds-checkbox [type="checkbox"] > .slds-checkbox--faux,
+.slds-form-element .slds-checkbox [type="checkbox"] ~ .slds-checkbox--faux {
+  margin-right: 0.5rem;
+}
+
 .slds-select {
   background-color: white;
   color: #16325c;
@@ -1578,7 +1557,8 @@ a.slds-button--inverse:focus {
   box-shadow: 0 0 3px #0070D2;
 }
 
-.slds-select[disabled] {
+.slds-select[disabled],
+.slds-select.slds-is-disabled {
   background-color: #e0e5ee;
   border-color: #a8b7c7;
   cursor: not-allowed;
@@ -1586,20 +1566,10 @@ a.slds-button--inverse:focus {
 }
 
 .slds-select[disabled]:focus,
-.slds-select[disabled]:active {
+.slds-select[disabled]:active,
+.slds-select.slds-is-disabled:focus,
+.slds-select.slds-is-disabled:active {
   box-shadow: none;
-}
-
-.slds-has-error .slds-select {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box;
-}
-
-.slds-has-error .slds-select:focus,
-.slds-has-error .slds-select:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
 }
 
 .slds-select[size] {
@@ -1611,7 +1581,6 @@ a.slds-button--inverse:focus {
   padding: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 @media (min-width: 48em) {
   .slds-form--horizontal {
     text-align: right;
@@ -1665,7 +1634,6 @@ a.slds-button--inverse:focus {
   margin-top: 1rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-form--stacked .slds-form-element {
   display: block;
 }
@@ -1674,7 +1642,11 @@ a.slds-button--inverse:focus {
   margin-top: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-form--stacked .slds-form-element .slds-checkbox,
+.slds-form--stacked .slds-form-element .slds-radio {
+  display: block;
+}
+
 @media (max-width: 29.9375em) {
   .slds-form--inline .slds-form-element {
     margin-bottom: 0.75rem;
@@ -1692,7 +1664,6 @@ a.slds-button--inverse:focus {
   }
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-form--compound .slds-form-element__row {
   margin-bottom: 0.5rem;
 }
@@ -1729,7 +1700,6 @@ a.slds-button--inverse:focus {
   }
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-form-element__static {
   display: inline-block;
   line-height: 2.125rem;
@@ -1737,7 +1707,53 @@ a.slds-button--inverse:focus {
   /* For IE */
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-is-required > .slds-form-element__label:before {
+  content: '*';
+  color: #c23934;
+  position: absolute;
+  left: -0.5rem;
+}
+
+.slds-has-error .slds-input {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box;
+}
+
+.slds-has-error .slds-input:focus,
+.slds-has-error .slds-input:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
+}
+
+.slds-has-error .slds-textarea {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box;
+}
+
+.slds-has-error .slds-textarea:focus,
+.slds-has-error .slds-textarea:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
+}
+
+.slds-has-error .slds-select {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box;
+}
+
+.slds-has-error .slds-select:focus,
+.slds-has-error .slds-select:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
+}
+
+.slds-has-error .slds-form-element__help {
+  color: #c23934;
+}
+
 .slds-grid {
   display: flex;
   position: relative;
@@ -1885,7 +1901,6 @@ a.slds-button--inverse:focus {
   flex-shrink: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-container--small {
   max-width: 36rem;
 }
@@ -1915,8 +1930,6 @@ a.slds-button--inverse:focus {
   margin-left: auto;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-grid--align-center {
   justify-content: center;
 }
@@ -1926,7 +1939,6 @@ a.slds-button--inverse:focus {
   flex-grow: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-grid--align-space {
   justify-content: space-around;
 }
@@ -1936,7 +1948,6 @@ a.slds-button--inverse:focus {
   flex-grow: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-grid--align-spread {
   justify-content: space-between;
 }
@@ -1946,7 +1957,6 @@ a.slds-button--inverse:focus {
   flex-grow: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-align-top {
   vertical-align: top;
   align-self: flex-start;
@@ -1968,8 +1978,6 @@ a.slds-button--inverse:focus {
   justify-content: center;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-grid--overflow {
   flex-flow: row nowrap;
 }
@@ -1979,7 +1987,6 @@ a.slds-button--inverse:focus {
   max-width: 22.5em;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-tooltip {
   position: relative;
   border-radius: 0.25rem;
@@ -2078,7 +2085,6 @@ a.slds-button--inverse:focus {
   will-change: transform;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-popover {
   position: relative;
   border-radius: 0.25rem;
@@ -2216,15 +2222,26 @@ a.slds-button--inverse:focus {
   padding: 0.75rem 1rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-picklist {
   position: relative;
 }
 
+.slds-picklist .slds-dropdown {
+  width: 15rem;
+  max-height: calc((((0.875rem * 1.5) + 1rem) * 5) + 0.5rem + 2px);
+  overflow-y: auto;
+}
+
+.slds-picklist--fluid .slds-picklist__label,
+.slds-picklist--fluid .slds-dropdown {
+  width: auto;
+  min-width: 0;
+  max-width: 15rem;
+}
+
 .slds-picklist__label {
   padding-right: 2rem;
-  min-width: 15rem;
-  max-width: 20rem;
+  width: 15rem;
   color: #16325c;
   text-align: left;
 }
@@ -2250,7 +2267,6 @@ a.slds-button--inverse:focus {
   display: block;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-picklist--draggable .slds-button {
   margin: 0.25rem;
 }
@@ -2266,6 +2282,10 @@ a.slds-button--inverse:focus {
   width: 15rem;
   height: 15rem;
   background-color: white;
+}
+
+.slds-picklist__options--multi {
+  overflow: auto;
 }
 
 .slds-picklist__item {
@@ -2294,7 +2314,6 @@ a.slds-button--inverse:focus {
   background-color: #eef1f6;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-dropdown {
   margin-top: 0.125rem;
   padding: 0.25rem 0;
@@ -2507,16 +2526,10 @@ a.slds-button--inverse:focus {
   transition: opacity 0.1s linear, visibility 0.1s linear;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-dropdown--actions a {
   color: #0070d2;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-datepicker {
   margin-top: 0.25rem;
   padding: 0;
@@ -2537,6 +2550,7 @@ a.slds-button--inverse:focus {
 .slds-datepicker td {
   padding: 0.25rem;
   text-align: center;
+  font-size: 0.75rem;
 }
 
 .slds-datepicker td > .slds-day {
@@ -2609,19 +2623,10 @@ a.slds-button--inverse:focus {
   padding: 0 0.25rem 0 0;
 }
 
-.slds-datepicker .slds-picklist__label {
-  min-width: 0;
-  font-size: 0.75rem;
-  font-weight: 400;
-}
-
 .slds-disabled-text {
   color: #d8dde6;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-datepicker--time {
   max-width: 12rem;
   max-height: 13.5rem;
@@ -2643,7 +2648,187 @@ a.slds-button--inverse:focus {
   cursor: pointer;
 }
 
-/* Lightning Design System 0.9.2 */
+.slds-publisher.slds-is-active .slds-publisher__toggle-visibility {
+  display: inherit;
+}
+
+.slds-publisher.slds-is-active .slds-publisher__input {
+  line-height: 1.5;
+  height: auto;
+  max-height: 10rem;
+  resize: vertical;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.slds-publisher__input {
+  line-height: 2.125rem;
+  padding: 0 1rem;
+  resize: none;
+  min-height: calc(2.125rem + 2px);
+  max-height: calc(2.125rem + 2px);
+  width: 100%;
+  transition: min-height 0.4s ease, max-height 0.4s ease;
+}
+
+.slds-publisher__actions > .slds-button {
+  margin-left: 0.75rem;
+}
+
+.slds-publisher .slds-publisher__toggle-visibility {
+  display: none;
+}
+
+.slds-publisher--discussion {
+  display: flex;
+}
+
+.slds-publisher--discussion.slds-is-active {
+  display: block;
+}
+
+.slds-publisher--comment {
+  background-color: white;
+  color: #16325c;
+  border: 1px solid #d8dde6;
+  border-radius: 0.25rem;
+  width: 100%;
+  position: relative;
+  min-height: calc(2.125rem + 2px);
+  max-height: calc(2.125rem + 2px);
+  transition: min-height 0.4s ease, max-height 0.4s ease;
+}
+
+.slds-publisher--comment.slds-is-active {
+  min-height: 6rem;
+  max-height: 15rem;
+}
+
+.slds-publisher--comment.slds-is-active .slds-publisher__actions {
+  opacity: 1;
+}
+
+.slds-publisher--comment.slds-has-focus {
+  outline: 0;
+  border-color: #1589ee;
+  background-color: white;
+  box-shadow: 0 0 3px #0070D2;
+}
+
+.slds-publisher--comment .slds-publisher__actions {
+  opacity: 0;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.slds-publisher--comment .slds-attachments {
+  padding: 0.5rem 0.75rem;
+}
+
+.slds-feed {
+  position: relative;
+}
+
+.slds-feed__list {
+  margin: 0;
+  padding: 0;
+}
+
+.slds-feed__item {
+  padding: 1rem 0;
+}
+
+.slds-feed__item + .slds-feed__item {
+  border-top: 1px solid #d8dde6;
+}
+
+.slds-comment__content {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.slds-comment .slds-text-body--small a {
+  color: inherit;
+}
+
+.slds-comment__content {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.slds-tags {
+  display: flex;
+}
+
+.slds-tags__list {
+  display: flex;
+}
+
+.slds-tags__item {
+  margin-left: 0.25rem;
+}
+
+.slds-tags__item:after {
+  content: ', ';
+}
+
+.slds-tags__item:last-child:after {
+  content: none;
+}
+
+.slds-comment__replies {
+  padding-top: 1rem;
+  margin-left: 3.75rem;
+}
+
+.slds-comment__replies > :last-child,
+.slds-comment__replies > :last-child .slds-comment {
+  padding-bottom: 0;
+}
+
+.slds-comment__replies > :last-child:before,
+.slds-comment__replies > :last-child .slds-comment:before {
+  content: none;
+}
+
+.slds-comment__replies .slds-comment {
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+
+.slds-comment__replies .slds-comment:before {
+  content: '';
+  background: #d8dde6;
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: 1.125rem;
+  top: 0;
+  bottom: 0;
+  margin-left: -0.5px;
+  z-index: -1;
+}
+
+.slds-comment__replies .slds-avatar {
+  border: 2px solid white;
+}
+
+.slds-comment__overflow {
+  margin-bottom: 1rem;
+}
+
+.slds-attachments {
+  padding: 0.5rem 0;
+}
+
+.slds-attachments:empty {
+  padding: 0;
+}
+
+.slds-attachments__item + .slds-attachments__item {
+  margin-top: 1rem;
+}
+
 .slds-modal {
   opacity: 0;
   visibility: hidden;
@@ -2773,25 +2958,21 @@ a.slds-button--inverse:focus {
   transform: translate(0, 1rem);
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-modal--large .slds-modal__container {
   width: 90%;
-  max-width: 960px;
+  max-width: none;
   min-width: 640px;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-modal__footer--directional .slds-button:first-child {
   float: left;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-modal__header p {
   margin-top: 0.75rem;
   color: #54698d;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-pill {
   background-color: white;
   display: inline-block;
@@ -2851,30 +3032,25 @@ a.slds-button--inverse:focus {
   border-radius: 0.25rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-pill .slds-avatar {
   margin-right: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-spinner--small {
   width: 32px;
   height: 32px;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-spinner--medium {
   width: 56px;
   height: 56px;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-spinner--large {
   width: 68px;
   height: 68px;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-tile + .slds-tile {
   margin-top: 0.5rem;
 }
@@ -2888,10 +3064,6 @@ a.slds-button--inverse:focus {
   color: #16325c;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-tile--board {
   position: relative;
 }
@@ -2908,13 +3080,10 @@ a.slds-button--inverse:focus {
   padding-right: 1.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-tile__meta {
   color: #16325c;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-tree-container {
   min-width: 7.5rem;
   max-width: 25rem;
@@ -2982,7 +3151,6 @@ a.slds-button--inverse:focus {
   margin-left: 0.75rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-tabs--default {
   display: block;
   width: 100%;
@@ -3057,7 +3225,6 @@ a.slds-button--inverse:focus {
   padding: 1rem 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-tabs--scoped {
   display: block;
   width: 100%;
@@ -3134,7 +3301,6 @@ a.slds-button--inverse:focus {
   padding: 1rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-notify-container {
   position: fixed;
   width: 100%;
@@ -3197,9 +3363,14 @@ a.slds-button--inverse:focus {
   text-align: center;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
+.slds-modal__header .slds-notify-container {
+  position: absolute;
+}
+
+.slds-modal__header .slds-notify--toast {
+  display: block;
+}
+
 .slds-lookup {
   position: relative;
 }
@@ -3250,7 +3421,6 @@ a.slds-button--inverse:focus {
   margin-right: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-lookup[data-select="single"] .slds-pill {
   display: block;
   width: 100%;
@@ -3268,9 +3438,6 @@ a.slds-button--inverse:focus {
   display: none;
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-lookup[data-scope="multi"] .slds-form-element__label {
   align-self: center;
   margin-left: 0.5rem;
@@ -3319,7 +3486,8 @@ a.slds-button--inverse:focus {
   box-shadow: 0 0 3px #0070D2;
 }
 
-.slds-lookup[data-scope="multi"] .slds-form-element__control[disabled] {
+.slds-lookup[data-scope="multi"] .slds-form-element__control[disabled],
+.slds-lookup[data-scope="multi"] .slds-form-element__control.slds-is-disabled {
   background-color: #e0e5ee;
   border-color: #a8b7c7;
   cursor: not-allowed;
@@ -3327,20 +3495,10 @@ a.slds-button--inverse:focus {
 }
 
 .slds-lookup[data-scope="multi"] .slds-form-element__control[disabled]:focus,
-.slds-lookup[data-scope="multi"] .slds-form-element__control[disabled]:active {
+.slds-lookup[data-scope="multi"] .slds-form-element__control[disabled]:active,
+.slds-lookup[data-scope="multi"] .slds-form-element__control.slds-is-disabled:focus,
+.slds-lookup[data-scope="multi"] .slds-form-element__control.slds-is-disabled:active {
   box-shadow: none;
-}
-
-.slds-has-error .slds-lookup[data-scope="multi"] .slds-form-element__control {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box;
-}
-
-.slds-has-error .slds-lookup[data-scope="multi"] .slds-form-element__control:focus,
-.slds-has-error .slds-lookup[data-scope="multi"] .slds-form-element__control:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2;
 }
 
 .slds-lookup[data-scope="multi"] .slds-form-element__control .slds-input--bare {
@@ -3350,7 +3508,6 @@ a.slds-button--inverse:focus {
   line-height: 2.125rem;
 }
 
-/* Lightning Design System 0.9.2 */
 /*
 Copyright (c) 2015, salesforce.com, inc. All rights reserved.
 
@@ -3369,7 +3526,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   border-bottom: 2px solid #d8dde6;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-media {
   display: flex;
   align-items: flex-start;
@@ -3386,7 +3542,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 }
 
 .slds-media__body,
-.slds-media__body :last-child {
+.slds-media__body > :last-child {
   margin-bottom: 0;
 }
 
@@ -3398,12 +3554,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-right: 1.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-media--center {
   align-items: center;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-media--reverse > .slds-media__figure {
   order: 1;
   margin: 0 0 0 0.75rem;
@@ -3413,7 +3567,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-left: 0.25rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-media--double > .slds-media__figure {
   order: 1;
 }
@@ -3427,7 +3580,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   order: 2;
 }
 
-/* Lightning Design System 0.9.2 */
 @media (max-width: 47.9375em) {
   .slds-media--responsive {
     display: block;
@@ -3437,7 +3589,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-avatar {
   overflow: hidden;
   display: inline-block;
@@ -3470,7 +3621,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   border-radius: 50%;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-badge {
   background-color: #e0e5ee;
   padding: 0.25rem 0.5rem;
@@ -3492,7 +3642,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   padding: 0;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-icon__container {
   display: inline-block;
   border-radius: 0.25rem;
@@ -4702,6 +4851,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background-color: #f2cf5b;
 }
 
+.slds-icon-standard-client {
+  background-color: #00d2be;
+}
+
 .slds-icon-standard-contract {
   background-color: #6ec06e;
 }
@@ -4762,8 +4915,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background-color: #779ef2;
 }
 
+.slds-icon-standard-household {
+  background-color: #00afa0;
+}
+
 .slds-icon-standard-insights {
   background-color: #ec94ed;
+}
+
+.slds-icon-standard-investment-account {
+  background-color: #4bc076;
 }
 
 .slds-icon-standard-performance {
@@ -4898,7 +5059,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background-color: black;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-icon-text-default {
   fill: #54698d;
 }
@@ -4907,7 +5067,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   fill: #ffb75d;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-icon--x-small {
   line-height: 1;
   width: 1rem;
@@ -4925,7 +5084,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   height: 3rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-table {
   background-color: white;
 }
@@ -5046,11 +5204,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   visibility: visible;
 }
 
-.slds-is-sortable:hover .slds-button__icon {
-  fill: #0070d2;
-}
-
-/* Lightning Design System 0.9.2 */
 @media (max-width: 47.9375em) {
   .slds-max-medium-table--stacked {
     border: 0;
@@ -5112,7 +5265,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
 @media (max-width: 47.9375em) {
   .slds-max-medium-table--stacked-horizontal {
     border: 0;
@@ -5177,8 +5329,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
-/* Lightning Design System 0.9.2 */
 .slds-m-top--xxx-small {
   margin-top: 0.125rem;
 }
@@ -5419,7 +5569,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin: 3rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-p-top--xxx-small {
   padding-top: 0.125rem;
 }
@@ -5660,17 +5809,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   padding: 3rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-float--left {
   float: left;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-float--right {
   float: right;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-clearfix:after {
   content: '';
   display: table;
@@ -5681,7 +5827,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   clear: both;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-size--1-of-1 {
   width: 100%;
 }
@@ -6254,19 +6399,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-list--dotted {
   margin-left: 1.5rem;
   list-style: disc;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-list--ordered {
   margin-left: 1.5rem;
   list-style: decimal;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-dl--inline:after {
   content: '';
   display: table;
@@ -6284,7 +6426,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
 @media (min-width: 48em) {
   .slds-dl--horizontal__label {
     width: 33%;
@@ -6296,40 +6437,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   }
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-list--horizontal {
   display: flex;
-  flex-direction: column;
-}
-
-.slds-list--horizontal > .slds-list__item > a {
-  padding: 0 0.5rem;
-  display: block;
-}
-
-.slds-list--horizontal > .slds-list__item > a:hover,
-.slds-list--horizontal > .slds-list__item > a:focus {
-  text-decoration: none;
-}
-
-@media (min-width: 48em) {
-  .slds-list--horizontal {
-    flex-direction: row;
-  }
 }
 
 .slds-list--horizontal > .slds-list__item {
+  align-self: center;
   display: inline-block;
-  /* older browsers */
   vertical-align: middle;
-  /* older browsers */
 }
 
 .slds-list--horizontal-large > .slds-list__item > a {
   padding: 0.75rem 1rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-has-block-links a {
   display: block;
   text-decoration: none;
@@ -6339,14 +6460,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-left: 1rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-has-divider {
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px solid #d8dde6;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-list--vertical.slds-has-dividers > .slds-list__item {
   padding: 0.5rem;
   border-bottom: 1px solid #d8dde6;
@@ -6373,7 +6492,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   box-shadow: #1589ee 0 -2px 0 inset, #1589ee 0 0 0 1px inset;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-list--horizontal.slds-has-dividers > .slds-list__item {
   position: relative;
 }
@@ -6387,7 +6505,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border-radius: 50%;
-  background-color: #16325c;
+  background-color: #54698d;
 }
 
 .slds-list--horizontal.slds-has-dividers > .slds-list__item:last-child {
@@ -6399,23 +6517,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   content: none;
 }
 
-@media (max-width: 47.9375em) {
-  .slds-list--horizontal.slds-has-dividers > .slds-list__item:before {
-    width: 4px;
-    height: 4px;
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 50%;
-    background-color: #16325c;
-    margin-right: 0.75rem;
-  }
-  .slds-list--horizontal.slds-has-dividers > .slds-list__item:after {
-    content: none;
-  }
-}
-
-/* Lightning Design System 0.9.2 */
 .slds-list--vertical.slds-has-cards .slds-list__item {
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -6448,7 +6549,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-top: 0.5rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-truncate {
   max-width: 100%;
   overflow: hidden;
@@ -6456,14 +6556,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   white-space: nowrap;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-page-header {
   padding: 1.5rem 1.5rem 0.75rem;
   border-bottom: 1px solid #d8dde6;
   background: powderblue;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-box {
   padding: 1rem;
   border-radius: 0.25rem;
@@ -6479,7 +6577,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   padding: 0.75rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-theme--default {
   background-color: white;
 }
@@ -6579,6 +6676,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   color: #16325c;
 }
 
+.slds-theme--warning .slds-button__icon {
+  fill: #54698d;
+}
+
 .slds-theme--error {
   color: white;
   background-color: #c23934;
@@ -6667,33 +6768,28 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   color: rgba(255, 255, 255, 0.15);
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-body--regular {
   font-size: 0.875rem;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-heading--small {
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.25;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-heading--medium {
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.25;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-heading--large {
   font-weight: 300;
   font-size: 2rem;
   line-height: 1.25;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-heading--label {
   font-size: 0.75rem;
   line-height: 1.25;
@@ -6702,13 +6798,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   color: #54698d;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-body--small {
   font-size: 0.75rem;
   color: #54698d;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-align--left {
   text-align: left;
 }
@@ -6721,7 +6815,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   text-align: right;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-text-longform h1,
 .slds-text-longform h2,
 .slds-text-longform h3,
@@ -6754,7 +6847,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   list-style: decimal;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-section-title {
   font-size: 1.125rem;
 }
@@ -6787,7 +6879,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   transform: rotate(-90deg);
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-type-focus {
   border-bottom: 1px solid transparent;
   cursor: pointer;
@@ -6803,7 +6894,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   outline-offset: -2px;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-scrollable--y {
   max-height: 100%;
   overflow: hidden;
@@ -6829,7 +6919,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background: #a8b7c7;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-scrollable--x {
   max-width: 100%;
   overflow: hidden;
@@ -6855,7 +6944,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   background: #a8b7c7;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-hide {
   display: none;
 }
@@ -6872,7 +6960,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   display: inline;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-hidden {
   visibility: hidden;
 }
@@ -6881,7 +6968,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   visibility: visible;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-transition-hide {
   opacity: 0;
 }
@@ -6890,7 +6976,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   opacity: 1;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-collapsed {
   height: 0;
   overflow: hidden;
@@ -6901,7 +6986,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   overflow: visible;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-assistive-text {
   position: absolute !important;
   margin: -1px !important;
@@ -6913,7 +6997,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   clip: rect(0 0 0 0) !important;
 }
 
-/* Lightning Design System 0.9.2 */
 .slds-x-small-show {
   display: none;
 }

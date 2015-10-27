@@ -10,5 +10,6 @@ app/lib
 # Deploy directory
 dist
 
-# Generated from template
+# Generated from templates
 app/index.html
+app/callback.html

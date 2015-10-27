@@ -35,12 +35,16 @@ module.exports = function(grunt) {
         },
         'preprocess': {
             dev: {
-                src: 'app/tmpl/index.html',
-                dest: 'app/index.html'
+                files: {
+                    'app/index.html': 'app/tmpl/index.html',
+                    'app/callback.html': 'app/tmpl/index.html'
+                }
             },
             prod: {
-                src: 'app/tmpl/index.html',
-                dest: 'dist/index.html'
+                files: {
+                    'dist/index.html': 'app/tmpl/index.html',
+                    'dist/callback.html': 'app/tmpl/index.html'
+                }
             }
         },
         'watch': {
@@ -146,8 +150,7 @@ module.exports = function(grunt) {
                         'styles/{,*/}**',
                         'assets/fonts/{,*/}**',
                         'assets/icons/{,*/}**',
-                        'assets/images/{,*/}**',
-                        'assets/sfx/{,*/}**'
+                        'assets/images/{,*/}**'
                     ]
                 }]
             }
