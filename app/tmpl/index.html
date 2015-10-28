@@ -609,16 +609,16 @@
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="orgType">Connecting to:</label>
           <div class="slds-form-element__control">
-            <select id="orgType" class="slds-select">
-              <option>Production (login.salesforce.com)</option>
-              <option>Sandbox (test.salesforce.com)</option>
+            <select id="loginOrgType" class="slds-select">
+              <option value="https://login.salesforce.com">Production (login.salesforce.com)</option>
+              <option value="https://test.salesforce.com">Sandbox (test.salesforce.com)</option>
             </select>
           </div>
         </div>
       </div>
       <div class="slds-modal__footer">
-        <button class="slds-button slds-button--neutral">Cancel</button>
-        <button class="slds-button slds-button--brand">Connect</button>
+        <button id="loginCancel" class="slds-button slds-button--neutral">Cancel</button>
+        <button id="loginConnect" class="slds-button slds-button--brand">Connect</button>
       </div>
     </div>
   </div>

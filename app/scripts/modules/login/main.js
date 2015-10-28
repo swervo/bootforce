@@ -1,11 +1,31 @@
-(function() {
+/* global define */
+
+define([
+    'jquery',
+    'modules/login/LoginDialog'
+], function($, loginDialog) {
     'use strict';
 
-    require([
-        'modules/login/browser'
-        // 'modules/login/oauth'
-    ], function() {
-        // nothing to see here yet
+    function init() {
+        var $connectionDeferred = $.Deferred();
+        function loggedIn(fCon) {
+            $connectionDeferred.resolve(fCon);
+        }
 
-    });
-}());
+        loginDialog.init()
+            .done(loggedIn)
+            .fail(function(err) {
+                console.error('Error logging in.');
+                $connectionDeferred.reject(err);
+                // setDisplayMode(false, false);
+                // doLogin();
+                // notifier.error('Log in unsuccesful. Please try again.');
+            });
+        return $connectionDeferred.promise();
+    }
+
+    return {
+        init: init
+    };
+
+});

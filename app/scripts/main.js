@@ -16,11 +16,23 @@
     require([
         'jquery',
         'knockout',
-        'utils/transition',
         'modules/login/main',
-        'modules/components/main'
-    ], function() {
+        'modules/components/main',
+        'utils/transition'
+    ], function($, ko, conn) {
         // put initialisation stuff here
+        conn.init()
+            .done(function(fCon) {
+                // store this in utils
+                console.log(fCon);
+            })
+            .fail(function(err) {
+                console.error('Error logging in.');
+                console.log(err);
+                // setDisplayMode(false, false);
+                // doLogin();
+                // notifier.error('Log in unsuccesful. Please try again.');
+            });
 
 
     });
