@@ -16,14 +16,12 @@ define([
     function tryLogin() {
         f.browser.login({
             loginUrl: orgTypeLoginUrl
-        }, function(err, res) {
+        }, function(err) {
             if (err) {
-                console.error(err);
                 alert(err.message);
                 closeDialog();
                 $logInDeferred.reject(err);
             }
-            console.log(res.status);
         });
     }
     function closeDialog() {

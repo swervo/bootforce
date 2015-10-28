@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
-<body>
+<body id="app">
   <div class="container">
     <div class="slds-tabs--scoped">
       <ul class="slds-tabs--scoped__nav" role="tablist">
@@ -19,7 +19,7 @@
           <div class="slds-avatar slds-avatar--circle slds-avatar--small">
             <img src="/assets/images/avatar2.jpg" alt="person name" />
           </div>
-          <span class="slds-truncate">Jenna Davis</span>
+          <span class="slds-truncate" data-bind="text: username">Jenna Davis</span>
         </li>
       </ul>
       <div id="tabOne" class="slds-tabs__content slds-hide slds-show" role="tabpanel">
