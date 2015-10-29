@@ -7203,6 +7203,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   margin-top: 0.25rem;
 }
 
+.bootforce-pliant {
+  cursor: pointer;
+}
+
 /**
  * Import the css for the github ribbon
  */

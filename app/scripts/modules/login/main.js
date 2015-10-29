@@ -2,7 +2,8 @@
 
 define([
     'jquery',
-    'modules/login/LoginDialog'
+    'modules/login/LoginDialog',
+    'modules/login/LogoutDialog'
 ], function($, loginDialog) {
     'use strict';
 
@@ -17,9 +18,6 @@ define([
             .fail(function(err) {
                 console.error('Error logging in.');
                 $connectionDeferred.reject(err);
-                // setDisplayMode(false, false);
-                // doLogin();
-                // notifier.error('Log in unsuccesful. Please try again.');
             });
         return $connectionDeferred.promise();
     }

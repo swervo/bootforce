@@ -55,6 +55,9 @@ define(
                 this.setConnector = function(aConn) {
                     this.connector = aConn;
                 };
+                this.logout = function() {
+                    return this.connector.logout();
+                };
                 this.getUserProfile = function() {
                     // this.connector.query('SELECT Id, Name FROM Account', function(err, res) {
                     //     if (err) {

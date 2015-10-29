@@ -16,10 +16,12 @@
           <button id="login" class="slds-button slds-button--neutral" data-toggle="modal" data-target="#loginDialog">
                   Log in
           </button>
-          <div class="slds-avatar slds-avatar--circle slds-avatar--small">
-            <img data-bind="attr:{src: userPhoto}" src="/assets/images/avatar2.jpg"/>
+          <div id="loggedIn" class="bootforce-pliant slds-hide" data-toggle="modal" data-target="#logoutDialog">
+            <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+              <img data-bind="attr:{src: userPhoto}" src="/assets/images/avatar2.jpg"/>
+            </div>
+            <span class="slds-truncate" data-bind="text: username">Jenna Davis</span>
           </div>
-          <span class="slds-truncate" data-bind="text: username">Jenna Davis</span>
         </li>
       </ul>
       <div id="tabOne" class="slds-tabs__content slds-hide slds-show" role="tabpanel">
@@ -619,6 +621,27 @@
       <div class="slds-modal__footer">
         <button id="loginCancel" class="slds-button slds-button--neutral">Cancel</button>
         <button id="loginConnect" class="slds-button slds-button--brand">Connect</button>
+      </div>
+    </div>
+  </div>
+  <!-- logout -->
+  <div id="logoutDialog" aria-hidden="false" role="dialog" class="slds-modal">
+    <div class="slds-modal__container">
+      <div class="slds-modal__header">
+        <h2 class="slds-text-heading--medium">Log out of Salesforce</h2>
+        <button class="slds-button slds-modal__close" data-dismiss="modal">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+          </svg>
+          <span class="slds-assistive-text">Close</span>
+        </button>
+      </div>
+      <div class="slds-modal__content">
+        <div>Are you sure you want to log out?</div>
+      </div>
+      <div class="slds-modal__footer">
+        <button id="logoutCancel" class="slds-button slds-button--neutral">Cancel</button>
+        <button id="logout" class="slds-button slds-button--brand">Logout</button>
       </div>
     </div>
   </div>

@@ -25,8 +25,6 @@
         // put initialisation stuff here
         conn.init()
             .done(function(fCon) {
-                // store this in utils
-                console.log(fCon);
                 org.setConnector(fCon);
                 org.getUserProfile();
             })
