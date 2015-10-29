@@ -66,7 +66,10 @@ module.exports = function(grunt) {
                 sourceMap: true,
                 outputStyle: 'expanded',
                 sourceComments: false,
-                includePaths: ['app/lib/salesforce-lightning-design-system/scss']
+                includePaths: [
+                    'app/lib/salesforce-lightning-design-system/scss',
+                    'app/lib/github-fork-ribbon-css'
+                ]
             },
             dist: {
                 files: {
