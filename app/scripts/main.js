@@ -28,7 +28,7 @@
                 // store this in utils
                 console.log(fCon);
                 org.setConnector(fCon);
-                org.model.getUserProfile();
+                org.getUserProfile();
             })
             .fail(function(err) {
                 console.error('Error logging in.');

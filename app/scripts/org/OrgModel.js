@@ -4,9 +4,10 @@
 
 define(
     'org/OrgModelImp', [
+        'jquery',
         'knockout'
     ],
-    function(ko) {
+    function($, ko) {
         'use strict';
         var OrgModel = (function() {
 
@@ -23,11 +24,11 @@ define(
                     this.slug = aShowObj.slug;
                     this.tweet_slug = aShowObj.tweet_slug;
                 }
-                this.username = ko.observable();
+                this.username = ko.observable('');
+                this.userPhoto = ko.observable('/assets/images/avatar2.jpg');
                 this.sessionid = undefined;
                 this.fullname = ko.observable();
                 this.currentShowUid = undefined;
-                this.canWrite = false;
                 this.shows = ko.observableArray([]);
                 this.setUser = function(data) {
                     this.username(data.username);
@@ -61,27 +62,24 @@ define(
                     //     }
                     //     console.log(res);
                     // });
-                    this.connector.identity().then(function(res) {
-                        console.log('id', res);
+                    this.connector.identity().then(function(res, err) {
+                        if (err) {
+                            $deferred.reject(err);
+                        }
                         self.username(res.display_name);
-                        self.photos = res.photos;
+
+                        if (res.photos && res.photos.thumbnail) {
+                            var imagePath = res.photos.thumbnail +
+                                '?oauth_token=' +
+                                self.connector.accessToken;
+                            self.userPhoto(imagePath);
+                        }
+                        $deferred.resolve();
                         
                         // localStorage.setItem('sf_user_info', JSON.stringify(userInfo));
-                        // renderProfile();
                     });
-
-                    function renderProfile() {
-                        $('#navigation .navbar-right li.login').hide();
-                        var profileMenu = $('#navigation .navbar-right li.profile').show();
-                        profileMenu.find('.profile-icon').empty().append(
-                            $('<img>').attr('src',
-                                userInfo.photos && userInfo.photos.thumbnail ?
-                                userInfo.photos.thumbnail + '?oauth_token=' + conn.accessToken :
-                                '/images/profile-none.png'
-                            )
-                        );
-                        profileMenu.find('.profile-name').text(userInfo.username).attr('title', userInfo.username);
-                    }
+                    var $deferred = $.Deferred();
+                    return $deferred.promise();
                 };
             }
 

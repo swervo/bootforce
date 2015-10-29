@@ -9,6 +9,7 @@ define([
 
     window.OrgModel = OrgModel;
     var isInitialised = false;
+    var $loginButton = $('#login');
 
     function init() {
         console.log('initis');
@@ -30,6 +31,17 @@ define([
         OrgModel.setConnector(fCon);
     }
 
+    function getUserProfile() {
+        $.when(OrgModel.getUserProfile())
+            .done(function() {
+                //hide the button
+                $loginButton.addClass('slds-hide');
+            })
+            .fail(function(err) {
+                alert(err.message);
+            });
+    }
+
     function reset() {
         OrgModel.reset();
     }
@@ -38,6 +50,7 @@ define([
         init: init,
         model: OrgModel,
         setConnector: setConnector,
+        getUserProfile: getUserProfile,
         reset: reset
     };
 
