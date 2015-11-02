@@ -94,14 +94,36 @@ module.exports = function(grunt) {
             }
         },
         'requirejs': {
-            compile: {
+            all:{
                 options: {
                     baseUrl: 'app/scripts',
+                    mainConfigFile: 'app/scripts/main.js',
                     name: '../lib/almond/almond',
                     include: ['main'],
                     insertRequire: ['main'],
+                    removeCombined: true,
                     out: 'dist/scripts/main-built.js',
-                    mainConfigFile: 'app/scripts/main.js',
+                    optimize: 'uglify2',
+                    uglify2: {
+                        screwIE8: true,
+                        mangle: false,
+                        sourceMap: true,
+                        compress: {
+                            dead_code: true,
+                        },
+                        warnings: true,
+                    }
+                }
+            },
+            bootforce: {
+                options: {
+                    baseUrl: 'app/scripts',
+                    mainConfigFile: 'app/scripts/modules/components/main.js',
+                    name: '../lib/almond/almond',
+                    include: ['modules/components/main.js'],
+                    insertRequire: ['modules/components/main.js'],
+                    removeCombined: true,
+                    out: 'dist/scripts/bootforce-built.js',
                     optimize: 'uglify2',
                     uglify2: {
                         screwIE8: true,
@@ -180,9 +202,9 @@ module.exports = function(grunt) {
     // SASS build
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
-    grunt.registerTask('build', ['jshint', 'bower', 'requirejs', 'env:prod',
+    grunt.registerTask('build', ['jshint', 'bower', 'requirejs:all', 'env:prod',
                                     'copy:static', 'preprocess:prod']);
-    grunt.registerTask('test', []);
+    grunt.registerTask('bd', ['build', 'server-prod']);
 
     grunt.registerTask('default', ['env:dev', 'preprocess:dev', 'server-dev', 'watch']);
 };

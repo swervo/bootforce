@@ -18,8 +18,7 @@
         'knockout',
         'modules/login/main',
         'org/main',
-        'modules/components/main',
-        'utils/transition'
+        'modules/components/main'
     ], function($, ko, conn, org) {
         org.init();
         // put initialisation stuff here
