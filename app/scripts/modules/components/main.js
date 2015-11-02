@@ -2,6 +2,7 @@
     'use strict';
 
     require([
+        'modules/components/alert',
         'modules/components/tab',
         'modules/components/button',
         'modules/components/modal',

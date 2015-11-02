@@ -434,6 +434,35 @@
       </div>
       <!-- TAB THREE -->
       <div id="tabThree" class="slds-tabs__content slds-hide" role="tabpanel">
+        <div id="testAlert" class="slds-notify slds-notify--alert slds-theme--inverse-text slds-theme--error slds-theme--alert-texture fade in" role="alert">
+          <span class="slds-assistive-text">Info</span>
+          <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert" data-target="#testAlert">
+            <svg aria-hidden="true" class="slds-button__icon">
+              <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2>Base System Alert</h2>
+        </div>
+<div class="slds-notify-container">
+  <div id="toastAlert" class="slds-notify slds-notify--toast fade in" role="alert"><span class="slds-assistive-text">Error</span>
+    <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert" data-target="#toastAlert">
+      <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+      </svg><span class="slds-assistive-text">Close</span></button>
+    <div class="notify__content slds-grid">
+      <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+      </svg>
+      <div class="slds-col slds-align-middle">
+        <h2 class="slds-text-heading--small">You've encountered some errors when trying to save edits to Samuel Smith.</h2>
+        <p>Here's some detail of what happened, being very descriptive and transparent :P.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
         <table class="slds-table slds-table--bordered">
           <thead>
             <tr class="slds-text-heading--label">
