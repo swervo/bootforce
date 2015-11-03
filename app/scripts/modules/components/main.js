@@ -17,7 +17,8 @@
         'modules/components/button',
         'modules/components/modal',
         'modules/components/tooltip',
-        'modules/components/dropdown'
+        'modules/components/dropdown',
+        'modules/components/popover'
     ], function() {
         // nothing to see here yet
 
