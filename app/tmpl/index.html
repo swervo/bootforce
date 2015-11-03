@@ -12,6 +12,7 @@
         <li class="slds-tabs__item slds-text-heading--label slds-active" title="Tab One" role="presentation"><a href="#tabOne" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Tab One</a></li>
         <li class="slds-tabs__item slds-text-heading--label" title="Tab Two" role="presentation"><a href="#tabTwo" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Tab Two</a></li>
         <li class="slds-tabs__item slds-text-heading--label" title="Tab Three" role="presentation"><a href="#tabThree" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Tab Three</a></li>
+        <li class="slds-tabs__item slds-text-heading--label" title="Downloads" role="presentation"><a href="#downloads" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
         <li class="slds-tabs__login">
           <button id="login" class="slds-button slds-button--neutral" data-toggle="modal" data-target="#loginDialog">
                   Log in
@@ -444,23 +445,24 @@
           </button>
           <h2>Base System Alert</h2>
         </div>
-<div class="slds-notify-container">
-  <div id="toastAlert" class="slds-notify slds-notify--toast fade in" role="alert"><span class="slds-assistive-text">Error</span>
-    <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert" data-target="#toastAlert">
-      <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-      </svg><span class="slds-assistive-text">Close</span></button>
-    <div class="notify__content slds-grid">
-      <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
-      </svg>
-      <div class="slds-col slds-align-middle">
-        <h2 class="slds-text-heading--small">You've encountered some errors when trying to save edits to Samuel Smith.</h2>
-        <p>Here's some detail of what happened, being very descriptive and transparent :P.</p>
-      </div>
-    </div>
-  </div>
-</div>
+
+        <div class="slds-notify-container">
+          <div id="toastAlert" class="slds-notify slds-notify--toast fade in" role="alert"><span class="slds-assistive-text">Error</span>
+            <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert" data-target="#toastAlert">
+              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+              </svg><span class="slds-assistive-text">Close</span></button>
+            <div class="notify__content slds-grid">
+              <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+              </svg>
+              <div class="slds-col slds-align-middle">
+                <h2 class="slds-text-heading--small">You've encountered some errors when trying to save edits to Samuel Smith.</h2>
+                <p>Here's some detail of what happened, being very descriptive and transparent :P.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
         <table class="slds-table slds-table--bordered">
@@ -611,6 +613,94 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <!-- DOWNLOADS -->
+      <div id="downloads" class="slds-tabs__content slds-hide" role="tabpanel">
+        <ul class="slds-grid slds-wrap slds-grid--align-spread slds-grid--pull-padded-large">
+          <li class="slds-col--padded-large slds-size--1-of-1 slds-large-size--1-of-2">
+            <div class="slds-card">
+              <div class="slds-card__header">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <svg aria-hidden="true" class="slds-icon slds-icon-standard-case slds-icon--small">
+                      <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Case icon</span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <h2 class="slds-text-heading--small slds-truncate">For development</h2>
+                      <span class="slds-badge">Dev</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-card__body">
+                <div class="slds-media slds-tile">
+                  <div class="slds-media__figure">
+                    <svg aria-hidden="true" class="slds-icon slds-icon-standard-case">
+                      <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Case icon</span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <p class="slds-tile__title slds-truncate"><a href="dist/bootforce.min.js">bootforce.min.js</a></p>
+                      <span class="slds-badge">Minified</span>
+                    </div>
+                    <div class="slds-tile__detail slds-text-body--small">
+                      <p class="slds-truncate">114 KB (inc jQuery)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-card__footer">Footer here</div>
+            </div>
+          </li>
+          <li class="slds-col--padded-large slds-size--1-of-1 slds-large-size--1-of-2">
+            <div class="slds-card">
+              <div class="slds-card__header">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44 slds-icon--small">
+                      <use xlink:href="/assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Hammer icon</span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <h2 class="slds-text-heading--small slds-truncate">For production</h2>
+                      <span class="slds-badge">Prod</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-card__body">
+                <div class="slds-media slds-tile">
+                  <div class="slds-media__figure">
+                    <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44">
+                      <use xlink:href="/assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Hammer icon</span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <p class="slds-tile__title slds-truncate"><a href="dist/bootforce.js">bootforce.js</a></p>
+                      <span class="slds-badge">Unminified</span>
+                    </div>
+                    <div class="slds-tile__detail slds-text-body--small">
+                      <p class="slds-truncate">324 KB (inc jQuery)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-card__footer">Footer here</div>
+            </div>
+          </li>
+        </ul>
+
+
+
       </div>
     </div>
     <!-- FOOTER -->

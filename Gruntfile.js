@@ -227,7 +227,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'env:dev',
         'preprocess:dev',
-        'server-dev',
+        'server',
         'watch'
     ]);
 };
