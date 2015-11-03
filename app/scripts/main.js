@@ -10,16 +10,23 @@
             knockout: '../lib/knockout/dist/knockout',
             jsforce: '../lib/jsforce/build/jsforce'
         },
-        shim: {}
+        shim: {},
+        map: {
+          // '*' means all modules will get 'jquery-private'
+          // for their 'jquery' dependency.
+          '*': { 'jquery': 'jquery-private' },
+          // 'jquery-private' wants the real jQuery module
+          'jquery-private': { 'jquery': 'jquery' }
+        }
     });
 
+
     require([
-        'jquery',
         'knockout',
         'modules/login/main',
         'org/main',
         'modules/components/main'
-    ], function($, ko, conn, org) {
+    ], function(ko, conn, org) {
         org.init();
         // put initialisation stuff here
         conn.init()
@@ -34,9 +41,5 @@
                 // doLogin();
                 // notifier.error('Log in unsuccesful. Please try again.');
             });
-
-
-
-
     });
 }());

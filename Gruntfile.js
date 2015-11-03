@@ -5,6 +5,12 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        banner: '/*!\n' +
+            ' * Bootforce v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Bootforce owes much to Bootstrap "http://getbootstrap.com"\n' +
+            ' * Licensed under the <%= pkg.license %> license\n' +
+            ' */\n',
         'bower-install-simple': {
             options: {
                 color: true,
@@ -21,7 +27,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        'env': {
+        env: {
             options: {
                 /* Shared Options Hash */
                 //globalOption : 'foo'
@@ -33,7 +39,7 @@ module.exports = function(grunt) {
                 NODE_ENV: 'PRODUCTION'
             }
         },
-        'preprocess': {
+        preprocess: {
             dev: {
                 files: {
                     'app/index.html': 'app/tmpl/index.html',
@@ -42,12 +48,12 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    'dist/index.html': 'app/tmpl/index.html',
-                    'dist/callback.html': 'app/tmpl/index.html'
+                    'build/index.html': 'app/tmpl/index.html',
+                    'build/callback.html': 'app/tmpl/index.html'
                 }
             }
         },
-        'watch': {
+        watch: {
             files: ['app/sass/**/*.scss', 'app/scripts/**/*.js', 'app/tmpl/**/*.html'],
             tasks: ['preprocess', 'sassCompile'],
             options: {
@@ -55,13 +61,13 @@ module.exports = function(grunt) {
                 livereload: true
             }
         },
-        'jshint': {
+        jshint: {
             files: ['Gruntfile.js', 'app/scripts/**/*.js'],
             options: {
                 jshintrc: true
             }
         },
-        'sass': {
+        sass: {
             options: {
                 sourceMap: true,
                 outputStyle: 'expanded',
@@ -76,7 +82,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        'connect': {
+        connect: {
             build: {
                 options: {
                     port: 8000,
@@ -88,13 +94,13 @@ module.exports = function(grunt) {
             deploy: {
                 options: {
                     port: 8001,
-                    base: 'dist',
+                    base: 'build',
                     keepalive: true
                 }
             }
         },
-        'requirejs': {
-            all:{
+        requirejs: {
+            main:{
                 options: {
                     baseUrl: 'app/scripts',
                     mainConfigFile: 'app/scripts/main.js',
@@ -102,17 +108,8 @@ module.exports = function(grunt) {
                     include: ['main'],
                     insertRequire: ['main'],
                     removeCombined: true,
-                    out: 'dist/scripts/main-built.js',
-                    optimize: 'uglify2',
-                    uglify2: {
-                        screwIE8: true,
-                        mangle: false,
-                        sourceMap: true,
-                        compress: {
-                            dead_code: true,
-                        },
-                        warnings: true,
-                    }
+                    out: 'build/scripts/main.js',
+                    optimize: 'none'
                 }
             },
             bootforce: {
@@ -123,21 +120,31 @@ module.exports = function(grunt) {
                     include: ['modules/components/main.js'],
                     insertRequire: ['modules/components/main.js'],
                     removeCombined: true,
-                    out: 'dist/scripts/bootforce-built.js',
-                    optimize: 'uglify2',
-                    uglify2: {
-                        screwIE8: true,
-                        mangle: false,
-                        sourceMap: true,
-                        compress: {
-                            dead_code: true,
-                        },
-                        warnings: true,
-                    }
+                    out: 'build/dist/<%= pkg.name %>.js',
+                    optimize: 'none'
                 }
             }
         },
-        'imagemin': {
+        uglify: {
+            options:{
+                maxLineLen: 500,
+                preserveComments: false,
+                sourceMap: true,
+                banner: '<%= banner %>'
+            },
+            main: {
+                files: {
+                    'build/scripts/main.min.js': 'build/scripts/main.js'
+                }
+
+            },
+            bootforce: {
+                files: {
+                    'build/dist/<%= pkg.name %>.min.js': 'build/dist/<%= pkg.name %>.js'
+                }
+            }
+        },
+        imagemin: {
             png: {
                 options: {
                     optimizationLevel: 7
@@ -163,13 +170,13 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        'copy': {
+        copy: {
             static: {
                 files: [{
                     expand: true,
                     dot: true,
                     cwd: 'app',
-                    dest: 'dist',
+                    dest: 'build',
                     src: [
                         'styles/{,*/}**',
                         'assets/fonts/{,*/}**',
@@ -177,9 +184,15 @@ module.exports = function(grunt) {
                         'assets/images/{,*/}**'
                     ]
                 }]
+            },
+            dev: {
+                files: [{
+                    dest: 'build/dist/scripts/bootforce.min.js',
+                    src: 'dist/bootforce.min.js'
+                }]
             }
         },
-        'notify': {
+        notify: {
             sass: {
                 options: {
                     title: 'SASS task done',
@@ -190,21 +203,31 @@ module.exports = function(grunt) {
     });
 
     // Bower integration
-    grunt.registerTask('bower', [
-        'bower-install-simple'
-    ]);
+    grunt.registerTask('bower', ['bower-install-simple']);
 
-    // Web Servers
-    grunt.registerTask('server-dev', ['connect:build']);
-    grunt.registerTask('server-prod', ['connect:deploy']);
-    grunt.registerTask('server', ['server-dev']);
+    grunt.registerTask('server', ['connect:build']);
 
-    // SASS build
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
-    grunt.registerTask('build', ['jshint', 'bower', 'requirejs:all', 'env:prod',
-                                    'copy:static', 'preprocess:prod']);
-    grunt.registerTask('bd', ['build', 'server-prod']);
+    grunt.registerTask('dist', ['requirejs:bootforce', 'uglify:bootforce']);
+    grunt.registerTask('main', ['requirejs:main', 'uglify:main']);
 
-    grunt.registerTask('default', ['env:dev', 'preprocess:dev', 'server-dev', 'watch']);
+    grunt.registerTask('build', [
+        'jshint',
+        'bower',
+        'main',
+        'dist',
+        'env:prod',
+        'copy:static',
+        'copy:dev',
+        'preprocess:prod',
+        'connect:deploy'
+    ]);
+
+    grunt.registerTask('default', [
+        'env:dev',
+        'preprocess:dev',
+        'server-dev',
+        'watch'
+    ]);
 };

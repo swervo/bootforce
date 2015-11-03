@@ -6,9 +6,7 @@
     requirejs.config({
         baseUrl: 'scripts',
         paths: {
-            jquery: '../lib/jquery/dist/jquery',
-            knockout: '../lib/knockout/dist/knockout',
-            jsforce: '../lib/jsforce/build/jsforce'
+            jquery: '../lib/jquery/dist/jquery'
         }
     });
 
