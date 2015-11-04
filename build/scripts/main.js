@@ -36761,9 +36761,9 @@ define('modules/login/LoginDialog',[
 
     function init() {
         f.browser.init({
-            clientId: '3MVG9Rd3qC6oMalUsp2rPGB248uHAGVxkr6GZb'
-                + 'LeF87wvo_z46PbBonmZ.xPfY8_pUdHwygzhfgRpSigiyF9e',
-            redirectUri: 'http://localhost:8000/callback.html',
+            clientId: '3MVG9Rd3qC6oMalUsp2rPGB248pmNZXR7f'
+                + 'BNcNpBpm27UadFGFLF1iU5iDK0MizIm54mYU.slyNZOyBeTKvw9',
+            redirectUri: 'https://bootforce.herokuapp.com/callback.html',
             proxyUrl: 'https://node-salesforce-proxy.herokuapp.com/proxy/'
         });
         f.browser.on('connect', function(conn) {
