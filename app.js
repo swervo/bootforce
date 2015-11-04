@@ -6,7 +6,7 @@ var app = require('commander');
 var debug = require('debug')('app');
 var Server = require('./server/server');
 
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 5000;
 var serverURL = process.env.SERVER_URL || 'http://localhost:4000';
 
 app.version('0.1.0')
