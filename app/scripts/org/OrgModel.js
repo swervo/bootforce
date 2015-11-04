@@ -10,61 +10,66 @@ define(
     function($, ko) {
         'use strict';
         var OrgModel = (function() {
-
             function OrgModel() {
                 var self = this;
-
-                function Show(aShowObj) {
-                    this.data = aShowObj.data;
-                    this.format = aShowObj.format;
-
-                    this.id = aShowObj.id;
-                    this.name = aShowObj.name;
-                    this.site = aShowObj.site;
-                    this.slug = aShowObj.slug;
-                    this.tweet_slug = aShowObj.tweet_slug;
+                function Account(anAccountObj) {
+                    this.id = anAccountObj.Id;
+                    this.name = anAccountObj.Name;
+                    this.accNumber = anAccountObj.AccountNumber;
+                    this.city = anAccountObj.BillingAddress.city;
+                    this.priority = anAccountObj.CustomerPriority__c;
+                    this.employees = anAccountObj.NumberOfEmployees;
+                    this.ownership = anAccountObj.Ownership;
                 }
-                this.username = ko.observable('');
-                this.userPhoto = ko.observable('/assets/images/avatar2.jpg');
-                this.sessionid = undefined;
-                this.fullname = ko.observable();
-                this.currentShowUid = undefined;
-                this.shows = ko.observableArray([]);
-                this.setUser = function(data) {
-                    this.username(data.username);
-                    this.sessionid = data.sessionid;
-                    this.fullname(data.fullname);
-                };
-                this.updateShows = function(aShowData) {
-                    aShowData.forEach(function(show) {
-                        self.shows.push(new Show(show));
+                this.accounts = ko.observableArray([]);
+                this.totalAccounts = ko.observable('');
+                this.updateAccounts = function(aAccountData) {
+                    self.totalAccounts(aAccountData.length);
+                    aAccountData = aAccountData.slice(0,10);
+                    aAccountData.forEach(function(anAccount) {
+                        if (!anAccount.BillingAddress) {
+                            anAccount.BillingAddress = {
+                                city: '---'
+                            };
+                        }
+                        self.accounts.push(new Account(anAccount));
                     });
                 };
-                this.setUserState = function(aShowUid, aUserDetails, aShowDetails) {
-                    this.updateShows(aShowDetails);
-                    this.setUser(aUserDetails);
-                    this.setCurrentShowUid(aShowUid);
-                    return this.canWrite;
+                function Contact(aContactObj) {
+                    this.name = aContactObj.Name;
+                    this.title = aContactObj.Title;
+                    this.department = aContactObj.Department;
+                    this.mobile = aContactObj.MobilePhone;
+                    this.email = aContactObj.Email;
+                    this.leadSource = aContactObj.LeadSource;
+                }
+                this.contacts = ko.observableArray([]);
+                this.totalContacts = ko.observable('');
+                this.updateContacts = function(aContactData) {
+                    self.totalContacts(aContactData.length);
+                    aContactData = aContactData.slice(0,10);
+                    aContactData.forEach(function(aContact) {
+                        self.contacts.push(new Contact(aContact));
+                    });
                 };
+                this.username = ko.observable('');
+                this.userPhoto = ko.observable('/assets/images/avatar2.jpg');
                 this.reset = function() {
                     this.username(null);
                     this.sessionid = undefined;
                     this.fullname(null);
                     this.shows.removeAll();
                 };
+                this.isLoggedIn = ko.observable(false);
                 this.setConnector = function(aConn) {
+                    this.isLoggedIn(true);
                     this.connector = aConn;
                 };
                 this.logout = function() {
+                    this.isLoggedIn(false);
                     return this.connector.logout();
                 };
                 this.getUserProfile = function() {
-                    // this.connector.query('SELECT Id, Name FROM Account', function(err, res) {
-                    //     if (err) {
-                    //         console.error(err);
-                    //     }
-                    //     console.log(res);
-                    // });
                     this.connector.identity().then(function(res, err) {
                         if (err) {
                             $deferred.reject(err);
@@ -78,11 +83,31 @@ define(
                             self.userPhoto(imagePath);
                         }
                         $deferred.resolve();
-                        
-                        // localStorage.setItem('sf_user_info', JSON.stringify(userInfo));
                     });
                     var $deferred = $.Deferred();
                     return $deferred.promise();
+                };
+                this.getAccounts = function() {
+                    this.connector.query(
+                    'SELECT Id, Name, NumberOfEmployees, AccountNumber, BillingAddress, CustomerPriority__c, Ownership FROM Account',
+                    function(err, res) {
+                        if (err) {
+                            console.error(err);
+                        }
+                        console.log(res);
+                        self.updateAccounts(res.records);
+                    });
+                };
+                this.getContacts = function() {
+                    this.connector.query(
+                    'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
+                    function(err, res) {
+                        if (err) {
+                            console.error(err);
+                        }
+                        console.log(res);
+                        self.updateContacts(res.records);
+                    });
                 };
             }
 

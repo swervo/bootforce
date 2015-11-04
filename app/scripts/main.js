@@ -25,7 +25,9 @@
         'knockout',
         'modules/login/main',
         'org/main',
-        'modules/components/main'
+        'modules/components/main',
+        'modules/data/accounts',
+        'modules/data/contacts'
     ], function(ko, conn, org) {
         org.init();
         // put initialisation stuff here
