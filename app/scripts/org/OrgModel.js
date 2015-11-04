@@ -89,7 +89,8 @@ define(
                 };
                 this.getAccounts = function() {
                     this.connector.query(
-                    'SELECT Id, Name, NumberOfEmployees, AccountNumber, BillingAddress, CustomerPriority__c, Ownership FROM Account',
+                    'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
+                        + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
                     function(err, res) {
                         if (err) {
                             console.error(err);
