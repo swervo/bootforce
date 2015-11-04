@@ -11416,7 +11416,7 @@ define("modules/components/dropdown", function(){});
             content: '',
             template: '<div class="slds-popover slds-nubbin--left" role="dialog">'
                 + '<div class="slds-popover__header"></div>'
-                + '<div class="slds-popover__content"></div>'
+                + '<div class="slds-popover__body"></div>'
                 + '</div>'
         });
 
@@ -11438,7 +11438,7 @@ define("modules/components/dropdown", function(){});
 
             $tip.find('.slds-popover__header')[this.options.html ? 'html' : 'text'](title);
             // we use append for html objects to maintain js events
-            $tip.find('.slds-popover__content').children().detach().end()[
+            $tip.find('.slds-popover__body').children().detach().end()[
                 this.options.html ? (typeof content === 'string' ? 'html' : 'append') : 'text'
             ](content);
 
