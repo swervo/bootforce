@@ -8,7 +8,7 @@ node_modules
 app/lib
 
 # Deploy directory
-build
+# build
 
 # Generated from templates
 app/index.html
