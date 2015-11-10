@@ -5,112 +5,79 @@
 define(
     'org/OrgModelImp', [
         'jquery',
-        'knockout'
+        'knockout',
+        'org/contacts',
+        'org/accounts'
     ],
-    function($, ko) {
+    function($, ko, Contacts, Accounts) {
         'use strict';
         var OrgModel = (function() {
             function OrgModel() {
-                var self = this;
-                function Account(anAccountObj) {
-                    this.id = anAccountObj.Id;
-                    this.name = anAccountObj.Name;
-                    this.accNumber = anAccountObj.AccountNumber;
-                    this.city = anAccountObj.BillingAddress.city;
-                    this.priority = anAccountObj.CustomerPriority__c;
-                    this.employees = anAccountObj.NumberOfEmployees;
-                    this.ownership = anAccountObj.Ownership;
-                }
-                this.accounts = ko.observableArray([]);
-                this.totalAccounts = ko.observable('');
-                this.updateAccounts = function(aAccountData) {
-                    self.totalAccounts(aAccountData.length);
-                    aAccountData = aAccountData.slice(0,10);
-                    aAccountData.forEach(function(anAccount) {
-                        if (!anAccount.BillingAddress) {
-                            anAccount.BillingAddress = {
-                                city: '---'
-                            };
-                        }
-                        self.accounts.push(new Account(anAccount));
-                    });
-                };
-                function Contact(aContactObj) {
-                    this.name = aContactObj.Name;
-                    this.title = aContactObj.Title;
-                    this.department = aContactObj.Department;
-                    this.mobile = aContactObj.MobilePhone;
-                    this.email = aContactObj.Email;
-                    this.leadSource = aContactObj.LeadSource;
-                }
-                this.contacts = ko.observableArray([]);
-                this.totalContacts = ko.observable('');
-                this.updateContacts = function(aContactData) {
-                    self.totalContacts(aContactData.length);
-                    aContactData = aContactData.slice(0,10);
-                    aContactData.forEach(function(aContact) {
-                        self.contacts.push(new Contact(aContact));
-                    });
-                };
-                this.username = ko.observable('');
-                this.userPhoto = ko.observable('/assets/images/avatar2.jpg');
-                this.reset = function() {
-                    this.username(null);
-                    this.sessionid = undefined;
-                    this.fullname(null);
-                    this.shows.removeAll();
-                };
-                this.isLoggedIn = ko.observable(false);
-                this.setConnector = function(aConn) {
-                    this.isLoggedIn(true);
-                    this.connector = aConn;
-                };
-                this.logout = function() {
-                    this.isLoggedIn(false);
-                    return this.connector.logout();
-                };
-                this.getUserProfile = function() {
-                    this.connector.identity().then(function(res, err) {
-                        if (err) {
-                            $deferred.reject(err);
-                        }
-                        self.username(res.display_name);
-
-                        if (res.photos && res.photos.thumbnail) {
-                            var imagePath = res.photos.thumbnail +
-                                '?oauth_token=' +
-                                self.connector.accessToken;
-                            self.userPhoto(imagePath);
-                        }
-                        $deferred.resolve();
-                    });
-                    var $deferred = $.Deferred();
-                    return $deferred.promise();
-                };
-                this.getAccounts = function() {
-                    this.connector.query(
-                    'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
-                        + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
-                    function(err, res) {
-                        if (err) {
-                            console.error(err);
-                        }
-                        console.log(res);
-                        self.updateAccounts(res.records);
-                    });
-                };
-                this.getContacts = function() {
-                    this.connector.query(
-                    'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
-                    function(err, res) {
-                        if (err) {
-                            console.error(err);
-                        }
-                        console.log(res);
-                        self.updateContacts(res.records);
-                    });
-                };
+                Contacts.call(this);
+                Accounts.call(this);
             }
+
+            OrgModel.prototype = Object.create(Contacts.prototype);
+            $.extend(OrgModel.prototype, Accounts.prototype);
+
+            OrgModel.prototype.username = ko.observable('');
+            OrgModel.prototype.userPhoto = ko.observable('/assets/images/avatar2.jpg');
+            OrgModel.prototype.reset = function() {
+                this.username(null);
+                this.sessionid = undefined;
+                this.fullname(null);
+                this.shows.removeAll();
+            };
+            OrgModel.prototype.isLoggedIn = ko.observable(false);
+            OrgModel.prototype.setConnector = function(aConn) {
+                this.isLoggedIn(true);
+                this.connector = aConn;
+            };
+            OrgModel.prototype.logout = function() {
+                this.isLoggedIn(false);
+                return this.connector.logout();
+            };
+            OrgModel.prototype.getUserProfile = function() {
+                this.connector.identity().then(function(res, err) {
+                    if (err) {
+                        $deferred.reject(err);
+                    }
+                    this.username(res.display_name);
+
+                    if (res.photos && res.photos.thumbnail) {
+                        var imagePath = res.photos.thumbnail +
+                            '?oauth_token=' +
+                            this.connector.accessToken;
+                        this.userPhoto(imagePath);
+                    }
+                    $deferred.resolve();
+                }.bind(this));
+                var $deferred = $.Deferred();
+                return $deferred.promise();
+            };
+            OrgModel.prototype.getAccounts = function() {
+                this.connector.query(
+                'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
+                    + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
+                function(err, res) {
+                    if (err) {
+                        console.error(err);
+                    }
+                    console.log(res);
+                    this.updateAccounts(res.records);
+                }.bind(this));
+            };
+            OrgModel.prototype.getContacts = function() {
+                this.connector.query(
+                'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
+                function(err, res) {
+                    if (err) {
+                        console.error(err);
+                    }
+                    console.log(res);
+                    this.updateContacts(res.records);
+                }.bind(this));
+            };
 
             return OrgModel;
         })();
