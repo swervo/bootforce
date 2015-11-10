@@ -28,10 +28,20 @@ define([
             aAccountData.forEach(function(aAccount) {
                 this.accounts.push(new Account(aAccount));
             }, this);
+        },
+        getAccounts: function() {
+                this.connector.query(
+                'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
+                    + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
+                function(err, res) {
+                    if (err) {
+                        console.error(err);
+                    }
+                    console.log(res);
+                    this.updateAccounts(res.records);
+                }.bind(this));
         }
     };
-
-
 
     return Accounts;
 

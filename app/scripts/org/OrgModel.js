@@ -55,30 +55,6 @@ define(
                 var $deferred = $.Deferred();
                 return $deferred.promise();
             };
-            OrgModel.prototype.getAccounts = function() {
-                this.connector.query(
-                'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
-                    + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
-                function(err, res) {
-                    if (err) {
-                        console.error(err);
-                    }
-                    console.log(res);
-                    this.updateAccounts(res.records);
-                }.bind(this));
-            };
-            OrgModel.prototype.getContacts = function() {
-                this.connector.query(
-                'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
-                function(err, res) {
-                    if (err) {
-                        console.error(err);
-                    }
-                    console.log(res);
-                    this.updateContacts(res.records);
-                }.bind(this));
-            };
-
             return OrgModel;
         })();
 

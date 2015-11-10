@@ -27,10 +27,19 @@ define([
             aContactData.forEach(function(aContact) {
                 this.contacts.push(new Contact(aContact));
             }, this);
+        },
+        getContacts: function() {
+            this.connector.query(
+            'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
+            function(err, res) {
+                if (err) {
+                    console.error(err);
+                }
+                console.log(res);
+                this.updateContacts(res.records);
+            }.bind(this));
         }
     };
-
-
 
     return Contacts;
 
