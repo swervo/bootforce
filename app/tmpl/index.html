@@ -496,33 +496,7 @@
               </th>
             </tr>
           </thead>
-          <tbody data-bind="foreach:{data: accounts, as: 'account'}">
-            <tr class="slds-hint-parent">
-              <td class="slds-row-select">
-                <label class="slds-checkbox" for="select-row1">
-                  <input name="select-row1" type="checkbox" id="select-row1" />
-                  <span class="slds-checkbox--faux"></span>
-                  <span class="slds-form-element__label slds-assistive-text">select row1</span>
-                </label>
-              </td>
-              <td data-label="opportunity-name" role="row">
-                <a href="#" class="slds-truncate" data-bind="text: account.name"></a>
-              </td>
-              <td data-label="account"><a href="#" class="slds-truncate" data-bind="text: account.accNumber"></a></td>
-              <td data-label="activity">
-                <span class="slds-truncate" data-bind="text: account.ownership"></span>
-              </td>
-              <td data-label="stage">
-                <span class="slds-truncate" data-bind="text: account.priority"></span>
-              </td>
-              <td data-label="amount">
-                <span class="slds-truncate" data-bind="text: account.employees"></span>
-              </td>
-              <td data-label="contact" data-bind="text: account.city">
-                <span class="slds-truncate">--</span>
-              </td>
-            </tr>
-          </tbody>
+          <tbody data-bind="template: {name: 'account', foreach: accounts}"></tbody>
         </table>
 
         <div class="slds-page-header" role="banner">
@@ -582,33 +556,7 @@
               </th>
             </tr>
           </thead>
-          <tbody data-bind="foreach:{data: contacts, as: 'contact'}">
-            <tr class="slds-hint-parent">
-              <td class="slds-row-select">
-                <label class="slds-checkbox" for="select-row1">
-                  <input name="select-row1" type="checkbox" id="select-row1" />
-                  <span class="slds-checkbox--faux"></span>
-                  <span class="slds-form-element__label slds-assistive-text">select row1</span>
-                </label>
-              </td>
-              <td data-label="opportunity-name" role="row">
-                <a href="#" class="slds-truncate" data-bind="text: contact.name"></a>
-              </td>
-              <td data-label="contact"><a href="#" class="slds-truncate" data-bind="text: contact.title"></a></td>
-              <td data-label="activity">
-                <span class="slds-truncate" data-bind="text: contact.department"></span>
-              </td>
-              <td data-label="stage">
-                <span class="slds-truncate" data-bind="text: contact.mobile"></span>
-              </td>
-              <td data-label="amount">
-                <span class="slds-truncate" data-bind="text: contact.email"></span>
-              </td>
-              <td data-label="amount">
-                <span class="slds-truncate" data-bind="text: contact.leadSource"></span>
-              </td>
-            </tr>
-          </tbody>
+          <tbody data-bind="template: {name: 'contact', foreach: contacts}"></tbody>
         </table>
 
       </div>
