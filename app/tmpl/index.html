@@ -134,13 +134,16 @@
                   </div>
                   <div class="slds-col slds-no-flex slds-m-right--medium">
                     <div class="slds-button-group" role="group" data-toggle="buttons">
-                      <button class="slds-button slds-button--neutral slds-button--small">A</button>
-                      <button class="slds-button slds-button--neutral slds-button--small">Button</button>
-                      <button class="slds-button slds-button--neutral slds-button--small slds-button--last">Mux</button>
+                      <button class="slds-button slds-button--brand slds-button--small">A</button>
+                      <button class="slds-button slds-button--brand slds-button--small">Button</button>
+                      <button class="slds-button slds-button--brand slds-button--small slds-button--last">Mux</button>
                     </div>
                   </div>
-                  <div class="slds-col slds-no-flex">
+                  <div class="slds-col slds-no-flex slds-m-right--medium">
                     <button data-toggle="button" aria-pressed="false" class="slds-button slds-button--brand slds-button--small">Single toggle</button>
+                  </div>
+                  <div class="slds-col slds-no-flex">
+                    <button aria-pressed="false" class="slds-button slds-button--destructive slds-button--small">Single button</button>
                   </div>
                 </header>
                 <!-- CARD BODY = TABLE -->
@@ -186,12 +189,28 @@
                 </section>
                 <!-- / CARD BODY = SECTION + TABLE -->
                 <footer class="slds-card__footer">
-                  <div class="slds-col slds-no-flex">
+<!--                   <div class="slds-col slds-no-flex slds-m-right--medium">
                     <div class="slds-button-group" role="group" data-toggle="buttons" data-grouptype="checkbox">
-                      <button class="slds-button slds-button--brand slds-button--small">Latching</button>
-                      <button class="slds-button slds-button--brand slds-button--small">Button</button>
-                      <button class="slds-button slds-button--brand slds-button--small slds-button--last">Set</button>
+                      <button class="slds-button slds-button--destructive slds-button--small">Latching</button>
+                      <button class="slds-button slds-button--destructive slds-button--small">Button</button>
+                      <button class="slds-button slds-button--destructive slds-button--small slds-button--last">Set</button>
                     </div>
+                  </div> -->
+                  <div>
+                    <button class="slds-button slds-button--neutral slds-not-selected" data-toggle="button" data-buttontype="stateful" aria-live="assertive">
+                      <span class="slds-text-not-selected">
+                        <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                        </svg>Follow</span>
+                      <span class="slds-text-selected">
+                        <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                        </svg>Following</span>
+                      <span class="slds-text-selected-focus">
+                        <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>Unfollow</span>
+                    </button>
                   </div>
                 </footer>
               </div>
