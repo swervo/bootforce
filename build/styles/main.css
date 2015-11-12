@@ -7525,12 +7525,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   position: absolute;
 }
 
-.slds-button--neutral.active {
+.slds-button--neutral.slds-is-selected {
   background-color: #eef1f6;
 }
 
-.slds-button--brand.active {
+.slds-button--brand.slds-is-selected {
   background-color: #00396b;
+}
+
+.slds-button--destructive.slds-is-selected {
+  background-color: #870500;
 }
 
 /**

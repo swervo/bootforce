@@ -36781,118 +36781,157 @@ define('modules/login/LoginDialog',[
 
 /* global define */
 
+define('org/contacts',[
+    'knockout',
+], function(ko) {
+    'use strict';
+
+    function Contact(aContactObj) {
+        this.name = aContactObj.Name;
+        this.title = aContactObj.Title;
+        this.department = aContactObj.Department;
+        this.mobile = aContactObj.MobilePhone;
+        this.email = aContactObj.Email;
+        this.leadSource = aContactObj.LeadSource;
+    }
+
+    function Contacts() {
+
+    }
+
+    Contacts.prototype = {
+        contacts: ko.observableArray([]),
+        totalContacts: ko.observable(''),
+        updateContacts: function(aContactData) {
+            this.totalContacts(aContactData.length);
+            aContactData = aContactData.slice(0,10);
+            aContactData.forEach(function(aContact) {
+                this.contacts.push(new Contact(aContact));
+            }, this);
+        },
+        getContacts: function() {
+            this.connector.query(
+            'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
+            function(err, res) {
+                if (err) {
+                    console.error(err);
+                }
+                console.log(res);
+                this.updateContacts(res.records);
+            }.bind(this));
+        }
+    };
+
+    return Contacts;
+
+});
+
+/* global define */
+
+define('org/accounts',[
+    'knockout'
+], function(ko) {
+    'use strict';
+
+    function Account(anAccountObj) {
+        this.id = anAccountObj.Id;
+        this.name = anAccountObj.Name;
+        this.accNumber = anAccountObj.AccountNumber;
+        this.city = anAccountObj.BillingAddress.city;
+        this.priority = anAccountObj.CustomerPriority__c;
+        this.employees = anAccountObj.NumberOfEmployees;
+        this.ownership = anAccountObj.Ownership;
+    }
+
+    function Accounts() {
+
+    }
+
+    Accounts.prototype = {
+        accounts: ko.observableArray([]),
+        totalAccounts: ko.observable(''),
+        updateAccounts: function(aAccountData) {
+            this.totalAccounts(aAccountData.length);
+            aAccountData = aAccountData.slice(0,10);
+            aAccountData.forEach(function(aAccount) {
+                this.accounts.push(new Account(aAccount));
+            }, this);
+        },
+        getAccounts: function() {
+                this.connector.query(
+                'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
+                    + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
+                function(err, res) {
+                    if (err) {
+                        console.error(err);
+                    }
+                    console.log(res);
+                    this.updateAccounts(res.records);
+                }.bind(this));
+        }
+    };
+
+    return Accounts;
+
+});
+
+/* global define */
+
 /* SINGLETON */
 
 define(
     'org/OrgModelImp', [
         'jquery',
-        'knockout'
+        'knockout',
+        'org/contacts',
+        'org/accounts'
     ],
-    function($, ko) {
+    function($, ko, Contacts, Accounts) {
         'use strict';
         var OrgModel = (function() {
             function OrgModel() {
-                var self = this;
-                function Account(anAccountObj) {
-                    this.id = anAccountObj.Id;
-                    this.name = anAccountObj.Name;
-                    this.accNumber = anAccountObj.AccountNumber;
-                    this.city = anAccountObj.BillingAddress.city;
-                    this.priority = anAccountObj.CustomerPriority__c;
-                    this.employees = anAccountObj.NumberOfEmployees;
-                    this.ownership = anAccountObj.Ownership;
-                }
-                this.accounts = ko.observableArray([]);
-                this.totalAccounts = ko.observable('');
-                this.updateAccounts = function(aAccountData) {
-                    self.totalAccounts(aAccountData.length);
-                    aAccountData = aAccountData.slice(0,10);
-                    aAccountData.forEach(function(anAccount) {
-                        if (!anAccount.BillingAddress) {
-                            anAccount.BillingAddress = {
-                                city: '---'
-                            };
-                        }
-                        self.accounts.push(new Account(anAccount));
-                    });
-                };
-                function Contact(aContactObj) {
-                    this.name = aContactObj.Name;
-                    this.title = aContactObj.Title;
-                    this.department = aContactObj.Department;
-                    this.mobile = aContactObj.MobilePhone;
-                    this.email = aContactObj.Email;
-                    this.leadSource = aContactObj.LeadSource;
-                }
-                this.contacts = ko.observableArray([]);
-                this.totalContacts = ko.observable('');
-                this.updateContacts = function(aContactData) {
-                    self.totalContacts(aContactData.length);
-                    aContactData = aContactData.slice(0,10);
-                    aContactData.forEach(function(aContact) {
-                        self.contacts.push(new Contact(aContact));
-                    });
-                };
-                this.username = ko.observable('');
-                this.userPhoto = ko.observable('/assets/images/avatar2.jpg');
-                this.reset = function() {
-                    this.username(null);
-                    this.sessionid = undefined;
-                    this.fullname(null);
-                    this.shows.removeAll();
-                };
-                this.isLoggedIn = ko.observable(false);
-                this.setConnector = function(aConn) {
-                    this.isLoggedIn(true);
-                    this.connector = aConn;
-                };
-                this.logout = function() {
-                    this.isLoggedIn(false);
-                    return this.connector.logout();
-                };
-                this.getUserProfile = function() {
-                    this.connector.identity().then(function(res, err) {
-                        if (err) {
-                            $deferred.reject(err);
-                        }
-                        self.username(res.display_name);
-
-                        if (res.photos && res.photos.thumbnail) {
-                            var imagePath = res.photos.thumbnail +
-                                '?oauth_token=' +
-                                self.connector.accessToken;
-                            self.userPhoto(imagePath);
-                        }
-                        $deferred.resolve();
-                    });
-                    var $deferred = $.Deferred();
-                    return $deferred.promise();
-                };
-                this.getAccounts = function() {
-                    this.connector.query(
-                    'SELECT Id, Name, NumberOfEmployees, AccountNumber,'
-                        + 'BillingAddress, CustomerPriority__c, Ownership FROM Account',
-                    function(err, res) {
-                        if (err) {
-                            console.error(err);
-                        }
-                        console.log(res);
-                        self.updateAccounts(res.records);
-                    });
-                };
-                this.getContacts = function() {
-                    this.connector.query(
-                    'SELECT Name, Title, Department, MobilePhone, Email, LeadSource FROM Contact',
-                    function(err, res) {
-                        if (err) {
-                            console.error(err);
-                        }
-                        console.log(res);
-                        self.updateContacts(res.records);
-                    });
-                };
+                Contacts.call(this);
+                Accounts.call(this);
             }
 
+            OrgModel.prototype = Object.create(Contacts.prototype);
+            $.extend(OrgModel.prototype, Accounts.prototype);
+
+            OrgModel.prototype.username = ko.observable('');
+            OrgModel.prototype.userPhoto = ko.observable('/assets/images/avatar2.jpg');
+            OrgModel.prototype.reset = function() {
+                this.username(null);
+                this.sessionid = undefined;
+                this.fullname(null);
+                this.shows.removeAll();
+            };
+            OrgModel.prototype.isLoggedIn = ko.observable(false);
+            OrgModel.prototype.setConnector = function(aConn) {
+                this.isLoggedIn(true);
+                this.connector = aConn;
+            };
+            OrgModel.prototype.logout = function() {
+                this.isLoggedIn(false);
+                return this.connector.logout();
+            };
+            OrgModel.prototype.getUserProfile = function() {
+                this.connector.identity().then(function(res, err) {
+                    if (err) {
+                        $deferred.reject(err);
+                    }
+                    this.username(res.display_name);
+
+                    if (res.photos && res.photos.thumbnail) {
+                        var imagePath = res.photos.thumbnail +
+                            '?oauth_token=' +
+                            this.connector.accessToken;
+                        this.userPhoto(imagePath);
+                    }
+                    $deferred.resolve();
+                }.bind(this));
+                var $deferred = $.Deferred();
+                return $deferred.promise();
+            };
             return OrgModel;
         })();
 
@@ -37415,36 +37454,6 @@ define("modules/components/tab", function(){});
 
         Button.VERSION = '3.3.5';
 
-        Button.DEFAULTS = {
-            loadingText: 'loading...'
-        };
-
-        Button.prototype.setState = function(state) {
-            var d = 'disabled';
-            var $el = this.$element;
-            var val = $el.is('input') ? 'val' : 'html';
-            var data = $el.data();
-
-            state += 'Text';
-
-            if (data.resetText === null) {
-                $el.data('resetText', $el[val]());
-            }
-
-            // push to event loop to allow forms to submit
-            setTimeout($.proxy(function() {
-                $el[val](data[state] === null ? this.options[state] : data[state]);
-
-                if (state === 'loadingText') {
-                    this.isLoading = true;
-                    $el.addClass(d).attr(d, d);
-                } else if (this.isLoading) {
-                    this.isLoading = false;
-                    $el.removeClass(d).removeAttr(d);
-                }
-            }, this), 0);
-        };
-
         Button.prototype.toggle = function() {
             var changed = true;
             var $parent = this.$element.closest('[data-toggle="buttons"]');
@@ -37452,26 +37461,32 @@ define("modules/components/tab", function(){});
             if ($parent.length) {
                 if ($parent.data('grouptype') === 'checkbox') {
                     console.log('checkbox');
-                    if (this.$element.hasClass('active')) {
+                    if (this.$element.hasClass('slds-is-selected')) {
                         changed = false;
                     }
-                    this.$element.toggleClass('active');
+                    this.$element.toggleClass('slds-is-selected');
                 } else {
                     // assume its radio type behaviour
-                    if (this.$element.hasClass('active')) {
+                    if (this.$element.hasClass('slds-is-selected')) {
                         changed = false;
                     }
-                    $parent.find('.active').removeClass('active');
-                    this.$element.addClass('active');
+                    $parent.find('.slds-is-selected').removeClass('slds-is-selected');
+                    this.$element.addClass('slds-is-selected');
                 }
                 if (changed) {
                     //this may not be required
                     this.$element.trigger('change');
                 }
             } else {
-                this.$element.attr('aria-pressed', !this.$element.hasClass('active'));
-                this.$element.toggleClass('active');
+                // just a regular button
+                this.$element.attr('aria-pressed', !this.$element.hasClass('slds-is-selected'));
+                this.$element.toggleClass('slds-is-selected');
             }
+        };
+
+        Button.prototype.changeState = function() {
+            this.$element.attr('aria-pressed', !this.$element.hasClass('slds-is-selected'));
+            this.$element.toggleClass('slds-is-selected slds-not-selected');
         };
 
         // BUTTON PLUGIN DEFINITION
@@ -37489,8 +37504,9 @@ define("modules/components/tab", function(){});
 
                 if (option === 'toggle') {
                     data.toggle();
-                } else if (option) {
-                    data.setState(option);
+                } else {
+                    // this is changestate
+                    data.changeState();
                 }
             });
         }
@@ -37517,7 +37533,11 @@ define("modules/components/tab", function(){});
                 if (!$btn.hasClass('slds-button')) {
                     $btn = $btn.closest('.slds-button');
                 }
-                Plugin.call($btn, 'toggle');
+                if ($btn.data().buttontype) {
+                    Plugin.call($btn, 'changestate');
+                } else {
+                    Plugin.call($btn, 'toggle');
+                }
                 // doesnt look like this applies for slds
                 if (!($(e.target).is('input[type="radio"]') ||
                     $(e.target).is('input[type="checkbox"]'))) {
@@ -39005,6 +39025,678 @@ define('modules/data/contacts',[
 
 });
 
+/**
+ * @license RequireJS text 2.0.14 Copyright (c) 2010-2014, The Dojo Foundation All Rights Reserved.
+ * Available via the MIT or new BSD license.
+ * see: http://github.com/requirejs/text for details
+ */
+/*jslint regexp: true */
+/*global require, XMLHttpRequest, ActiveXObject,
+  define, window, process, Packages,
+  java, location, Components, FileUtils */
+
+define('text',['module'], function (module) {
+    'use strict';
+
+    var text, fs, Cc, Ci, xpcIsWindows,
+        progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'],
+        xmlRegExp = /^\s*<\?xml(\s)+version=[\'\"](\d)*.(\d)*[\'\"](\s)*\?>/im,
+        bodyRegExp = /<body[^>]*>\s*([\s\S]+)\s*<\/body>/im,
+        hasLocation = typeof location !== 'undefined' && location.href,
+        defaultProtocol = hasLocation && location.protocol && location.protocol.replace(/\:/, ''),
+        defaultHostName = hasLocation && location.hostname,
+        defaultPort = hasLocation && (location.port || undefined),
+        buildMap = {},
+        masterConfig = (module.config && module.config()) || {};
+
+    text = {
+        version: '2.0.14',
+
+        strip: function (content) {
+            //Strips <?xml ...?> declarations so that external SVG and XML
+            //documents can be added to a document without worry. Also, if the string
+            //is an HTML document, only the part inside the body tag is returned.
+            if (content) {
+                content = content.replace(xmlRegExp, "");
+                var matches = content.match(bodyRegExp);
+                if (matches) {
+                    content = matches[1];
+                }
+            } else {
+                content = "";
+            }
+            return content;
+        },
+
+        jsEscape: function (content) {
+            return content.replace(/(['\\])/g, '\\$1')
+                .replace(/[\f]/g, "\\f")
+                .replace(/[\b]/g, "\\b")
+                .replace(/[\n]/g, "\\n")
+                .replace(/[\t]/g, "\\t")
+                .replace(/[\r]/g, "\\r")
+                .replace(/[\u2028]/g, "\\u2028")
+                .replace(/[\u2029]/g, "\\u2029");
+        },
+
+        createXhr: masterConfig.createXhr || function () {
+            //Would love to dump the ActiveX crap in here. Need IE 6 to die first.
+            var xhr, i, progId;
+            if (typeof XMLHttpRequest !== "undefined") {
+                return new XMLHttpRequest();
+            } else if (typeof ActiveXObject !== "undefined") {
+                for (i = 0; i < 3; i += 1) {
+                    progId = progIds[i];
+                    try {
+                        xhr = new ActiveXObject(progId);
+                    } catch (e) {}
+
+                    if (xhr) {
+                        progIds = [progId];  // so faster next time
+                        break;
+                    }
+                }
+            }
+
+            return xhr;
+        },
+
+        /**
+         * Parses a resource name into its component parts. Resource names
+         * look like: module/name.ext!strip, where the !strip part is
+         * optional.
+         * @param {String} name the resource name
+         * @returns {Object} with properties "moduleName", "ext" and "strip"
+         * where strip is a boolean.
+         */
+        parseName: function (name) {
+            var modName, ext, temp,
+                strip = false,
+                index = name.lastIndexOf("."),
+                isRelative = name.indexOf('./') === 0 ||
+                             name.indexOf('../') === 0;
+
+            if (index !== -1 && (!isRelative || index > 1)) {
+                modName = name.substring(0, index);
+                ext = name.substring(index + 1);
+            } else {
+                modName = name;
+            }
+
+            temp = ext || modName;
+            index = temp.indexOf("!");
+            if (index !== -1) {
+                //Pull off the strip arg.
+                strip = temp.substring(index + 1) === "strip";
+                temp = temp.substring(0, index);
+                if (ext) {
+                    ext = temp;
+                } else {
+                    modName = temp;
+                }
+            }
+
+            return {
+                moduleName: modName,
+                ext: ext,
+                strip: strip
+            };
+        },
+
+        xdRegExp: /^((\w+)\:)?\/\/([^\/\\]+)/,
+
+        /**
+         * Is an URL on another domain. Only works for browser use, returns
+         * false in non-browser environments. Only used to know if an
+         * optimized .js version of a text resource should be loaded
+         * instead.
+         * @param {String} url
+         * @returns Boolean
+         */
+        useXhr: function (url, protocol, hostname, port) {
+            var uProtocol, uHostName, uPort,
+                match = text.xdRegExp.exec(url);
+            if (!match) {
+                return true;
+            }
+            uProtocol = match[2];
+            uHostName = match[3];
+
+            uHostName = uHostName.split(':');
+            uPort = uHostName[1];
+            uHostName = uHostName[0];
+
+            return (!uProtocol || uProtocol === protocol) &&
+                   (!uHostName || uHostName.toLowerCase() === hostname.toLowerCase()) &&
+                   ((!uPort && !uHostName) || uPort === port);
+        },
+
+        finishLoad: function (name, strip, content, onLoad) {
+            content = strip ? text.strip(content) : content;
+            if (masterConfig.isBuild) {
+                buildMap[name] = content;
+            }
+            onLoad(content);
+        },
+
+        load: function (name, req, onLoad, config) {
+            //Name has format: some.module.filext!strip
+            //The strip part is optional.
+            //if strip is present, then that means only get the string contents
+            //inside a body tag in an HTML string. For XML/SVG content it means
+            //removing the <?xml ...?> declarations so the content can be inserted
+            //into the current doc without problems.
+
+            // Do not bother with the work if a build and text will
+            // not be inlined.
+            if (config && config.isBuild && !config.inlineText) {
+                onLoad();
+                return;
+            }
+
+            masterConfig.isBuild = config && config.isBuild;
+
+            var parsed = text.parseName(name),
+                nonStripName = parsed.moduleName +
+                    (parsed.ext ? '.' + parsed.ext : ''),
+                url = req.toUrl(nonStripName),
+                useXhr = (masterConfig.useXhr) ||
+                         text.useXhr;
+
+            // Do not load if it is an empty: url
+            if (url.indexOf('empty:') === 0) {
+                onLoad();
+                return;
+            }
+
+            //Load the text. Use XHR if possible and in a browser.
+            if (!hasLocation || useXhr(url, defaultProtocol, defaultHostName, defaultPort)) {
+                text.get(url, function (content) {
+                    text.finishLoad(name, parsed.strip, content, onLoad);
+                }, function (err) {
+                    if (onLoad.error) {
+                        onLoad.error(err);
+                    }
+                });
+            } else {
+                //Need to fetch the resource across domains. Assume
+                //the resource has been optimized into a JS module. Fetch
+                //by the module name + extension, but do not include the
+                //!strip part to avoid file system issues.
+                req([nonStripName], function (content) {
+                    text.finishLoad(parsed.moduleName + '.' + parsed.ext,
+                                    parsed.strip, content, onLoad);
+                });
+            }
+        },
+
+        write: function (pluginName, moduleName, write, config) {
+            if (buildMap.hasOwnProperty(moduleName)) {
+                var content = text.jsEscape(buildMap[moduleName]);
+                write.asModule(pluginName + "!" + moduleName,
+                               "define(function () { return '" +
+                                   content +
+                               "';});\n");
+            }
+        },
+
+        writeFile: function (pluginName, moduleName, req, write, config) {
+            var parsed = text.parseName(moduleName),
+                extPart = parsed.ext ? '.' + parsed.ext : '',
+                nonStripName = parsed.moduleName + extPart,
+                //Use a '.js' file name so that it indicates it is a
+                //script that can be loaded across domains.
+                fileName = req.toUrl(parsed.moduleName + extPart) + '.js';
+
+            //Leverage own load() method to load plugin value, but only
+            //write out values that do not have the strip argument,
+            //to avoid any potential issues with ! in file names.
+            text.load(nonStripName, req, function (value) {
+                //Use own write() method to construct full module value.
+                //But need to create shell that translates writeFile's
+                //write() to the right interface.
+                var textWrite = function (contents) {
+                    return write(fileName, contents);
+                };
+                textWrite.asModule = function (moduleName, contents) {
+                    return write.asModule(moduleName, fileName, contents);
+                };
+
+                text.write(pluginName, nonStripName, textWrite, config);
+            }, config);
+        }
+    };
+
+    if (masterConfig.env === 'node' || (!masterConfig.env &&
+            typeof process !== "undefined" &&
+            process.versions &&
+            !!process.versions.node &&
+            !process.versions['node-webkit'] &&
+            !process.versions['atom-shell'])) {
+        //Using special require.nodeRequire, something added by r.js.
+        fs = require.nodeRequire('fs');
+
+        text.get = function (url, callback, errback) {
+            try {
+                var file = fs.readFileSync(url, 'utf8');
+                //Remove BOM (Byte Mark Order) from utf8 files if it is there.
+                if (file[0] === '\uFEFF') {
+                    file = file.substring(1);
+                }
+                callback(file);
+            } catch (e) {
+                if (errback) {
+                    errback(e);
+                }
+            }
+        };
+    } else if (masterConfig.env === 'xhr' || (!masterConfig.env &&
+            text.createXhr())) {
+        text.get = function (url, callback, errback, headers) {
+            var xhr = text.createXhr(), header;
+            xhr.open('GET', url, true);
+
+            //Allow plugins direct access to xhr headers
+            if (headers) {
+                for (header in headers) {
+                    if (headers.hasOwnProperty(header)) {
+                        xhr.setRequestHeader(header.toLowerCase(), headers[header]);
+                    }
+                }
+            }
+
+            //Allow overrides specified in config
+            if (masterConfig.onXhr) {
+                masterConfig.onXhr(xhr, url);
+            }
+
+            xhr.onreadystatechange = function (evt) {
+                var status, err;
+                //Do not explicitly handle errors, those should be
+                //visible via console output in the browser.
+                if (xhr.readyState === 4) {
+                    status = xhr.status || 0;
+                    if (status > 399 && status < 600) {
+                        //An http 4xx or 5xx error. Signal an error.
+                        err = new Error(url + ' HTTP status: ' + status);
+                        err.xhr = xhr;
+                        if (errback) {
+                            errback(err);
+                        }
+                    } else {
+                        callback(xhr.responseText);
+                    }
+
+                    if (masterConfig.onXhrComplete) {
+                        masterConfig.onXhrComplete(xhr, url);
+                    }
+                }
+            };
+            xhr.send(null);
+        };
+    } else if (masterConfig.env === 'rhino' || (!masterConfig.env &&
+            typeof Packages !== 'undefined' && typeof java !== 'undefined')) {
+        //Why Java, why is this so awkward?
+        text.get = function (url, callback) {
+            var stringBuffer, line,
+                encoding = "utf-8",
+                file = new java.io.File(url),
+                lineSeparator = java.lang.System.getProperty("line.separator"),
+                input = new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.FileInputStream(file), encoding)),
+                content = '';
+            try {
+                stringBuffer = new java.lang.StringBuffer();
+                line = input.readLine();
+
+                // Byte Order Mark (BOM) - The Unicode Standard, version 3.0, page 324
+                // http://www.unicode.org/faq/utf_bom.html
+
+                // Note that when we use utf-8, the BOM should appear as "EF BB BF", but it doesn't due to this bug in the JDK:
+                // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
+                if (line && line.length() && line.charAt(0) === 0xfeff) {
+                    // Eat the BOM, since we've already found the encoding on this file,
+                    // and we plan to concatenating this buffer with others; the BOM should
+                    // only appear at the top of a file.
+                    line = line.substring(1);
+                }
+
+                if (line !== null) {
+                    stringBuffer.append(line);
+                }
+
+                while ((line = input.readLine()) !== null) {
+                    stringBuffer.append(lineSeparator);
+                    stringBuffer.append(line);
+                }
+                //Make sure we return a JavaScript string and not a Java string.
+                content = String(stringBuffer.toString()); //String
+            } finally {
+                input.close();
+            }
+            callback(content);
+        };
+    } else if (masterConfig.env === 'xpconnect' || (!masterConfig.env &&
+            typeof Components !== 'undefined' && Components.classes &&
+            Components.interfaces)) {
+        //Avert your gaze!
+        Cc = Components.classes;
+        Ci = Components.interfaces;
+        Components.utils['import']('resource://gre/modules/FileUtils.jsm');
+        xpcIsWindows = ('@mozilla.org/windows-registry-key;1' in Cc);
+
+        text.get = function (url, callback) {
+            var inStream, convertStream, fileObj,
+                readData = {};
+
+            if (xpcIsWindows) {
+                url = url.replace(/\//g, '\\');
+            }
+
+            fileObj = new FileUtils.File(url);
+
+            //XPCOM, you so crazy
+            try {
+                inStream = Cc['@mozilla.org/network/file-input-stream;1']
+                           .createInstance(Ci.nsIFileInputStream);
+                inStream.init(fileObj, 1, 0, false);
+
+                convertStream = Cc['@mozilla.org/intl/converter-input-stream;1']
+                                .createInstance(Ci.nsIConverterInputStream);
+                convertStream.init(inStream, "utf-8", inStream.available(),
+                Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+                convertStream.readString(inStream.available(), readData);
+                convertStream.close();
+                inStream.close();
+                callback(readData.value);
+            } catch (e) {
+                throw new Error((fileObj && fileObj.path || '') + ': ' + e);
+            }
+        };
+    }
+    return text;
+});
+
+// knockout-amd-helpers 0.7.4 | (c) 2015 Ryan Niemeyer |  http://www.opensource.org/licenses/mit-license
+define('koAMDHelpers',["knockout"], function(ko) {
+
+//helper functions to support the binding and template engine (whole lib is wrapped in an IIFE)
+var require = window.requirejs || window.require || window.curl,
+    unwrap = ko.utils.unwrapObservable,
+    //call a constructor function with a variable number of arguments
+    construct = function(Constructor, args) {
+        var instance,
+            Wrapper = function() {
+                return Constructor.apply(this, args || []);
+            };
+
+        Wrapper.prototype = Constructor.prototype;
+        instance = new Wrapper();
+        instance.constructor = Constructor;
+
+        return instance;
+    },
+    addTrailingSlash = function(path) {
+        return path && path.replace(/\/?$/, "/");
+    },
+    isAnonymous = function(node) {
+        var el = ko.virtualElements.firstChild(node);
+
+        while (el) {
+            if (el.nodeType === 1 || el.nodeType === 8) {
+                return true;
+            }
+
+            el = ko.virtualElements.nextSibling(el);
+        }
+
+        return false;
+    };
+
+//an AMD helper binding that allows declarative module loading/binding
+ko.bindingHandlers.module = {
+    init: function(element, valueAccessor, allBindingsAccessor, data, context) {
+        var extendedContext, disposeModule,
+            options = unwrap(valueAccessor()),
+            templateBinding = {},
+            initializer = ko.bindingHandlers.module.initializer,
+            disposeMethod = ko.bindingHandlers.module.disposeMethod;
+
+        //build up a proper template binding object
+        templateBinding.templateEngine = options && options.templateEngine;
+
+        //allow binding template to a string on module (can override in binding)
+        templateBinding.templateProperty = ko.bindingHandlers.module.templateProperty;
+
+        //afterRender could be different for each module, create a wrapper
+        templateBinding.afterRender = function(nodes, data) {
+            var handler,
+                options = unwrap(valueAccessor());
+
+            if (options && options.afterRender) {
+                handler = typeof options.afterRender === "string" ? data && data[options.afterRender] : options.afterRender;
+
+                if (typeof handler === "function") {
+                    handler.apply(this, arguments);
+                }
+            }
+        };
+
+        //if this is not an anonymous template, then build a function to properly return the template name
+        if (!isAnonymous(element)) {
+            templateBinding.name = function() {
+                var template = unwrap(valueAccessor());
+                return ((template && typeof template === "object") ? unwrap(template.template || template.name) : template) || "";
+            };
+        }
+
+        //set the data to an observable, that we will fill when the module is ready
+        templateBinding.data = ko.observable();
+        templateBinding["if"] = templateBinding.data;
+
+        //actually apply the template binding that we built. extend the context to include a $module property
+        ko.applyBindingsToNode(element, { template: templateBinding }, extendedContext = context.extend({ $module: null }));
+
+        //disposal function to use when a module is swapped or element is removed
+        disposeModule = function() {
+            //avoid any dependencies
+            ko.computed(function() {
+                var currentData = templateBinding.data();
+                if (currentData) {
+                    if (typeof currentData[disposeMethod] === "function") {
+                        currentData[disposeMethod].call(currentData);
+                        currentData = null;
+                    }
+
+                    templateBinding.data(null);
+                }
+            }).dispose();
+        };
+
+        //now that we have bound our element using the template binding, pull the module and populate the observable.
+        ko.computed({
+            read: function() {
+                //module name could be in an observable
+                var initialArgs,
+                    moduleName = unwrap(valueAccessor());
+
+                //observable could return an object that contains a name property
+                if (moduleName && typeof moduleName === "object") {
+
+                    //initializer/dispose function name can be overridden
+                    initializer = moduleName.initializer || initializer;
+                    disposeMethod = moduleName.disposeMethod || disposeMethod;
+                    templateBinding.templateProperty = ko.unwrap(moduleName.templateProperty) || templateBinding.templateProperty;
+
+                    //get the current copy of data to pass into module
+                    initialArgs = [].concat(unwrap(moduleName.data));
+
+                    //name property could be observable
+                    moduleName = unwrap(moduleName.name);
+                }
+
+                //if there is a current module and it has a dispose callback, execute it and clear the data
+                disposeModule();
+
+                //at this point, if we have a module name, then require it dynamically
+                if (moduleName) {
+                    require([addTrailingSlash(ko.bindingHandlers.module.baseDir) + moduleName], function(mod) {
+                        //if it is a constructor function then create a new instance
+                        if (typeof mod === "function") {
+                            mod = construct(mod, initialArgs);
+                        }
+                        else {
+                            //if it has an appropriate initializer function, then call it
+                            if (mod && mod[initializer]) {
+                                //if the function has a return value, then use it as the data
+                                mod = mod[initializer].apply(mod, initialArgs || []) || mod;
+                            }
+                        }
+
+                        //update the data that we are binding against
+                        extendedContext.$module = mod;
+                        templateBinding.data(mod);
+                    });
+                }
+            },
+            disposeWhenNodeIsRemoved: element
+        });
+
+        //optionally call module disposal when removing an element
+        ko.utils.domNodeDisposal.addDisposeCallback(element, disposeModule);
+
+        return { controlsDescendantBindings: true };
+    },
+    baseDir: "",
+
+    initializer: "initialize",
+
+    disposeMethod: "dispose",
+
+    templateProperty: ""
+};
+
+//support KO 2.0 that did not export ko.virtualElements
+if (ko.virtualElements) {
+    ko.virtualElements.allowedBindings.module = true;
+}
+
+
+//an AMD template engine that uses the text plugin to pull templates
+(function(ko, require) {
+    //get a new native template engine to start with
+    var engine = new ko.nativeTemplateEngine(),
+        sources = {};
+
+    engine.defaultPath = "templates";
+    engine.defaultSuffix = ".tmpl.html";
+    engine.defaultRequireTextPluginName = "text";
+
+    //create a template source that loads its template using the require.js text plugin
+    ko.templateSources.requireTemplate = function(key) {
+        this.key = key;
+        this.template = ko.observable(" "); //content has to be non-falsey to start with
+        this.requested = false;
+        this.retrieved = false;
+    };
+
+    ko.templateSources.requireTemplate.prototype.text = function(value) {
+        //when the template is retrieved, check if we need to load it
+        if (!this.requested && this.key) {
+            require([engine.defaultRequireTextPluginName + "!" + addTrailingSlash(engine.defaultPath) + this.key + engine.defaultSuffix], function(templateContent) {
+                this.retrieved = true;
+                this.template(templateContent);
+            }.bind(this));
+
+            this.requested = true;
+        }
+
+        //if template is currently empty, then clear it
+        if (!this.key) {
+            this.template("");
+        }
+
+        //always return the current template
+        if (arguments.length === 0) {
+            return this.template();
+        }
+    };
+
+    //our engine needs to understand when to create a "requireTemplate" template source
+    engine.makeTemplateSource = function(template, doc) {
+        var el;
+
+        //if a name is specified
+        if (typeof template === "string") {
+            //if there is an element with this id and it is a script tag, then use it
+            el = (doc || document).getElementById(template);
+
+            if (el && el.tagName.toLowerCase() === "script") {
+                return new ko.templateSources.domElement(el);
+            }
+
+            //otherwise pull the template in using the AMD loader's text plugin
+            if (!(template in sources)) {
+                sources[template] = new ko.templateSources.requireTemplate(template);
+            }
+
+            //keep a single template source instance for each key, so everyone depends on the same observable
+            return sources[template];
+        }
+        //if there is no name (foreach/with) use the elements as the template, as normal
+        else if (template && (template.nodeType === 1 || template.nodeType === 8)) {
+            return new ko.templateSources.anonymousTemplate(template);
+        }
+    };
+
+    //override renderTemplate to properly handle afterRender prior to template being available
+    engine.renderTemplate = function(template, bindingContext, options, templateDocument) {
+        var templateSource,
+            existingAfterRender = options && options.afterRender,
+            localTemplate = options && options.templateProperty && bindingContext.$module && bindingContext.$module[options.templateProperty];
+
+        //restore the original afterRender, if necessary
+        if (existingAfterRender) {
+            existingAfterRender = options.afterRender = options.afterRender.original || options.afterRender;
+        }
+
+        //if a module is being loaded, and that module has the template property (of type `string` or `function`) - use that as the source of the template.
+        if (localTemplate && (typeof localTemplate === "function" || typeof localTemplate === "string")) {
+            templateSource = {
+                text: function() {
+                    return typeof localTemplate === "function" ? localTemplate.call(bindingContext.$module) : localTemplate;
+                }
+            };
+        }
+        else {
+            templateSource = engine.makeTemplateSource(template, templateDocument);
+        }
+
+        //wrap the existing afterRender, so it is not called until template is actually retrieved
+        if (typeof existingAfterRender === "function" && templateSource instanceof ko.templateSources.requireTemplate && !templateSource.retrieved) {
+            options.afterRender = function() {
+                if (templateSource.retrieved) {
+                    existingAfterRender.apply(this, arguments);
+                }
+            };
+
+            //keep track of the original, so we don't double-wrap the function when template name changes
+            options.afterRender.original = existingAfterRender;
+        }
+
+        return engine.renderTemplateSource(templateSource, bindingContext, options, templateDocument);
+    };
+
+    //expose the template engine at least to be able to customize the path/suffix/plugin at run-time
+    ko.amdTemplateEngine = engine;
+
+    //make this new template engine our default engine
+    ko.setTemplateEngine(engine);
+
+})(ko, require);
+
+
+});
 /* global requirejs */
 
 (function() {
@@ -39013,8 +39705,10 @@ define('modules/data/contacts',[
     requirejs.config({
         baseUrl: 'scripts',
         paths: {
+            text: '../lib/text/text',
             jquery: '../lib/jquery/dist/jquery',
             knockout: '../lib/knockout/dist/knockout',
+            koAMDHelpers: '../lib/knockout-amd-helpers/build/knockout-amd-helpers',
             jsforce: '../lib/jsforce/build/jsforce'
         },
         shim: {},
@@ -39034,8 +39728,11 @@ define('modules/data/contacts',[
         'org/main',
         'modules/components/main',
         'modules/data/accounts',
-        'modules/data/contacts'
+        'modules/data/contacts',
+        'text',
+        'koAMDHelpers'
     ], function(ko, conn, org) {
+        ko.amdTemplateEngine.defaultPath = '../tmpl/partials';
         org.init();
         // put initialisation stuff here
         conn.init()
