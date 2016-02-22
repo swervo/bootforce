@@ -181,7 +181,8 @@ module.exports = function(grunt) {
                         'styles/{,*/}**',
                         'assets/fonts/{,*/}**',
                         'assets/icons/{,*/}**',
-                        'assets/images/{,*/}**'
+                        'assets/images/{,*/}**',
+                        'assets/logo/{,*/}**'
                     ]
                 }]
             },
