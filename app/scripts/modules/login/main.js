@@ -1,10 +1,9 @@
 /* global define */
 
 define([
-    'jquery',
     'modules/login/LoginDialog',
     'modules/login/LogoutDialog'
-], function($, loginDialog) {
+], function(loginDialog) {
     'use strict';
 
     function init() {

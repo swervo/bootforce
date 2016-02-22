@@ -9,9 +9,7 @@
 (function() {
     'use strict';
 
-    require([
-        'jquery'
-    ], function($) {
+    require([], function() {
 
         var Tab = function(element) {
             // jscs:disable requireDollarBeforejQueryAssignment

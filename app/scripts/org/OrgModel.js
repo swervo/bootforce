@@ -4,12 +4,11 @@
 
 define(
     'org/OrgModelImp', [
-        'jquery',
         'knockout',
         'org/contacts',
         'org/accounts'
     ],
-    function($, ko, Contacts, Accounts) {
+    function(ko, Contacts, Accounts) {
         'use strict';
         var OrgModel = (function() {
             function OrgModel() {

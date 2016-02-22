@@ -6,18 +6,18 @@
     requirejs.config({
         baseUrl: 'scripts',
         paths: {
-            jquery: '../lib/jquery/dist/jquery',
+            // jquery: '../lib/jquery/dist/jquery',
             knockout: '../lib/knockout/dist/knockout',
             jsforce: '../lib/jsforce/build/jsforce'
         },
-        shim: {},
-        map: {
-          // '*' means all modules will get 'jquery-private'
-          // for their 'jquery' dependency.
-          '*': { 'jquery': 'jquery-private' },
-          // 'jquery-private' wants the real jQuery module
-          'jquery-private': { 'jquery': 'jquery' }
-        }
+        shim: {}
+        // map: {
+        //   // '*' means all modules will get 'jquery-private'
+        //   // for their 'jquery' dependency.
+        //   '*': { 'jquery': 'jquery-private' },
+        //   // 'jquery-private' wants the real jQuery module
+        //   'jquery-private': { 'jquery': 'jquery' }
+        // }
     });
 
 

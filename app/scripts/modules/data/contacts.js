@@ -1,9 +1,8 @@
 /* global define */
 
 define([
-    'jquery',
     'org/OrgModel'
-], function($, OrgModel) {
+], function(OrgModel) {
     'use strict';
 
     var isInitialised = false;

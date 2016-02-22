@@ -2,9 +2,8 @@
 
 define([
     'jsforce',
-    'jquery',
     'org/main'
-], function(f, $, org) {
+], function(f, org) {
     'use strict';
     window.force = f;
 

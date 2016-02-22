@@ -1,9 +1,8 @@
 /* global define */
 
 define([
-    'jsforce',
-    'jquery'
-], function(f, $) {
+    'jsforce'
+], function(f) {
     'use strict';
 
     // function loginPanel(aCallback) {

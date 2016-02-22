@@ -4,10 +4,7 @@
     'use strict';
 
     requirejs.config({
-        baseUrl: 'scripts',
-        paths: {
-            jquery: '../lib/jquery/dist/jquery'
-        }
+        baseUrl: 'scripts'
     });
 
     require([
