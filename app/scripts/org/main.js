@@ -2,10 +2,10 @@
 
 define([
     'jsforce',
-    'jquery',
+    // 'jquery',
     'knockout',
     'org/OrgModel'
-], function(f, $, ko, OrgModel) {
+], function(f, ko, OrgModel) {
     'use strict';
 
     window.OrgModel = OrgModel;

@@ -9,9 +9,7 @@
 
 (function() {
     'use strict';
-    require([
-        'jquery'
-    ], function($) {
+    require([], function() {
 
         // MODAL CLASS DEFINITION
         // ======================

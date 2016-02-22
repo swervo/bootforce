@@ -8,9 +8,7 @@
 
 (function() {
     'use strict';
-    require([
-        'jquery'
-    ], function($) {
+    require([], function() {
 
         // BUTTON PUBLIC CLASS DEFINITION
         // ==============================
