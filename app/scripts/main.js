@@ -6,10 +6,8 @@
     requirejs.config({
         baseUrl: 'scripts',
         paths: {
-            text: '../lib/text/text',
             jquery: '../lib/jquery/dist/jquery',
             knockout: '../lib/knockout/dist/knockout',
-            koAMDHelpers: '../lib/knockout-amd-helpers/build/knockout-amd-helpers',
             jsforce: '../lib/jsforce/build/jsforce'
         },
         shim: {},
@@ -29,11 +27,8 @@
         'org/main',
         'modules/components/main',
         'modules/data/accounts',
-        'modules/data/contacts',
-        'text',
-        'koAMDHelpers'
+        'modules/data/contacts'
     ], function(ko, conn, org) {
-        ko.amdTemplateEngine.defaultPath = '../tmpl/partials';
         org.init();
         // put initialisation stuff here
         conn.init()
