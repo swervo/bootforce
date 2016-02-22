@@ -41,7 +41,10 @@ define([
         f.browser.init({
             clientId: '3MVG9Rd3qC6oMalUsp2rPGB248pmNZXR7f'
                 + 'BNcNpBpm27UadFGFLF1iU5iDK0MizIm54mYU.slyNZOyBeTKvw9',
+            // clientId: '3MVG9Rd3qC6oMalUsp2rPGB248ukrY'
+            //      + '4H1SxxC8p.UUdHIkOeD1UOEmkWfIudtDj8LKAM01Hp.jaYz0wndRv6F',
             redirectUri: 'https://bootforce.herokuapp.com/callback.html',
+            // redirectUri: 'http://localhost:8001/callback.html',
             proxyUrl: 'https://node-salesforce-proxy.herokuapp.com/proxy/'
         });
         f.browser.on('connect', function(conn) {
