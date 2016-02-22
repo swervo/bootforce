@@ -2,6 +2,7 @@
   "name": "Bootforce starter project",
   "description": "A basic app made with bootforce",
   "repository": "https://github.com/swervo/bootforce",
+  "template": "https://github.com/swervo/bootforce/tree/heroku",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["bootforce", "jsforce", "salesforce"]
 }
