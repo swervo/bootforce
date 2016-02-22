@@ -6,4 +6,5 @@ To install type `npm install` and then run `grunt bower` or `bower i`
 
 To start the dev server run `grunt`
 
-Trying out the slack integration with this post.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku)
+
