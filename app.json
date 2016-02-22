@@ -3,6 +3,6 @@
   "description": "A basic app made with bootforce",
   "repository": "https://github.com/swervo/bootforce",
   "template": "https://github.com/swervo/bootforce/tree/heroku",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "logo": "https://bootforce.herokuapp.com/assets/logo/logo.svg",
   "keywords": ["bootforce", "jsforce", "salesforce"]
 }
