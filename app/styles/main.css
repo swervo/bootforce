@@ -7552,7 +7552,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 }
 
 .bootforce-pliant {
+  display: inline-block;
   cursor: pointer;
+}
+
+.bootforce-pliant.slds-hide {
+  display: none;
 }
 
 /**
