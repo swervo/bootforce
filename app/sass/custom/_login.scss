@@ -8,4 +8,7 @@
 .bootforce-pliant {
     display: inline-block;
     cursor: pointer;
+    &.slds-hide {
+        display: none;
+    }
 }

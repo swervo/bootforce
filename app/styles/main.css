@@ -7556,6 +7556,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   cursor: pointer;
 }
 
+.bootforce-pliant.slds-hide {
+  display: none;
+}
+
 /**
  * Import the css for the github ribbon
  */
