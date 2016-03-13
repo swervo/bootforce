@@ -27,7 +27,7 @@
     "grunt-env": "^0.4.4",
     "grunt-notify": "^0.4.1",
     "grunt-preprocess": "^5.0.1",
-    "grunt-sass": "^1.0.0",
+    "grunt-sass": "^1.1.0",
     "load-grunt-tasks": "^3.2.0"
   },
   "scripts": {

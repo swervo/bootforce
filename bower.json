@@ -1,6 +1,6 @@
 {
-  "name": "sldsTrial",
-  "version": "0.0.0",
+  "name": "bootforce",
+  "version": "0.0.1",
   "authors": [
     "Dom <swervo@papersnail.co.uk>"
   ],
@@ -17,7 +17,7 @@
     "knockout": "~3.3.0",
     "moment": "~2.10.6",
     "requirejs": "~2.1.20",
-    "salesforce-lightning-design-system": "~0.11.0",
+    "salesforce-lightning-design-system": "~1.0.0",
     "github-fork-ribbon-css": "~0.1.1"
   }
 }
