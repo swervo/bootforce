@@ -1020,7 +1020,18 @@
         </a>
     </div>
   </div>
-  <div id="notificationContainer" class="slds-notify-container"></div>
+  <div id="notificationContainer" class="slds-notify-container">
+    <div class="slds-notify slds-notify--alert slds-theme--alert-texture" role="alert">
+      <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert">
+        <svg aria-hidden="true" class="slds-button__icon">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+        <span class="slds-assistive-text">Close</span>
+      </button>
+      <span class="slds-assistive-text">Info</span>
+      <h2>Base System Alert</h2>
+    </div>
+  </div>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
   <script data-main="scripts/main" src="lib/requirejs/require.js"></script>
