@@ -1,0 +1,98 @@
+// .ignLogoBox {
+//     min-height: $minimumHeaderHeight;
+// }
+
+$menuTopMargin: 55px;
+$headerBorderBottom: 5px;
+.ignLogo {
+    // background: url($logoPath) left/auto $logoHeight no-repeat;
+    // width: $logoWidth;
+    // height: $logoHeight;
+}
+
+.#{$css-prefix}responsive_menu {
+    // display block to start
+    display: block;
+    position: absolute;
+    width: 75%;
+    height: calc(100% - #{$menuTopMargin});
+    top: $menuTopMargin;
+    right: 0;
+    border-bottom: 0;
+    background-color: $color-background;
+    z-index: 10;
+    transform: translateX(110%);
+    transition: transform 0.3s ease-in-out;
+    &.#{$css-prefix}show {
+        transform: none;
+    }
+
+    // switch to flex above breakpoint
+    @include mq-small-min {
+        display: flex;
+        position: static;
+        height: auto;
+        width: auto;
+        box-shadow: none;
+        background-color: transparent;
+        z-index: auto;
+        transform: none;
+        transition: none;
+    }
+    &__background {
+        height: 5px;
+        border-bottom: $headerBorderBottom solid $color-background;
+        background-color: $color-background;
+        @include mq-small-min {
+            border-bottom-width: 0;
+            border-radius: 0.25rem 0.25rem 0 0;
+            height: auto;
+        }
+    }
+    &__shade {
+        display: none;
+        position: absolute;
+        top: $menuTopMargin;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.25);
+        opacity: 0;
+        transition: opacity 0.25s linear;
+        z-index: 9;
+        @include mq-small-min {
+            display: none;
+        }
+        &.#{$css-prefix}show {
+            display: block;
+            @include mq-small-min {
+                display: none;
+            }
+            &.fadeUp {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.ignLoginButton {
+    position: relative;
+    top: -60px;
+    @include mq-small-min {
+        position: static;
+    }
+}
+
+.ignLogOutButton {
+    display: none;
+    @include mq-small-min {
+        display: inline-block;
+        font-size: $font-size-medium;
+    }
+    &.tabVersion {
+        display: block;
+        @include mq-small-min {
+            display: none;
+        }
+    }
+}

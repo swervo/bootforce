@@ -29,6 +29,8 @@
         'modules/data/accounts',
         'modules/data/contacts'
     ], function(ko, conn, org) {
+        window.bootforce = {};
+        window.bootforce.prefix = 'slds-';
         org.init();
         // put initialisation stuff here
         conn.init()

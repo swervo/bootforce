@@ -10865,6 +10865,117 @@ th.slds-is-sortable:hover .slds-button {
   }
 }
 
+.slds-responsive_menu {
+  display: block;
+  position: absolute;
+  width: 75%;
+  height: calc(100% - 55px);
+  top: 55px;
+  right: 0;
+  border-bottom: 0;
+  background-color: powderblue;
+  z-index: 10;
+  transform: translateX(110%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.slds-responsive_menu.slds-show {
+  transform: none;
+}
+
+@media (min-width: 30em) {
+  .slds-responsive_menu {
+    display: flex;
+    position: static;
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    background-color: transparent;
+    z-index: auto;
+    transform: none;
+    transition: none;
+  }
+}
+
+.slds-responsive_menu__background {
+  height: 5px;
+  border-bottom: 5px solid powderblue;
+  background-color: powderblue;
+}
+
+@media (min-width: 30em) {
+  .slds-responsive_menu__background {
+    border-bottom-width: 0;
+    border-radius: 0.25rem 0.25rem 0 0;
+    height: auto;
+  }
+}
+
+.slds-responsive_menu__shade {
+  display: none;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.25s linear;
+  z-index: 9;
+}
+
+@media (min-width: 30em) {
+  .slds-responsive_menu__shade {
+    display: none;
+  }
+}
+
+.slds-responsive_menu__shade.slds-show {
+  display: block;
+}
+
+@media (min-width: 30em) {
+  .slds-responsive_menu__shade.slds-show {
+    display: none;
+  }
+}
+
+.slds-responsive_menu__shade.slds-show.fadeUp {
+  opacity: 1;
+}
+
+.ignLoginButton {
+  position: relative;
+  top: -60px;
+}
+
+@media (min-width: 30em) {
+  .ignLoginButton {
+    position: static;
+  }
+}
+
+.ignLogOutButton {
+  display: none;
+}
+
+@media (min-width: 30em) {
+  .ignLogOutButton {
+    display: inline-block;
+    font-size: 0.8125rem;
+  }
+}
+
+.ignLogOutButton.tabVersion {
+  display: block;
+}
+
+@media (min-width: 30em) {
+  .ignLogOutButton.tabVersion {
+    display: none;
+  }
+}
+
 .slds-tooltip {
   position: absolute;
 }
@@ -10881,11 +10992,8 @@ th.slds-is-sortable:hover .slds-button {
   background-color: #870500;
 }
 
-/**
- * This is required in order to position the login button
- */
-.slds-tabs--scoped {
-  position: relative;
+.slds-borderless {
+  border-width: 0;
 }
 
 .slds-tabs__login {
