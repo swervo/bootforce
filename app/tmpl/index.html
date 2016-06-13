@@ -18,16 +18,18 @@
   <main class="slds-container--x-large slds-container--center">
     <div class="slds-grid slds-wrap slds-grid--vertical-align-center">
       <div class="slds-col--padded">
-        <div class="slds-box slds-box--x-small slds-borderless ignLogoBox">
-          <div class="ignLogo"></div>
+
+        <div class="slds-box slds-box--x-small slds-borderless">
+          <div class="bfLogo"></div>
         </div>
       </div>
-      <div class="slds-col--bump-left">
-        <div id="bfBurger" class="slds-box slds-box--small slds-borderless slds-x-small-show-only">
-          <span class="slds-icon_container">
-            <svg aria-hidden="true" class="slds-icon icon-utility-rows slds-icon-text-default"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/icons/utility-sprite/svg/symbols.svg#rows"></use></svg>
-          </span>
-        </div>
+      <a class="slds-col--bump-left slds-m-vertical--medium" href="https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku">
+        <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+      </a>
+      <div id="bfBurger" class="slds-box slds-box--small slds-borderless slds-x-small-show-only">
+        <span class="slds-icon_container">
+          <svg aria-hidden="true" class="slds-icon icon-utility-rows slds-icon-text-default"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/icons/utility-sprite/svg/symbols.svg#rows"></use></svg>
+        </span>
       </div>
     </div>
 
@@ -39,9 +41,7 @@
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Data" role="presentation"><a href="#data" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
           <li class="slds-text-heading--label slds-col--bump-left slds-m-top--xx-small slds-m-right--small">
-            <a href="https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku">
-              <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-            </a>
+
             <button id="login" class="slds-button slds-button--neutral slds-m-left--small" data-toggle="modal" data-target="#loginDialog">
               Log in
             </button>
