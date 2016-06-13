@@ -4,9 +4,9 @@ define([
 ], function() {
     'use strict';
     var isOpen = false;
-    var $ignBurger = $('#ignBurger');
-    var $ignMenu = $('#ignMenu');
-    var $ignMenuShade = $('#ignMenuShade');
+    var $ignBurger = $('#bfBurger');
+    var $ignMenu = $('#bfMenu');
+    var $ignMenuShade = $('#bfMenuShade');
 
     function toggleMenu() {
         var namespace = window.bootforce.prefix;

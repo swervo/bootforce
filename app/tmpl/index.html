@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="slds-col--bump-left">
-        <div id="ignBurger" class="slds-box slds-box--small slds-borderless slds-x-small-show-only">
+        <div id="bfBurger" class="slds-box slds-box--small slds-borderless slds-x-small-show-only">
           <span class="slds-icon_container">
             <svg aria-hidden="true" class="slds-icon icon-utility-rows slds-icon-text-default"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/icons/utility-sprite/svg/symbols.svg#rows"></use></svg>
           </span>
@@ -33,16 +33,16 @@
 
     <div class="slds-tabs--scoped">
       <div class="slds-container--fluid slds-responsive_menu__background">
-        <ul id="ignMenu" class="slds-tabs--scoped__nav slds-responsive_menu" role="tablist">
+        <ul id="bfMenu" class="slds-tabs--scoped__nav slds-responsive_menu" role="tablist">
           <li class="slds-tabs--scoped__item slds-text-heading--label slds-active" title="Bootforce" role="presentation"><a href="#bootforce" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Bootforce</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Roadmap" role="presentation"><a href="#roadmap" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Roadmap</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Data" role="presentation"><a href="#data" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
-          <li class="slds-text-heading--label slds-col--bump-left">
+          <li class="slds-text-heading--label slds-col--bump-left slds-m-top--xx-small slds-m-right--small">
             <a href="https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku">
               <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
             </a>
-            <button id="login" class="slds-button slds-button--neutral" data-toggle="modal" data-target="#loginDialog">
+            <button id="login" class="slds-button slds-button--neutral slds-m-left--small" data-toggle="modal" data-target="#loginDialog">
               Log in
             </button>
             <div id="loggedIn" class="bootforce-pliant slds-hide" data-toggle="modal" data-target="#logoutDialog">
@@ -53,7 +53,7 @@
             </div>
           </li>
         </ul>
-        <div id="ignMenuShade" class="slds-responsive_menu__shade"></div>
+        <div id="bfMenuShade" class="slds-responsive_menu__shade"></div>
       </div>
     </div>
     <div class="slds-container--x-large slds-container--center">
