@@ -20,6 +20,10 @@ define([
         }
     }
 
+    function getLocalData() {
+        OrgModel.getTodos();
+    }
+
     function setConnector(fCon) {
         OrgModel.setConnector(fCon);
     }
@@ -54,6 +58,7 @@ define([
     return {
         init: init,
         model: OrgModel,
+        getLocalData: getLocalData,
         setConnector: setConnector,
         getUserProfile: getUserProfile,
         logout: logout,

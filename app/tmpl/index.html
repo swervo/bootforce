@@ -463,43 +463,34 @@
           <!-- / PRIMARY CONTENT WRAPPER -->
         </div>
         <div id="roadmap" class="slds-tabs__content slds-hide" role="tabpanel">
-          <ul class="slds-timeline">
+          <ul data-bind="foreach: todos">
             <li class="slds-timeline__item">
               <span class="slds-assistive-text">Task</span>
-              <div class="slds-media slds-media--reverse">
-                <div class="slds-media__figure">
-                  <div class="slds-timeline__actions">
-                    <p class="slds-timeline__date">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled">
-                      <svg aria-hidden="true" class="slds-button__icon">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
-                      </svg>
-                      <span class="slds-assistive-text">Switch</span>
-                    </button>
-                  </div>
-                </div>
+              <div class="slds-media">
                 <div class="slds-media__body">
                   <div class="slds-media slds-media--timeline slds-timeline__media--task">
-                    <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-task slds-timeline__icon">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
-                      </svg>
+                    <div class="slds-media__figure slds-timeline__icon">
+                      <div class="slds-icon_container">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-task">
+                          <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
+                        </svg>
+                      </div>
                     </div>
                     <div class="slds-media__body">
                       <div class="slds-media slds-tile slds-media--small">
                         <div class="slds-media__body">
-                          <p class="slds-tile__title slds-truncate"><a href="#">Add a 'deploy to Heroku' button</a></p>
+                          <p class="slds-tile__title slds-truncate"><a href="#" data-bind="text: notes"></a></p>
                           <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
                             <li class="slds-list__item slds-m-right--large">
                               <dl class="slds-dl--inline">
                                 <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
+                                <dd class="slds-dl--inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
                               </dl>
                             </li>
                             <li class="slds-list__item">
                               <dl class="slds-dl--inline">
                                 <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
+                                <dd class="slds-dl--inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
                               </dl>
                             </li>
                           </ul>
@@ -508,188 +499,15 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </li>
-            <li class="slds-timeline__item">
-              <span class="slds-assistive-text">Task</span>
-              <div class="slds-media slds-media--reverse">
-                <div class="slds-media__figure">
+                <div class="slds-media__figure slds-media__figure--reverse">
                   <div class="slds-timeline__actions">
-                    <p class="slds-timeline__date">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled">
+                    <p class="slds-timeline__date" data-bind="text: when">In the future</p>
+                    <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
                       <svg aria-hidden="true" class="slds-button__icon">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
                       </svg>
                       <span class="slds-assistive-text">Switch</span>
                     </button>
-                  </div>
-                </div>
-                <div class="slds-media__body">
-                  <div class="slds-media slds-media--timeline slds-timeline__media--task">
-                    <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-task slds-timeline__icon">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
-                      </svg>
-                    </div>
-                    <div class="slds-media__body">
-                      <div class="slds-media slds-tile slds-media--small">
-                        <div class="slds-media__body">
-                          <p class="slds-tile__title slds-truncate"><a href="#">Change to a different bundler - maybe webpack?</a></p>
-                          <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
-                            <li class="slds-list__item slds-m-right--large">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                            <li class="slds-list__item">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="slds-timeline__item">
-              <span class="slds-assistive-text">Task</span>
-              <div class="slds-media slds-media--reverse">
-                <div class="slds-media__figure">
-                  <div class="slds-timeline__actions">
-                    <p class="slds-timeline__date">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled">
-                      <svg aria-hidden="true" class="slds-button__icon">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
-                      </svg>
-                      <span class="slds-assistive-text">Switch</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="slds-media__body">
-                  <div class="slds-media slds-media--timeline slds-timeline__media--task">
-                    <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-task slds-timeline__icon">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
-                      </svg>
-                    </div>
-                    <div class="slds-media__body">
-                      <div class="slds-media slds-tile slds-media--small">
-                        <div class="slds-media__body">
-                          <p class="slds-tile__title slds-truncate"><a href="#">Update to latest version of SLDS and improve behaviours</a></p>
-                          <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
-                            <li class="slds-list__item slds-m-right--large">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                            <li class="slds-list__item">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="slds-timeline__item">
-              <span class="slds-assistive-text">Task</span>
-              <div class="slds-media slds-media--reverse">
-                <div class="slds-media__figure">
-                  <div class="slds-timeline__actions">
-                    <p class="slds-timeline__date">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled">
-                      <svg aria-hidden="true" class="slds-button__icon">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
-                      </svg>
-                      <span class="slds-assistive-text">Switch</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="slds-media__body">
-                  <div class="slds-media slds-media--timeline slds-timeline__media--task">
-                    <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-task slds-timeline__icon">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
-                      </svg>
-                    </div>
-                    <div class="slds-media__body">
-                      <div class="slds-media slds-tile slds-media--small">
-                        <div class="slds-media__body">
-                          <p class="slds-tile__title slds-truncate"><a href="#">Add some CRUD operations for contacts/accounts</a></p>
-                          <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
-                            <li class="slds-list__item slds-m-right--large">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                            <li class="slds-list__item">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="slds-timeline__item">
-              <span class="slds-assistive-text">Task</span>
-              <div class="slds-media slds-media--reverse">
-                <div class="slds-media__figure">
-                  <div class="slds-timeline__actions">
-                    <p class="slds-timeline__date">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled">
-                      <svg aria-hidden="true" class="slds-button__icon">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
-                      </svg>
-                      <span class="slds-assistive-text">Switch</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="slds-media__body">
-                  <div class="slds-media slds-media--timeline slds-timeline__media--task">
-                    <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-task slds-timeline__icon">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
-                      </svg>
-                    </div>
-                    <div class="slds-media__body">
-                      <div class="slds-media slds-tile slds-media--small">
-                        <div class="slds-media__body">
-                          <p class="slds-tile__title slds-truncate"><a href="#">Pull the roadmap out of the markup and add it to the model. Maybe add it to Salesforce?</a></p>
-                          <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
-                            <li class="slds-list__item slds-m-right--large">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                            <li class="slds-list__item">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a href="https://twitter.com/swervo">@swervo</a></dd>
-                              </dl>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -894,7 +712,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-card__body">
+                <div class="slds-card__body slds-card__body--inner">
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon slds-icon-standard-case">
@@ -934,7 +752,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-card__body">
+                <div class="slds-card__body slds-card__body--inner">
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44">

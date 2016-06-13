@@ -6,18 +6,21 @@ define(
     'org/OrgModelImp', [
         'knockout',
         'org/contacts',
-        'org/accounts'
+        'org/accounts',
+        'org/todos'
     ],
-    function(ko, Contacts, Accounts) {
+    function(ko, Contacts, Accounts, Todos) {
         'use strict';
         var OrgModel = (function() {
             function OrgModel() {
                 Contacts.call(this);
                 Accounts.call(this);
+                Todos.call(this);
             }
 
             OrgModel.prototype = Object.create(Contacts.prototype);
             $.extend(OrgModel.prototype, Accounts.prototype);
+            $.extend(OrgModel.prototype, Todos.prototype);
 
             OrgModel.prototype.username = ko.observable('');
             OrgModel.prototype.userPhoto = ko.observable('/assets/images/avatar2.jpg');
