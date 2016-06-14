@@ -4,30 +4,30 @@ define([
 ], function() {
     'use strict';
     var isOpen = false;
-    var $ignBurger = $('#bfBurger');
-    var $ignMenu = $('#bfMenu');
-    var $ignMenuShade = $('#bfMenuShade');
+    var $bfBurger = $('#bfBurger');
+    var $bfMenu = $('#bfMenu');
+    var $bfMenuShade = $('#bfMenuShade');
 
     function toggleMenu() {
         var namespace = window.bootforce.prefix;
         if (isOpen) {
             isOpen = false;
-            $ignMenu.removeClass(namespace + 'show');
-            $ignMenuShade.removeClass('fadeUp');
+            $bfMenu.removeClass(namespace + 'show');
+            $bfMenuShade.removeClass('fadeUp');
             setTimeout(function() {
-                $ignMenuShade.removeClass(namespace + 'show');
+                $bfMenuShade.removeClass(namespace + 'show');
             }, 250);
         } else {
             isOpen = true;
-            $ignMenu.addClass(namespace + 'show');
-            $ignMenuShade.addClass(namespace + 'show');
+            $bfMenu.addClass(namespace + 'show');
+            $bfMenuShade.addClass(namespace + 'show');
             setTimeout(function() {
-                $ignMenuShade.addClass('fadeUp');
+                $bfMenuShade.addClass('fadeUp');
             }, 0);
         }
     }
 
-    $ignBurger.on('click', toggleMenu);
+    $bfBurger.on('click', toggleMenu);
 
     return {
         // init: init

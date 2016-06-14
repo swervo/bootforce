@@ -40,12 +40,14 @@
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Roadmap" role="presentation"><a href="#roadmap" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Roadmap</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Data" role="presentation"><a href="#data" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
           <li class="slds-tabs--scoped__item slds-text-heading--label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
-          <li class="slds-text-heading--label slds-col--bump-left slds-m-top--xx-small slds-m-right--small">
+          <li class="slds-col--bump-left slds-m-top--xx-small">
 
             <button id="login" class="slds-button slds-button--neutral slds-m-left--small" data-toggle="modal" data-target="#loginDialog">
               Log in
             </button>
-            <div id="loggedIn" class="bootforce-pliant slds-hide" data-toggle="modal" data-target="#logoutDialog">
+          </li>
+          <li class="slds-text-heading--label slds-m-right--small slds-p-left--medium">
+            <div id="loggedIn" class="bootforce-pliant slds-hide slds-m-top--xxx-small" data-toggle="modal" data-target="#logoutDialog">
               <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                 <img data-bind="attr:{src: userPhoto}" src="/assets/images/avatar2.jpg" />
               </div>
@@ -836,7 +838,7 @@
   <div id="modalTwo" aria-hidden="false" role="dialog" class="slds-modal">
     <div class="slds-modal__container">
       <div class="slds-modal__header">
-        <h2 class="slds-text-heading--medium">Do something else</h2>
+        <h2 class="slds-text-heading--medium">Put title here</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
           <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
             <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
