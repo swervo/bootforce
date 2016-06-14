@@ -13,4 +13,14 @@
     "assignee" : "@swervo",
     "notes": "Pull the roadmap out of the markup and add it to the model. Maybe add it to Salesforce?",
     "when" : "in the future"
+}, {
+    "contact": "https://twitter.com/swervo",
+    "assignee" : "@swervo",
+    "notes": "Introduce KO routing",
+    "when" : "in the future"
+}, {
+    "contact": "https://twitter.com/swervo",
+    "assignee" : "@swervo",
+    "notes": "Replace mux with SLDS component",
+    "when" : "in the future"
 }]
