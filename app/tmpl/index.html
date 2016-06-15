@@ -371,11 +371,25 @@
                       </div>
                     </div>
                     <div class="slds-col slds-no-flex slds-m-right--medium">
-                      <div class="slds-button-group" role="group" data-toggle="buttons">
-                        <button class="slds-button slds-button--brand slds-button--small">M</button>
-                        <button class="slds-button slds-button--brand slds-button--small">U</button>
-                        <button class="slds-button slds-button--brand slds-button--small slds-button--last">X</button>
+                      <fieldset class="slds-form-element">
+                      <!-- <legend class="slds-form-element__legend slds-form-element__label"></legend> -->
+                      <div class="slds-form-element__control">
+                        <div class="slds-radio--button-group">
+                          <label class="slds-button slds-radio--button" for="m">
+                            <input name="radio" type="radio" id="m" />
+                            <span class="slds-radio--faux">M</span>
+                          </label>
+                          <label class="slds-button slds-radio--button" for="u">
+                            <input name="radio" type="radio" id="u" />
+                            <span class="slds-radio--faux">U</span>
+                          </label>
+                          <label class="slds-button slds-radio--button" for="x">
+                            <input name="radio" type="radio" id="x" />
+                            <span class="slds-radio--faux">X</span>
+                          </label>
+                        </div>
                       </div>
+                    </fieldset>
                     </div>
                     <div class="slds-col slds-no-flex">
                       <button data-toggle="button" aria-pressed="false" class="slds-button slds-button--brand slds-button--small">Toggle</button>
