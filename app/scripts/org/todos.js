@@ -26,7 +26,7 @@ define([
             }, this);
         },
         getTodos: function() {
-            var todoPromise = $.getJSON('/scripts/modules/data/todos.json');
+            var todoPromise = $.getJSON('scripts/todos.json');
             todoPromise.success(function(aData) {
                 this.updateTodos(aData);
             }.bind(this));
