@@ -20,9 +20,6 @@
     }
 }
 
-/**
- * This is required in order to position the login button
- */
-.slds-tabs--scoped {
-    position: relative;
+.#{$css-prefix}borderless {
+    border-width: 0;
 }
