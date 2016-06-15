@@ -897,9 +897,10 @@
       <h2>Bootforce updated to v2.0.0 of the <a href="https://www.lightningdesignsystem.com/">SLDS</a></h2>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script> -->
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-  <script data-main="scripts/main" src="lib/requirejs/require.js"></script>
+  <script src="scripts/bundle.js"></script>
+  <!-- <script data-main="scripts/main" src="lib/requirejs/require.js"></script> -->
   <!-- @endif -->
   <!-- @if NODE_ENV == 'PRODUCTION' -->
   <script src="scripts/main.min.js"></script>
