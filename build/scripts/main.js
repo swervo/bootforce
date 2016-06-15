@@ -27661,24 +27661,73 @@ define('org/accounts',[
 
 /* global define */
 
+define('org/todos',[
+    'knockout'
+], function(ko) {
+    'use strict';
+
+    function Todo(aTodoObj) {
+        this.contact = aTodoObj.contact;
+        this.assignee = aTodoObj.assignee;
+        this.notes = aTodoObj.notes;
+        this.when = aTodoObj.when;
+    }
+
+    function Todos() {
+
+    }
+
+    Todos.prototype = {
+        todos: ko.observableArray([]),
+        totalTodos: ko.observable(''),
+        updateTodos: function(aTodoData) {
+            this.totalTodos(aTodoData.length);
+            aTodoData.forEach(function(aTodo) {
+                this.todos.push(new Todo(aTodo));
+            }, this);
+        },
+        getTodos: function() {
+            var todoPromise = $.getJSON('scripts/todos.json');
+            todoPromise.success(function(aData) {
+                this.updateTodos(aData);
+            }.bind(this));
+            todoPromise.error(function(e) {
+                console.log(e);
+                console.log('json load error');
+            });
+            todoPromise.complete(function() {
+                console.log('data load done');
+            });
+        }
+    };
+
+    return Todos;
+
+});
+
+/* global define */
+
 /* SINGLETON */
 
 define(
     'org/OrgModelImp', [
         'knockout',
         'org/contacts',
-        'org/accounts'
+        'org/accounts',
+        'org/todos'
     ],
-    function(ko, Contacts, Accounts) {
+    function(ko, Contacts, Accounts, Todos) {
         'use strict';
         var OrgModel = (function() {
             function OrgModel() {
                 Contacts.call(this);
                 Accounts.call(this);
+                Todos.call(this);
             }
 
             OrgModel.prototype = Object.create(Contacts.prototype);
             $.extend(OrgModel.prototype, Accounts.prototype);
+            $.extend(OrgModel.prototype, Todos.prototype);
 
             OrgModel.prototype.username = ko.observable('');
             OrgModel.prototype.userPhoto = ko.observable('/assets/images/avatar2.jpg');
@@ -27751,6 +27800,10 @@ define('org/main',[
         }
     }
 
+    function getLocalData() {
+        OrgModel.getTodos();
+    }
+
     function setConnector(fCon) {
         OrgModel.setConnector(fCon);
     }
@@ -27785,6 +27838,7 @@ define('org/main',[
     return {
         init: init,
         model: OrgModel,
+        getLocalData: getLocalData,
         setConnector: setConnector,
         getUserProfile: getUserProfile,
         logout: logout,
@@ -29687,6 +29741,42 @@ define("modules/components/dropdown", function(){});
 
 define("modules/components/popover", function(){});
 
+/* global define */
+
+define('modules/components/responsiveMenu',[
+], function() {
+    'use strict';
+    var isOpen = false;
+    var $bfBurger = $('#bfBurger');
+    var $bfMenu = $('#bfMenu');
+    var $bfMenuShade = $('#bfMenuShade');
+
+    function toggleMenu() {
+        var namespace = window.bootforce.prefix;
+        if (isOpen) {
+            isOpen = false;
+            $bfMenu.removeClass(namespace + 'show');
+            $bfMenuShade.removeClass('fadeUp');
+            setTimeout(function() {
+                $bfMenuShade.removeClass(namespace + 'show');
+            }, 250);
+        } else {
+            isOpen = true;
+            $bfMenu.addClass(namespace + 'show');
+            $bfMenuShade.addClass(namespace + 'show');
+            setTimeout(function() {
+                $bfMenuShade.addClass('fadeUp');
+            }, 0);
+        }
+    }
+
+    $bfBurger.on('click', toggleMenu);
+
+    return {
+        // init: init
+    };
+});
+
 /* global requirejs */
 
 (function() {
@@ -29704,7 +29794,8 @@ define("modules/components/popover", function(){});
         'modules/components/modal',
         'modules/components/tooltip',
         'modules/components/dropdown',
-        'modules/components/popover'
+        'modules/components/popover',
+        'modules/components/responsiveMenu'
     ], function() {
         // nothing to see here yet
 
@@ -29816,8 +29907,11 @@ define('modules/data/contacts',[
         'modules/data/accounts',
         'modules/data/contacts'
     ], function(ko, conn, org) {
+        window.bootforce = {};
+        window.bootforce.prefix = 'slds-';
         org.init();
         // put initialisation stuff here
+        org.getLocalData();
         conn.init()
             .done(function(fCon) {
                 org.setConnector(fCon);

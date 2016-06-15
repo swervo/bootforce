@@ -2267,6 +2267,42 @@ define("modules/components/dropdown", function(){});
 
 define("modules/components/popover", function(){});
 
+/* global define */
+
+define('modules/components/responsiveMenu',[
+], function() {
+    'use strict';
+    var isOpen = false;
+    var $bfBurger = $('#bfBurger');
+    var $bfMenu = $('#bfMenu');
+    var $bfMenuShade = $('#bfMenuShade');
+
+    function toggleMenu() {
+        var namespace = window.bootforce.prefix;
+        if (isOpen) {
+            isOpen = false;
+            $bfMenu.removeClass(namespace + 'show');
+            $bfMenuShade.removeClass('fadeUp');
+            setTimeout(function() {
+                $bfMenuShade.removeClass(namespace + 'show');
+            }, 250);
+        } else {
+            isOpen = true;
+            $bfMenu.addClass(namespace + 'show');
+            $bfMenuShade.addClass(namespace + 'show');
+            setTimeout(function() {
+                $bfMenuShade.addClass('fadeUp');
+            }, 0);
+        }
+    }
+
+    $bfBurger.on('click', toggleMenu);
+
+    return {
+        // init: init
+    };
+});
+
 /* global requirejs */
 
 (function() {
@@ -2284,7 +2320,8 @@ define("modules/components/popover", function(){});
         'modules/components/modal',
         'modules/components/tooltip',
         'modules/components/dropdown',
-        'modules/components/popover'
+        'modules/components/popover',
+        'modules/components/responsiveMenu'
     ], function() {
         // nothing to see here yet
 
