@@ -8,9 +8,6 @@
 
 'use strict';
 
-var $ = require('jquery');
-
-
 
 // ALERT CLASS DEFINITION
 // ======================

@@ -897,13 +897,11 @@
       <h2>Bootforce updated to v2.0.0 of the <a href="https://www.lightningdesignsystem.com/">SLDS</a></h2>
     </div>
   </div>
-  <!-- <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script> -->
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-  <script src="scripts/bundle.js"></script>
-  <!-- <script data-main="scripts/main" src="lib/requirejs/require.js"></script> -->
+  <script src="scripts/build/app.js"></script>
   <!-- @endif -->
   <!-- @if NODE_ENV == 'PRODUCTION' -->
-  <script src="scripts/main.min.js"></script>
+  <script src="scripts/build/app.min.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

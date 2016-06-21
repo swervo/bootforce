@@ -5,7 +5,7 @@
  */
 
 
-@import 'colours/overrides';
+@import 'previous/main';
 @import 'hacks/mixins';
 @import 'hacks/hacks';
 
@@ -40,4 +40,4 @@
 /**
  * Import the css for the github ribbon
  */
-@import 'app/lib/github-fork-ribbon-css/gh-fork-ribbon';
+@import 'gh-fork-ribbon';

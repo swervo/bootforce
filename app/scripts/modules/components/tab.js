@@ -7,8 +7,6 @@
  * ======================================================================== */
 'use strict';
 
-    var $ = require('jquery');
-
 var Tab = function(element) {
     // jscs:disable requireDollarBeforejQueryAssignment
     this.element = $(element);

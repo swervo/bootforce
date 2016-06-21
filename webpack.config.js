@@ -1,24 +1,47 @@
+'use strict';
+
 var path = require('path');
+var webpack = require('webpack');
+
+var PROD = (process.env.NODE_ENV);
 
 module.exports = {
     alias: {
-      'knockout': path.join(__dirname, 'node_modules/knockout/build/output/knockout-latest.js'),
-      'jquery': path.join(__dirname, 'node_modules/jquery/jquery.min.js'),
-      'jsforce': path.join(__dirname, 'node_modules/jsforce/build/jsforce.min.js'),
       'modules': path.join(__dirname, 'app/scripts/modules'),
       'routes': path.join(__dirname, 'src/scripts/routes'),
       'components': path.join(__dirname, 'src/scripts/components'),
       'scripts': path.join(__dirname, 'src/scripts'),
       'styles': path.join(__dirname, 'src/styles')
     },
-    entry: './app/scripts/main.js',
-    output: {
-        path: path.join(__dirname, 'app/scripts'),
-        filename: 'bundle.js'
+    entry: {
+      'build/app': './app/scripts/main.js',
+      'dist/bootforce': './app/scripts/build.js'
     },
+    output: {
+        path: './app/scripts',
+        filename: PROD ? '[name].min.js' : '[name].js'
+    },
+    devtool: 'source-map',
+    plugins: PROD ? [
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: false,
+        mangle: false
+      })
+    ] : [],
     module: {
         loaders: [
-            { test: /\.css$/, loader: 'style!css' }
+            {
+              test:   /\.scss/,
+              loader: 'css!sass',
+              // Or
+              loaders: ['css', 'sass'],
+          },
         ]
+    },
+    sassLoader: {
+      sourceMap: true,
+      sourceComments: false,
+      outputStyle: 'expanded'
     }
 };
+

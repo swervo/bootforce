@@ -24,8 +24,7 @@ Todos.prototype = {
         }, this);
     },
     getTodos: function() {
-        debugger;
-        var todoPromise = $.getJSON('scripts/todos.json');
+        var todoPromise = $.getJSON('scripts/org/data/todos.json');
         console.log(todoPromise);
         todoPromise.done(function(aData) {
             this.updateTodos(aData);

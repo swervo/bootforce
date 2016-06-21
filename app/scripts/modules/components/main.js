@@ -3,14 +3,9 @@
 require('../../modules/components/utils/transition');
 require('../../modules/components/alert');
 require('../../modules/components/tab');
-
-// require([
-//     '../../modules/components/alert',
-//     '../../modules/components/tab',
-//     '../../modules/components/button',
-//     '../../modules/components/modal',
-//     '../../modules/components/tooltip',
-//     '../../modules/components/dropdown',
-//     '../../modules/components/popover',
-//     '../../modules/components/responsiveMenu'
-// ]);
+require('../../modules/components/button');
+require('../../modules/components/modal');
+require('../../modules/components/tooltip');
+require('../../modules/components/dropdown');
+require('../../modules/components/popover');
+require('../../modules/components/responsiveMenu');

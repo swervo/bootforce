@@ -73,7 +73,8 @@ module.exports = function(grunt) {
                 outputStyle: 'expanded',
                 sourceComments: false,
                 includePaths: [
-                    'app/lib/salesforce-lightning-design-system/scss'
+                    'node_modules/@salesforce-ux/design-system/scss',
+                    'node_modules/github-fork-ribbon-css/'
                 ]
             },
             dist: {
@@ -97,77 +98,6 @@ module.exports = function(grunt) {
                     base: 'build',
                     keepalive: true
                 }
-            }
-        },
-        requirejs: {
-            main:{
-                options: {
-                    baseUrl: 'app/scripts',
-                    mainConfigFile: 'app/scripts/main.js',
-                    name: '../lib/almond/almond',
-                    include: ['main'],
-                    insertRequire: ['main'],
-                    removeCombined: true,
-                    out: 'build/scripts/main.js',
-                    optimize: 'none'
-                }
-            },
-            bootforce: {
-                options: {
-                    baseUrl: 'app/scripts',
-                    mainConfigFile: 'app/scripts/modules/components/main.js',
-                    name: '../lib/almond/almond',
-                    include: ['modules/components/main.js'],
-                    insertRequire: ['modules/components/main.js'],
-                    removeCombined: true,
-                    out: 'build/dist/<%= pkg.name %>.js',
-                    optimize: 'none'
-                }
-            }
-        },
-        uglify: {
-            options:{
-                maxLineLen: 500,
-                preserveComments: false,
-                sourceMap: true,
-                banner: '<%= banner %>'
-            },
-            main: {
-                files: {
-                    'build/scripts/main.min.js': 'build/scripts/main.js'
-                }
-
-            },
-            bootforce: {
-                files: {
-                    'build/dist/<%= pkg.name %>.min.js': 'build/dist/<%= pkg.name %>.js'
-                }
-            }
-        },
-        imagemin: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'app/assets/',
-                    src: ['**/*.png'],
-                    dest: 'dist/assets/',
-                    ext: '.png'
-                }]
-            },
-            jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'app/assets/',
-                    src: ['**/*.jpg'],
-                    dest: 'dist/assets/',
-                    ext: '.jpg'
-                }]
             }
         },
         copy: {
@@ -210,20 +140,17 @@ module.exports = function(grunt) {
     });
 
     // Bower integration
-    grunt.registerTask('bower', ['bower-install-simple']);
+    // grunt.registerTask('bower', ['bower-install-simple']);
 
     grunt.registerTask('server', ['connect:build']);
 
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
-    grunt.registerTask('dist', ['requirejs:bootforce', 'uglify:bootforce']);
-    grunt.registerTask('main', ['requirejs:main', 'uglify:main']);
+    // grunt.registerTask('dist', ['requirejs:bootforce', 'uglify:bootforce']);
+    // grunt.registerTask('main', ['requirejs:main', 'uglify:main']);
 
     grunt.registerTask('build', [
         'jshint',
-        'bower',
-        'main',
-        'dist',
         'env:prod',
         'copy:static',
         'copy:dev',

@@ -4,7 +4,6 @@ var f = require('jsforce');
 var $ = require('jquery');
 var ko = require('knockout');
 var cOrgModel = require('../org/OrgModel');
-debugger;
 var OrgModel = new cOrgModel();
 
 window.OrgModel = OrgModel;
