@@ -27,7 +27,13 @@ module.exports = {
         sourceMap: false,
         mangle: false
       })
-    ] : [],
+    ] : [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ],
     module: {
         loaders: [
             {

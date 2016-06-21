@@ -1,6 +1,5 @@
 'use strict';
 
-var $ = require('jquery');
 var ko = require('knockout');
 
 function Todo(aTodoObj) {
@@ -25,7 +24,6 @@ Todos.prototype = {
     },
     getTodos: function() {
         var todoPromise = $.getJSON('scripts/org/data/todos.json');
-        console.log(todoPromise);
         todoPromise.done(function(aData) {
             this.updateTodos(aData);
         }.bind(this));

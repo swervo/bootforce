@@ -1,5 +1,5 @@
 'use strict';
-var $ = require('jquery');
+
 var ko = require('knockout');
 var Contacts = require('../org/contacts');
 var Accounts = require('../org/accounts');

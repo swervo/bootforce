@@ -1,6 +1,5 @@
 'use strict';
 
-var $ = require('jquery');
 var loginDialog = require('../../modules/login/LoginDialog');
 
 

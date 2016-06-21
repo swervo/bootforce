@@ -1,7 +1,6 @@
 'use strict';
 
 var f = require('jsforce');
-var $ = require('jquery');
 var ko = require('knockout');
 var cOrgModel = require('../org/OrgModel');
 var OrgModel = new cOrgModel();

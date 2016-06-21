@@ -11,22 +11,6 @@ module.exports = function(grunt) {
             ' * Bootforce owes much to Bootstrap "http://getbootstrap.com"\n' +
             ' * Licensed under the <%= pkg.license %> license\n' +
             ' */\n',
-        'bower-install-simple': {
-            options: {
-                color: true,
-                directory: 'app/lib'
-            },
-            'prod': {
-                options: {
-                    production: true
-                }
-            },
-            'dev': {
-                options: {
-                    production: false
-                }
-            }
-        },
         env: {
             options: {
                 /* Shared Options Hash */
@@ -45,12 +29,6 @@ module.exports = function(grunt) {
                     'app/index.html': 'app/tmpl/index.html',
                     'app/callback.html': 'app/tmpl/index.html'
                 }
-            },
-            prod: {
-                files: {
-                    'build/index.html': 'app/tmpl/index.html',
-                    'build/callback.html': 'app/tmpl/index.html'
-                }
             }
         },
         watch: {
@@ -62,7 +40,12 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'app/scripts/**/*.js'],
+            files: [
+                'Gruntfile.js',
+                'app/scripts/*.js',
+                'app/scripts/modules/**/*.js',
+                'app/scripts/org/**/*.js'
+            ],
             options: {
                 jshintrc: true
             }
@@ -95,38 +78,9 @@ module.exports = function(grunt) {
             deploy: {
                 options: {
                     port: 8001,
-                    base: 'build',
+                    base: 'app',
                     keepalive: true
                 }
-            }
-        },
-        copy: {
-            static: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: 'app',
-                    dest: 'build',
-                    src: [
-                        'styles/{,*/}**',
-                        'assets/fonts/{,*/}**',
-                        'assets/icons/{,*/}**',
-                        'assets/images/{,*/}**',
-                        'assets/logo/{,*/}**'
-                    ]
-                }]
-            },
-            dev: {
-                files: [{
-                    dest: 'build/dist/scripts/bootforce.min.js',
-                    src: 'dist/bootforce.min.js'
-                }]
-            },
-            data: {
-                files: [{
-                    dest: 'build/scripts/todos.json',
-                    src: 'app/scripts/todos.json'
-                }]
             }
         },
         notify: {
@@ -139,23 +93,14 @@ module.exports = function(grunt) {
         }
     });
 
-    // Bower integration
-    // grunt.registerTask('bower', ['bower-install-simple']);
-
     grunt.registerTask('server', ['connect:build']);
 
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
 
-    // grunt.registerTask('dist', ['requirejs:bootforce', 'uglify:bootforce']);
-    // grunt.registerTask('main', ['requirejs:main', 'uglify:main']);
-
     grunt.registerTask('build', [
         'jshint',
         'env:prod',
-        'copy:static',
-        'copy:dev',
-        'copy:data',
-        'preprocess:prod',
+        'preprocess:dev',
         'connect:deploy'
     ]);
 

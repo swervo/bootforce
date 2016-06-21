@@ -1,6 +1,5 @@
 'use strict';
 var f = require('jsforce');
-var $ = require('jquery');
 
 
 // function loginPanel(aCallback) {
