@@ -23,7 +23,7 @@ Server.prototype._initialize = function (callback) {
 
 
     this.app.set('port', this._port);
-    this.app.use(express.static(path.join(__dirname, '../build')));
+    this.app.use(express.static(path.join(__dirname, '../app')));
 
     callback(null);
 };
