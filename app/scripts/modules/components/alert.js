@@ -8,7 +8,6 @@
 
 'use strict';
 
-
 // ALERT CLASS DEFINITION
 // ======================
 

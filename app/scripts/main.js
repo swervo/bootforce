@@ -6,6 +6,8 @@ var org = require('./org/main');
 require('./modules/components/main');
 // require('./modules/data/accounts');
 // require('./modules/data/contacts');
+//
+require('./../sass/main.scss');
 
 
 window.bootforce = {};

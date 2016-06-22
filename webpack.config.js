@@ -2,8 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
-
-var PROD = (process.env.NODE_ENV);
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     alias: {
@@ -19,35 +18,43 @@ module.exports = {
     },
     output: {
         path: './app/scripts',
-        filename: PROD ? '[name].min.js' : '[name].js'
+        filename: '[name].js'
     },
     devtool: 'source-map',
-    plugins: PROD ? [
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: false,
-        mangle: false
-      })
-    ] : [
+    plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
-      })
+      }),
+      new ExtractTextPlugin('./../styles/hereIam.css')
     ],
     module: {
         loaders: [
-            {
-              test:   /\.scss/,
-              loader: 'css!sass',
-              // Or
-              loaders: ['css', 'sass'],
-          },
+          // {
+          //   test:   /\.scss/,
+          //   loaders: ['style', 'css', 'sass'],
+          // },
+          {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract(
+              'style',
+              'css!sass')
+           },
+          {
+            test: /\.(eot|svg|ttf|woff|woff2)$/,
+            loader: 'file?name=public/fonts/[name].[ext]'
+          }
         ]
     },
     sassLoader: {
       sourceMap: true,
       sourceComments: false,
-      outputStyle: 'expanded'
+      outputStyle: 'expanded',
+      includePaths: [
+        path.resolve(__dirname, './node_modules/@salesforce-ux/design-system/scss'),
+        path.resolve(__dirname, './node_modules/github-fork-ribbon-css')
+      ]
     }
 };
 

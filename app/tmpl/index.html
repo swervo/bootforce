@@ -11,7 +11,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Bootforce</title>
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <!-- @if NODE_ENV == 'PRODUCTION' -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- @endif -->
 </head>
 
 <body id="app">
@@ -49,7 +51,7 @@
           <li class="slds-text-heading--label slds-m-right--small slds-p-left--medium">
             <div id="loggedIn" class="bootforce-pliant slds-hide slds-m-top--xxx-small" data-toggle="modal" data-target="#logoutDialog">
               <div class="slds-avatar slds-avatar--circle slds-avatar--small">
-                <img data-bind="attr:{src: userPhoto}" src="/assets/images/avatar2.jpg" />
+                <img data-bind="attr:{src: userPhoto}" src="assets/images/avatar2.jpg" />
               </div>
               <span class="slds-truncate" data-bind="text: username"></span>
             </div>
@@ -152,7 +154,7 @@
                   <div class="slds-media__figure">
                     <div class="slds-avatar slds-avatar--circle slds-avatar--medium">
                       <a href="javascript:void(0)" title="Jason Rodgers">
-                        <img src="/assets/images/avatar2.jpg" alt="Jason Rodgers" />
+                        <img src="assets/images/avatar2.jpg" alt="Jason Rodgers" />
                       </a>
                     </div>
                   </div>
@@ -161,7 +163,7 @@
                       <p class="slds-truncate"><a href="https://github.com/swervo/bootforce" title="Bootforce">Big corp</a> - <a href="javascript:void(0)">Web application builder</a></p>
                       <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                         <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                         </svg>
                         <span class="slds-assistive-text">Show More</span>
                       </button>
@@ -184,7 +186,7 @@
                         <a href="javascript:void(0)" title="Like this item">
                           <button class="slds-button slds-button--icon-border slds-button--icon-small slds-m-right--small slds-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#like"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#like"></use>
                             </svg>
                             <span class="slds-assistive-text">Like</span>
                           </button>
@@ -201,7 +203,7 @@
                       <div class="slds-media__figure">
                         <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                           <a href="javascript:void(0)" title="Jenna Davis">
-                            <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
+                            <img src="assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
@@ -212,7 +214,7 @@
                           </p>
                           <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
                           </button>
@@ -232,7 +234,7 @@
                       <div class="slds-media__figure">
                         <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                           <a href="javascript:void(0)" title="Jenna Davis">
-                            <img src="/assets/images/avatar2.jpg" alt="Jenna Davis" />
+                            <img src="assets/images/avatar2.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
@@ -243,7 +245,7 @@
                           </p>
                           <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
                           </button>
@@ -263,7 +265,7 @@
                       <div class="slds-media__figure">
                         <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                           <a href="javascript:void(0)" title="Jenna Davis">
-                            <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
+                            <img src="assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
@@ -274,7 +276,7 @@
                           </p>
                           <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
                           </button>
@@ -294,7 +296,7 @@
                       <div class="slds-media__figure">
                         <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                           <a href="javascript:void(0)" title="Jenna Davis">
-                            <img src="/assets/images/avatar2.jpg" alt="Jenna Davis" />
+                            <img src="assets/images/avatar2.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
@@ -305,7 +307,7 @@
                           </p>
                           <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
                           </button>
@@ -325,7 +327,7 @@
                       <div class="slds-media__figure">
                         <div class="slds-avatar slds-avatar--circle slds-avatar--small">
                           <a href="javascript:void(0)" title="Jenna Davis">
-                            <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
+                            <img src="assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
@@ -336,7 +338,7 @@
                           </p>
                           <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
                             <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
-                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                              <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
                           </button>
@@ -449,15 +451,15 @@
                       <button class="slds-button slds-button--neutral slds-not-selected" data-toggle="button" data-buttontype="stateful" aria-live="assertive">
                         <span class="slds-text-not-selected">
                           <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                            <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                           </svg>Follow</span>
                         <span class="slds-text-selected">
                           <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                            <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>
                           </svg>Following</span>
                         <span class="slds-text-selected-focus">
                           <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                           </svg>Unfollow</span>
                       </button>
                     </div>
@@ -480,7 +482,7 @@
                     <div class="slds-media__figure slds-timeline__icon">
                       <div class="slds-icon_container">
                         <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-task">
-                          <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
+                          <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#task"></use>
                         </svg>
                       </div>
                     </div>
@@ -512,7 +514,7 @@
                     <p class="slds-timeline__date" data-bind="text: when">In the future</p>
                     <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
                       <svg aria-hidden="true" class="slds-button__icon">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                        <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
                       </svg>
                       <span class="slds-assistive-text">Switch</span>
                     </button>
@@ -559,7 +561,7 @@
                   <span class="slds-truncate">Account Name</span>
                   <button class="slds-button slds-button--icon-bare slds-button--icon-border-small">
                     <svg aria-hidden="true" class="slds-button__icon slds-button__icon--small">
-                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
                     </svg>
                     <span class="slds-assistive-text">Sort</span>
                   </button>
@@ -646,7 +648,7 @@
                   <span class="slds-truncate">Contact Name</span>
                   <button class="slds-button slds-button--icon-bare slds-button--icon-border-small">
                     <svg aria-hidden="true" class="slds-button__icon slds-button__icon--small">
-                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
                     </svg>
                     <span class="slds-assistive-text">Sort</span>
                   </button>
@@ -708,7 +710,7 @@
                   <div class="slds-media slds-media--center slds-has-flexi-truncate">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon slds-icon-standard-case slds-icon--small">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
+                        <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#case"></use>
                       </svg>
                       <span class="slds-assistive-text">Case icon</span>
                     </div>
@@ -724,7 +726,7 @@
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon slds-icon-standard-case">
-                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
+                        <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#case"></use>
                       </svg>
                       <span class="slds-assistive-text">Case icon</span>
                     </div>
@@ -748,7 +750,7 @@
                   <div class="slds-media slds-media--center slds-has-flexi-truncate">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44 slds-icon--small">
-                        <use xlink:href="/assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
+                        <use xlink:href="assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
                       </svg>
                       <span class="slds-assistive-text">Hammer icon</span>
                     </div>
@@ -764,7 +766,7 @@
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44">
-                        <use xlink:href="/assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
+                        <use xlink:href="assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
                       </svg>
                       <span class="slds-assistive-text">Hammer icon</span>
                     </div>
@@ -805,7 +807,7 @@
         <h2 class="slds-text-heading--medium">Connect to Salesforce</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
           <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
-            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+            <use xlink:href="assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
@@ -834,7 +836,7 @@
         <h2 class="slds-text-heading--medium">Log out of Salesforce</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
           <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
-            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+            <use xlink:href="assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
@@ -855,7 +857,7 @@
         <h2 class="slds-text-heading--medium">Put title here</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
           <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
-            <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+            <use xlink:href="assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
@@ -889,7 +891,7 @@
     <div class="slds-notify slds-notify--alert slds-theme--alert-texture" role="alert">
       <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert">
         <svg aria-hidden="true" class="slds-button__icon">
-          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+          <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
         </svg>
         <span class="slds-assistive-text">Close</span>
       </button>
