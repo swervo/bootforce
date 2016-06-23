@@ -5,10 +5,6 @@ logs
 
 # Dependency directory
 node_modules
-app/lib
-
-# Deploy directory
-build
 
 # Generated from templates
 app/index.html

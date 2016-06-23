@@ -471,7 +471,6 @@
 	};
 	
 	Button.prototype.changeState = function() {
-	    debugger;
 	    this.$element.attr('aria-pressed', !this.$element.hasClass('slds-is-selected'));
 	    this.$element.toggleClass('slds-is-selected slds-not-selected');
 	};
