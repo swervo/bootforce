@@ -11,7 +11,7 @@ require('./../sass/main.scss');
 
 
 window.bootforce = {};
-window.bootforce.prefix = 'doh-';
+window.bootforce.prefix = 'slds-';
 org.init();
 // put initialisation stuff here
 org.getLocalData();
