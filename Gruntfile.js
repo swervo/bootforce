@@ -3,6 +3,7 @@
 'use strict';
 
 var devConfig = require('./webpack.dev.config.js');
+devConfig.entry.app.unshift('webpack-dev-server/client?http://localhost:8080/', 'webpack/hot/dev-server');
 var webpackSharedConfig = require('./webpack.prod.config.js');
 
 module.exports = function(grunt) {
