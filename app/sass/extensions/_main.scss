@@ -1,1 +1,11 @@
+.#{$css-prefix}is-contentbox {
+    box-sizing: content-box;
+    &:before {
+        box-sizing: content-box;
+    }
+    &:after {
+        box-sizing: content-box;
+    }
+}
+
 @import 'responsiveMenu';

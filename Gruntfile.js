@@ -20,6 +20,7 @@ module.exports = function(grunt) {
                 webpack: devConfig,
                 contentBase: 'app/',
                 publicPath: '/' + devConfig.output.publicPath,
+                hot: true
             },
             start: {
                 keepAlive: true,
