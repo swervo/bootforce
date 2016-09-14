@@ -196,10 +196,10 @@
 
                 // this.$backdrop = $('#slds-modal-backdrop');
                 this.$backdrop = $(document.createElement('div'))
-                    .addClass('slds-modal-backdrop')
+                    .addClass('slds-backdrop')
                     .appendTo(this.$body);
                 setTimeout(function(aScope) {
-                    aScope.$backdrop.addClass('slds-modal-backdrop--open');
+                    aScope.$backdrop.addClass('slds-backdrop--open');
                 }, 0, this);
                 // this.$backdrop = $(document.createElement('div'))
                 //     .addClass('modal-backdrop ' + animate)
@@ -231,7 +231,7 @@
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('slds-modal-backdrop--open');
+                this.$backdrop.removeClass('slds-backdrop--open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();
