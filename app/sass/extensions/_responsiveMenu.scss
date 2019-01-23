@@ -10,7 +10,7 @@ $headerBorderBottom: 5px;
     // height: $logoHeight;
 }
 
-.#{$css-prefix}responsive_menu {
+.slds-responsive_menu {
     // display block to start
     display: block;
     position: absolute;
@@ -23,7 +23,7 @@ $headerBorderBottom: 5px;
     z-index: 10;
     transform: translateX(110%);
     transition: transform 0.3s ease-in-out;
-    &.#{$css-prefix}show {
+    &.slds-show {
         transform: none;
     }
 
@@ -63,7 +63,7 @@ $headerBorderBottom: 5px;
         @include mq-small-min {
             display: none;
         }
-        &.#{$css-prefix}show {
+        &.slds-show {
             display: block;
             @include mq-small-min {
                 display: none;

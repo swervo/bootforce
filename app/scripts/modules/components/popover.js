@@ -28,7 +28,7 @@
             placement: 'right',
             trigger: 'click',
             content: '',
-            template: '<div class="slds-popover slds-nubbin--left" role="dialog">'
+            template: '<div class="slds-popover slds-nubbin_left" role="dialog">'
                 + '<div class="slds-popover__header"></div>'
                 + '<div class="slds-popover__body"></div>'
                 + '</div>'

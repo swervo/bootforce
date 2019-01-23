@@ -73,7 +73,8 @@ module.exports = function(grunt) {
                 outputStyle: 'expanded',
                 sourceComments: false,
                 includePaths: [
-                    'app/lib/salesforce-lightning-design-system/scss'
+                    // 'app/lib/salesforce-lightning-design-system/scss',
+                    'node_modules/@salesforce-ux/design-system/scss'
                 ]
             },
             dist: {

@@ -101,12 +101,12 @@
         };
 
         Tooltip.prototype.SLDSPOSCLASSES = {
-            'top': 'slds-nubbin--bottom',
-            'right': 'slds-nubbin--left',
-            'bottom': 'slds-nubbin--top',
-            'left': 'slds-nubbin--right'
+            'top': 'slds-nubbin_bottom',
+            'right': 'slds-nubbin_left',
+            'bottom': 'slds-nubbin_top',
+            'left': 'slds-nubbin_right'
         };
-        
+
         Tooltip.prototype.getDefaults = function() {
             return Tooltip.DEFAULTS;
         };

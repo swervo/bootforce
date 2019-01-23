@@ -37,7 +37,7 @@
             }
 
             if (!$parent.length) {
-                $parent = $this.closest('.slds-notify--alert');
+                $parent = $this.closest('.slds-notify_alert');
             }
 
             $parent.trigger(e = $.Event('close.bs.alert'));

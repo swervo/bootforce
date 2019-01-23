@@ -4,6 +4,7 @@
   "description": "Port of Bootstrap javascript to support the Salesforce Lightning Design System",
   "main": "Gruntfile.js",
   "dependencies": {
+    "@salesforce-ux/design-system": "^2.8.1",
     "commander": "^2.9.0",
     "debug": "^2.2.0",
     "express": "^4.13.3",
@@ -27,7 +28,7 @@
     "grunt-env": "^0.4.4",
     "grunt-notify": "^0.4.1",
     "grunt-preprocess": "^5.0.1",
-    "grunt-sass": "^1.1.0",
+    "grunt-sass": "^1.2.1",
     "load-grunt-tasks": "^3.2.0"
   },
   "scripts": {

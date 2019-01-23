@@ -199,7 +199,7 @@
                     .addClass('slds-backdrop')
                     .appendTo(this.$body);
                 setTimeout(function(aScope) {
-                    aScope.$backdrop.addClass('slds-backdrop--open');
+                    aScope.$backdrop.addClass('slds-backdrop_open');
                 }, 0, this);
                 // this.$backdrop = $(document.createElement('div'))
                 //     .addClass('modal-backdrop ' + animate)
@@ -231,7 +231,7 @@
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('slds-backdrop--open');
+                this.$backdrop.removeClass('slds-backdrop_open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();
