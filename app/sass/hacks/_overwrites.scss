@@ -2,19 +2,19 @@
     position: absolute;
 }
 
-.slds-button--neutral {
+.slds-button_neutral {
     &.slds-is-selected {
         background-color: $color-background-button-default-active;
     }
 }
 
-.slds-button--brand {
+.slds-button_brand {
     &.slds-is-selected {
         background-color: $color-background-button-brand-active;
     }
 }
 
-.slds-button--destructive {
+.slds-button_destructive {
     &.slds-is-selected {
         background-color: #870500; //$color-background-button-destructive-active;
     }
