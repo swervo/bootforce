@@ -1,4 +1,5 @@
 /* global define */
+'use strict';
 
 /* SINGLETON */
 
@@ -10,7 +11,6 @@ define(
         'org/todos'
     ],
     function(ko, Contacts, Accounts, Todos) {
-        'use strict';
         var OrgModel = (function() {
             function OrgModel() {
                 Contacts.call(this);
@@ -40,6 +40,7 @@ define(
                 return this.connector.logout();
             };
             OrgModel.prototype.getUserProfile = function() {
+                var $deferred = $.Deferred();
                 this.connector.identity().then(function(res, err) {
                     if (err) {
                         $deferred.reject(err);
@@ -54,7 +55,6 @@ define(
                     }
                     $deferred.resolve();
                 }.bind(this));
-                var $deferred = $.Deferred();
                 return $deferred.promise();
             };
             return OrgModel;
@@ -67,6 +67,5 @@ define(
 define([
     'org/OrgModelImp'
 ], function(OrgModel) {
-    'use strict';
     return new OrgModel();
 });

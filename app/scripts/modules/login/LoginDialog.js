@@ -1,9 +1,9 @@
 /* global define */
+'use strict';
 
 define([
     'jsforce'
 ], function(f) {
-    'use strict';
 
     // function loginPanel(aCallback) {
     var $loginDialog = $('#loginDialog');
@@ -12,6 +12,11 @@ define([
     var $loginOrgType = $('#loginOrgType', $loginDialog);
     var $logInDeferred;
     var orgTypeLoginUrl = $loginOrgType[0].options[0].value;
+
+    function closeDialog() {
+        $loginDialog.modal('hide');
+    }
+
     function tryLogin() {
         f.browser.login({
             loginUrl: orgTypeLoginUrl
@@ -22,9 +27,6 @@ define([
                 $logInDeferred.reject(err);
             }
         });
-    }
-    function closeDialog() {
-        $loginDialog.modal('hide');
     }
 
     $loginConnect.on('click', tryLogin);

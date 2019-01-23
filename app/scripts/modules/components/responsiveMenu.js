@@ -1,8 +1,8 @@
 /* global define */
+'use strict';
 
 define([
 ], function() {
-    'use strict';
     var isOpen = false;
     var $bfBurger = $('#bfBurger');
     var $bfMenu = $('#bfMenu');

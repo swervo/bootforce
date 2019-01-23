@@ -5,9 +5,8 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
+'use strict';
 (function() {
-    'use strict';
 
     require([], function() {
 

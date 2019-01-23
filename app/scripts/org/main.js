@@ -1,4 +1,5 @@
 /* global define */
+'use strict';
 
 define([
     'jsforce',
@@ -6,7 +7,6 @@ define([
     'knockout',
     'org/OrgModel'
 ], function(f, ko, OrgModel) {
-    'use strict';
 
     window.OrgModel = OrgModel;
     var isInitialised = false;

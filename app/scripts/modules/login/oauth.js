@@ -1,5 +1,5 @@
+'use strict';
 (function() {
-    'use strict';
 
     require([
         'jsforce'
@@ -15,7 +15,7 @@
                 redirectUri: 'http://localhost:8000/#/callback'
             }
         });
-        
+
         conn.login(
          'swervo@papersnail.co.uk',
          'userPassword' + 'LapdF8sLQgwvbe5CBkG3D8nL',
@@ -40,7 +40,3 @@
         });
     });
 }());
-
-
-
-
