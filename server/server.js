@@ -23,6 +23,7 @@ Server.prototype._initialize = function (callback) {
 
 
     this.app.set('port', this._port);
+    console.log(__dirname);
     this.app.use(express.static(path.join(__dirname, '../build')));
 
     callback(null);
@@ -46,6 +47,7 @@ Server.prototype._listen = function (callback) {
 
 // public API
 Server.prototype.start = function (callback) {
+    console.log('hey');
     var that = this;
 
     if (this.app) {
