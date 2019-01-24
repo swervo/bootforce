@@ -2,7 +2,10 @@
   "name": "bootforce",
   "version": "0.0.2",
   "description": "Port of Bootstrap javascript to support the Salesforce Lightning Design System",
-  "main": "Gruntfile.js",
+  "main": "app.js",
+  "engines": {
+    "node": "8.x"
+  },
   "dependencies": {
     "@salesforce-ux/design-system": "^2.8.1",
     "commander": "^2.19.0",
