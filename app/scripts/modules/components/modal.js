@@ -5,10 +5,9 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
+'use strict';
 
 (function() {
-    'use strict';
     require([], function() {
 
         // MODAL CLASS DEFINITION
@@ -199,7 +198,7 @@
                     .addClass('slds-backdrop')
                     .appendTo(this.$body);
                 setTimeout(function(aScope) {
-                    aScope.$backdrop.addClass('slds-backdrop--open');
+                    aScope.$backdrop.addClass('slds-backdrop_open');
                 }, 0, this);
                 // this.$backdrop = $(document.createElement('div'))
                 //     .addClass('modal-backdrop ' + animate)
@@ -231,7 +230,7 @@
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('slds-backdrop--open');
+                this.$backdrop.removeClass('slds-backdrop_open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();

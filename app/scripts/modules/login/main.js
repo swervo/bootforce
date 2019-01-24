@@ -1,10 +1,10 @@
 /* global define */
+'use strict';
 
 define([
     'modules/login/LoginDialog',
     'modules/login/LogoutDialog'
 ], function(loginDialog) {
-    'use strict';
 
     function init() {
         var $connectionDeferred = $.Deferred();

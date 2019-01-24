@@ -1,8 +1,9 @@
 /* global module */
+'use strict';
 
 module.exports = function(grunt) {
-    'use strict';
     require('load-grunt-tasks')(grunt);
+    var sass = require('node-sass');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -69,11 +70,12 @@ module.exports = function(grunt) {
         },
         sass: {
             options: {
+                implementation: sass,
                 sourceMap: true,
                 outputStyle: 'expanded',
                 sourceComments: false,
                 includePaths: [
-                    'app/lib/salesforce-lightning-design-system/scss'
+                    'node_modules/@salesforce-ux/design-system/scss'
                 ]
             },
             dist: {

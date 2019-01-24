@@ -5,9 +5,8 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
+'use strict';
 (function() {
-    'use strict';
 
     require([], function() {
 
@@ -28,7 +27,7 @@
             placement: 'right',
             trigger: 'click',
             content: '',
-            template: '<div class="slds-popover slds-nubbin--left" role="dialog">'
+            template: '<div class="slds-popover slds-nubbin_left" role="dialog">'
                 + '<div class="slds-popover__header"></div>'
                 + '<div class="slds-popover__body"></div>'
                 + '</div>'

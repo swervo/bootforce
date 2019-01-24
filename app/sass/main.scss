@@ -5,32 +5,46 @@
  */
 
 
-@import 'colours/overrides';
+@import 'tokens/overrides';
 @import 'hacks/mixins';
 @import 'hacks/hacks';
 
 /**
  * Import the SLDS here
  */
-@import
+// @import
 
-  // Dependencies
-  'design-tokens',
-  'config',
-  'vendor/deprecate',
-  'dependencies/index',
-  'core/font',
+@import 'init';
 
-  // Resets
-  'vendor/normalize',
-  'core/core',
+// Resets
+@import 'vendor/normalize';
+@include core($scoped: false, $globals: true);
 
-  // Framework
-  'components/index',
-  'utilities/index',
+// Framework
+@import 'touch/index';
+@import 'components/index';
+@import 'utilities/index';
 
-  // Print
-  'vendor/html5boilerplate-print';
+// Print
+@import 'vendor/html5boilerplate-print';
+
+  // // Dependencies
+  // 'design-tokens',
+  // 'config',
+  // 'vendor/deprecate',
+  // 'dependencies/index',
+  // 'core/font',
+
+  // // Resets
+  // 'vendor/normalize',
+  // 'core/core',
+
+  // // Framework
+  // 'components/index',
+  // 'utilities/index',
+
+  // // Print
+  // 'vendor/html5boilerplate-print';
 
 @import 'extensions/main';
 

@@ -15,40 +15,40 @@
 </head>
 
 <body id="app">
-  <main class="slds-container--x-large slds-container--center">
-    <div class="slds-grid slds-wrap slds-grid--vertical-align-center">
-      <div class="slds-col--padded">
+  <main class="slds-container_x-large slds-container_center">
+    <div class="slds-grid slds-wrap slds-grid_vertical-align-center">
+      <div class="slds-col_padded">
 
-        <div class="slds-box slds-box--x-small slds-borderless">
+        <div class="slds-box slds-box_x-small slds-borderless">
           <div class="bfLogo"></div>
         </div>
       </div>
-      <a class="slds-col--bump-left slds-m-vertical--medium" href="https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku">
+      <a class="slds-col_bump-left slds-m-vertical_medium" href="https://heroku.com/deploy?template=https://github.com/swervo/bootforce/tree/heroku">
         <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
       </a>
-      <div id="bfBurger" class="slds-box slds-box--small slds-borderless slds-x-small-show-only">
+      <div id="bfBurger" class="slds-box slds-box_small slds-borderless slds-x-small-show-only">
         <span class="slds-icon_container">
           <svg aria-hidden="true" class="slds-icon icon-utility-rows slds-icon-text-default"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/icons/utility-sprite/svg/symbols.svg#rows"></use></svg>
         </span>
       </div>
     </div>
 
-    <div class="slds-tabs--scoped">
-      <div class="slds-container--fluid slds-responsive_menu__background">
-        <ul id="bfMenu" class="slds-tabs--scoped__nav slds-responsive_menu" role="tablist">
-          <li class="slds-tabs--scoped__item slds-text-heading--label slds-active" title="Bootforce" role="presentation"><a href="#bootforce" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Bootforce</a></li>
-          <li class="slds-tabs--scoped__item slds-text-heading--label" title="Roadmap" role="presentation"><a href="#roadmap" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Roadmap</a></li>
-          <li class="slds-tabs--scoped__item slds-text-heading--label" title="Data" role="presentation"><a href="#data" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
-          <li class="slds-tabs--scoped__item slds-text-heading--label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs--scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
-          <li class="slds-col--bump-left slds-m-top--xx-small">
+    <div class="slds-tabs_scoped">
+      <div class="slds-container_fluid slds-responsive_menu__background">
+        <ul id="bfMenu" class="slds-tabs_scoped__nav slds-responsive_menu" role="tablist">
+          <li class="slds-tabs_scoped__item slds-text-heading_label slds-active" title="Bootforce" role="presentation"><a href="#bootforce" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Bootforce</a></li>
+          <li class="slds-tabs_scoped__item slds-text-heading_label" title="Roadmap" role="presentation"><a href="#roadmap" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Roadmap</a></li>
+          <li class="slds-tabs_scoped__item slds-text-heading_label" title="Data" role="presentation"><a href="#data" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
+          <li class="slds-tabs_scoped__item slds-text-heading_label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
+          <li class="slds-col_bump-left slds-m-top_xx-small">
 
-            <button id="login" class="slds-button slds-button--neutral slds-m-left--small" data-toggle="modal" data-target="#loginDialog">
+            <button id="login" class="slds-button slds-button_neutral slds-m-left_small" data-toggle="modal" data-target="#loginDialog">
               Log in
             </button>
           </li>
-          <li class="slds-text-heading--label slds-m-right--small slds-p-left--medium">
-            <div id="loggedIn" class="bootforce-pliant slds-hide slds-m-top--xxx-small" data-toggle="modal" data-target="#logoutDialog">
-              <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+          <li class="slds-text-heading_label slds-m-right_small slds-p-left_medium">
+            <div id="loggedIn" class="bootforce-pliant slds-hide slds-m-top_xxx-small" data-toggle="modal" data-target="#logoutDialog">
+              <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                 <img data-bind="attr:{src: userPhoto}" src="/assets/images/avatar2.jpg" />
               </div>
               <span class="slds-truncate" data-bind="text: username"></span>
@@ -58,9 +58,9 @@
         <div id="bfMenuShade" class="slds-responsive_menu__shade"></div>
       </div>
     </div>
-    <div class="slds-container--x-large slds-container--center">
-      <div class="slds-tabs--scoped">
-        <div id="bootforce" class="slds-tabs__content slds-hide slds-show" role="tabpanel">
+    <div class="slds-container_x-large slds-container_center">
+      <div class="slds-tabs_scoped">
+        <div id="bootforce" class="slds-tabs__content slds-show" role="tabpanel">
           <!-- PAGE HEADER -->
           <div class="slds-page-header" role="banner">
             <!-- PAGE HEADER TOP ROW -->
@@ -71,13 +71,13 @@
                 <!-- MEDIA OBJECT = FIGURE + BODY -->
                 <div class="slds-media">
                   <div class="slds-media__figure">
-                    <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+                    <svg aria-hidden="true" class="slds-icon slds-icon_large slds-icon-standard-user">
                       <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#user"></use>
                     </svg>
                   </div>
                   <div class="slds-media__body">
-                    <p class="slds-text-heading--label">Bootforce</p>
-                    <h1 class="slds-text-heading--medium">Bootforce</h1>
+                    <p class="slds-text-heading_label">Bootforce</p>
+                    <h1 class="slds-text-heading_medium">Bootforce</h1>
                   </div>
                 </div>
                 <!-- / MEDIA OBJECT -->
@@ -86,7 +86,7 @@
               <!-- / PAGE HEADER / ROW 1 / COLUMN 1 -->
               <!-- PAGE HEADER / ROW 1 / COLUMN 2 -->
               <div class="slds-col slds-no-flex slds-align-middle">
-                <button class="slds-button slds-button--neutral" data-toggle="modal" data-target="#modalTwo">
+                <button class="slds-button slds-button_neutral" data-toggle="modal" data-target="#modalTwo">
                   Show modal
                 </button>
               </div>
@@ -96,10 +96,10 @@
             <!-- PAGE HEADER DETAIL ROW -->
             <div class="slds-grid slds-page-header__detail-row">
               <!-- PAGE HEADER / ROW 2 / COLUMN 1 -->
-              <div class="slds-col--padded slds-size--1-of-4">
+              <div class="slds-col_padded slds-size_1-of-4">
                 <dl>
                   <dt>
-                    <p class="slds-text-heading--label slds-truncate">Show</p>
+                    <p class="slds-text-heading_label slds-truncate">Show</p>
                   </dt>
                   <dd>
                     <a href="#" data-toggle="tooltip" data-placement="right" title="Tooltip content for the tooltip right example">These</a>
@@ -110,10 +110,10 @@
                 </dl>
               </div>
               <!-- PAGE HEADER / ROW 2 / COLUMN 2 -->
-              <div class="slds-col--padded slds-size--1-of-4">
+              <div class="slds-col_padded slds-size_1-of-4">
                 <dl>
                   <dt>
-                    <p class="slds-text-heading--label slds-truncate">me all</p>
+                    <p class="slds-text-heading_label slds-truncate">me all</p>
                   </dt>
                   <dd>
                     <a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip content for the tooltip top example">Need</a>
@@ -121,10 +121,10 @@
                 </dl>
               </div>
               <!-- PAGE HEADER / ROW 2 / COLUMN 3 -->
-              <div class="slds-col--padded slds-size--1-of-4">
+              <div class="slds-col_padded slds-size_1-of-4">
                 <dl>
                   <dt>
-                    <p class="slds-text-heading--label slds-truncate">the</p>
+                    <p class="slds-text-heading_label slds-truncate">the</p>
                   </dt>
                   <dd>
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Tooltip content for the tooltip bottom example">Some</a>
@@ -132,10 +132,10 @@
                 </dl>
               </div>
               <!-- PAGE HEADER / ROW 2 / COLUMN 4 -->
-              <div class="slds-col--padded slds-size--1-of-4">
+              <div class="slds-col_padded slds-size_1-of-4">
                 <dl>
                   <dt>
-                    <p class="slds-text-heading--label slds-truncate">Tooltips</p>
+                    <p class="slds-text-heading_label slds-truncate">Tooltips</p>
                   </dt>
                   <dd><a href="#" data-toggle="tooltip" data-placement="left" title="Tooltip content for the tooltip left example">Adjustment</a></dd>
                 </dl>
@@ -146,31 +146,31 @@
           <!-- / PAGE HEADER -->
           <!-- PRIMARY CONTENT WRAPPER -->
           <div class="myapp">
-            <div class="slds-grid slds-m-top--large">
-              <div class="slds-container--center slds-container--medium">
+            <div class="slds-grid slds-m-top_large">
+              <div class="slds-container_center slds-container_medium">
                 <div class="slds-media slds-comment slds-hint-parent">
                   <div class="slds-media__figure">
-                    <div class="slds-avatar slds-avatar--circle slds-avatar--medium">
+                    <div class="slds-avatar slds-avatar_circle slds-avatar_medium">
                       <a href="javascript:void(0)" title="Jason Rodgers">
                         <img src="/assets/images/avatar2.jpg" alt="Jason Rodgers" />
                       </a>
                     </div>
                   </div>
                   <div class="slds-media__body">
-                    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                       <p class="slds-truncate"><a href="https://github.com/swervo/bootforce" title="Bootforce">Big corp</a> - <a href="javascript:void(0)">Web application builder</a></p>
-                      <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                      <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                           <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                         </svg>
                         <span class="slds-assistive-text">Show More</span>
                       </button>
                     </div>
-                    <p class="slds-text-body--small"><a href="javascript:void(0)" title="Not long ago">Not long ago</a></p>
+                    <p class="slds-text-body_small"><a href="javascript:void(0)" title="Not long ago">Not long ago</a></p>
                     <div class="slds-comment__content slds-text-longform">
                       <p>I've heard of the <a href="https://www.lightningdesignsystem.com/" title="Lightning Design System">Lightning Design System</a> it's a CSS framework, but, can anyone explain what <a href="dist/bootforce.min.js">bootforce.js</a> is?</p>
                     </div>
-                    <div class="slds-tags slds-text-body--small slds-p-bottom--x-small">
+                    <div class="slds-tags slds-text-body_small slds-p-bottom_x-small">
                       <span>Topics:</span>
                       <ul class="slds-tags__list">
                         <li class="slds-tags__item"><a href="javascript:void(0)" title="Sales Presentation">What</a></li>
@@ -179,10 +179,10 @@
                         <li class="slds-tags__item">and <a href="javascript:void(0)" title="Show the remaining topics">3 more</a></li>
                       </ul>
                     </div>
-                    <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                    <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                       <li class="slds-list__item">
                         <a href="javascript:void(0)" title="Like this item">
-                          <button class="slds-button slds-button--icon-border slds-button--icon-small slds-m-right--small slds-not-selected">
+                          <button class="slds-button slds-button_icon-border slds-button_icon-small slds-m-right_small slds-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#like"></use>
                             </svg>
@@ -199,19 +199,19 @@
                   <li>
                     <div class="slds-media slds-comment slds-hint-parent">
                       <div class="slds-media__figure">
-                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                        <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                           <a href="javascript:void(0)" title="Jenna Davis">
                             <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
                       <div class="slds-media__body">
-                        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                           <p class="slds-truncate"><a href="https://twitter.com/swervo" title="@swervo">@swervo</a> -
-                            <span class="slds-text-body--small">A short while after</span>
+                            <span class="slds-text-body_small">A short while after</span>
                           </p>
-                          <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                          <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
@@ -220,7 +220,7 @@
                         <div class="slds-comment__content slds-text-longform">
                           <p>Yes, I can help you there, <a href="dist/bootforce.min.js">bootforce.js</a> is the javascript library that the <a href="https://www.lightningdesignsystem.com/" title="Lightning Design System">LDS</a> is missing if you want to quickly make interactive websites without writing any code.</p>
                         </div>
-                        <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                        <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                           <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
                           <li class="slds-list__item">5 Likes</li>
                         </ul>
@@ -230,19 +230,19 @@
                   <li>
                     <div class="slds-media slds-comment slds-hint-parent">
                       <div class="slds-media__figure">
-                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                        <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                           <a href="javascript:void(0)" title="Jenna Davis">
                             <img src="/assets/images/avatar2.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
                       <div class="slds-media__body">
-                        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                           <p class="slds-truncate"><a href="javascript:void(0)" title="Web app builder">Web app builder</a> -
-                            <span class="slds-text-body--small">A short while after</span>
+                            <span class="slds-text-body_small">A short while after</span>
                           </p>
-                          <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                          <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
@@ -251,7 +251,7 @@
                         <div class="slds-comment__content slds-text-longform">
                           <p>Sounds great! But how does it work exactly, what do I need to do to make my <a href="https://www.lightningdesignsystem.com/" title="Lightning Design System">LDS</a> sites interactive?</p>
                         </div>
-                        <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                        <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                           <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
                           <li class="slds-list__item">4 Likes</li>
                         </ul>
@@ -261,19 +261,19 @@
                   <li>
                     <div class="slds-media slds-comment slds-hint-parent">
                       <div class="slds-media__figure">
-                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                        <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                           <a href="javascript:void(0)" title="Jenna Davis">
                             <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
                       <div class="slds-media__body">
-                        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                           <p class="slds-truncate"><a href="https://twitter.com/swervo" title="@swervo">@swervo</a> -
-                            <span class="slds-text-body--small">A short while after</span>
+                            <span class="slds-text-body_small">A short while after</span>
                           </p>
-                          <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                          <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
@@ -282,7 +282,7 @@
                         <div class="slds-comment__content slds-text-longform">
                           <p>All you need to do is download <a href="dist/bootforce.min.js">bootforce.js</a> and include it in your web page. Then add the appropriate data-target="#id" tags to your markup, give the corresponding elements the correct ids and it will 'just work'. If you're unsure it's just like <a href="http://getbootstrap.com/">Bootstrap</a> the popular front-end development framework, refer to their documentation to get the hang of how it works. This site is built using bootforce incidentally.</p>
                         </div>
-                        <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                        <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                           <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
                           <li class="slds-list__item">15 Likes</li>
                         </ul>
@@ -292,19 +292,19 @@
                   <li>
                     <div class="slds-media slds-comment slds-hint-parent">
                       <div class="slds-media__figure">
-                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                        <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                           <a href="javascript:void(0)" title="Jenna Davis">
                             <img src="/assets/images/avatar2.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
                       <div class="slds-media__body">
-                        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                           <p class="slds-truncate"><a href="javascript:void(0)" title="@swervo">Web app builder</a> -
-                            <span class="slds-text-body--small">A short while after</span>
+                            <span class="slds-text-body_small">A short while after</span>
                           </p>
-                          <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                          <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
@@ -313,7 +313,7 @@
                         <div class="slds-comment__content slds-text-longform">
                           <p>Sounds great! I can't wait to try it out.</p>
                         </div>
-                        <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                        <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                           <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
                           <li class="slds-list__item">500 Likes</li>
                         </ul>
@@ -323,19 +323,19 @@
                   <li>
                     <div class="slds-media slds-comment slds-hint-parent">
                       <div class="slds-media__figure">
-                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                        <div class="slds-avatar slds-avatar_circle slds-avatar_small">
                           <a href="javascript:void(0)" title="Jenna Davis">
                             <img src="/assets/images/avatar1.jpg" alt="Jenna Davis" />
                           </a>
                         </div>
                       </div>
                       <div class="slds-media__body">
-                        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                           <p class="slds-truncate"><a href="https://twitter.com/swervo" title="@swervo">@swervo</a> -
-                            <span class="slds-text-body--small">A short while after</span>
+                            <span class="slds-text-body_small">A short while after</span>
                           </p>
-                          <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
-                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                          <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-shrink-none">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                               <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                             </svg>
                             <span class="slds-assistive-text">Show More</span>
@@ -344,7 +344,7 @@
                         <div class="slds-comment__content slds-text-longform">
                           <p>Be my guest, it's in it's early stages at the moment so please submit any bugs that you find or, even better, fork the repo on <a href="https://github.com/swervo/bootforce">github</a>, fix it and send me a pull request. That would be awesome!</p>
                         </div>
-                        <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                        <ul class="slds-list_horizontal slds-has-dividers slds-text-body_small">
                           <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
                           <li class="slds-list__item">1000 Likes</li>
                         </ul>
@@ -355,73 +355,73 @@
               </div>
             </div>
             <!-- RELATED LIST CARDS-->
-            <div class="slds-grid slds-m-top--large">
+            <div class="slds-grid slds-m-top_large">
               <!-- MAIN CARD -->
-              <div class="slds-col slds-col-rule--right slds-size--8-of-12">
+              <div class="slds-col slds-col-rule_right">
                 <div class="slds-card">
                   <header class="slds-card__header slds-grid">
-                    <div class="slds-col slds-media slds-media--center">
+                    <div class="slds-col slds-media slds-media_center">
                       <div class="slds-media__figure">
-                        <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+                        <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon_small">
                           <use xlink:href="assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
                         </svg>
                       </div>
                       <div class="slds-media__body">
-                        <h3 class="slds-text-heading--small">Contacts</h3>
+                        <h3 class="slds-text-heading_small">Contacts</h3>
                       </div>
                     </div>
-                    <div class="slds-col slds-no-flex slds-m-right--medium">
+                    <div class="slds-col slds-no-flex slds-m-right_medium">
                       <fieldset class="slds-form-element">
                       <!-- <legend class="slds-form-element__legend slds-form-element__label"></legend> -->
                       <div class="slds-form-element__control">
-                        <div class="slds-radio--button-group">
-                          <label class="slds-button slds-radio--button" for="m">
+                        <div class="slds-radio_button-group">
+                          <label class="slds-button slds-radio_button" for="m">
                             <input name="radio" type="radio" id="m" />
-                            <span class="slds-radio--faux">M</span>
+                            <span class="slds-radio_faux">M</span>
                           </label>
-                          <label class="slds-button slds-radio--button" for="u">
+                          <label class="slds-button slds-radio_button" for="u">
                             <input name="radio" type="radio" id="u" />
-                            <span class="slds-radio--faux">U</span>
+                            <span class="slds-radio_faux">U</span>
                           </label>
-                          <label class="slds-button slds-radio--button" for="x">
+                          <label class="slds-button slds-radio_button" for="x">
                             <input name="radio" type="radio" id="x" />
-                            <span class="slds-radio--faux">X</span>
+                            <span class="slds-radio_faux">X</span>
                           </label>
                         </div>
                       </div>
                     </fieldset>
                     </div>
                     <div class="slds-col slds-no-flex">
-                      <button data-toggle="button" aria-pressed="false" class="slds-button slds-button--brand slds-button--small">Toggle</button>
+                      <button data-toggle="button" aria-pressed="false" class="slds-button slds-button_brand slds-button_small">Toggle</button>
                     </div>
                   </header>
                   <!-- CARD BODY = TABLE -->
                   <section class="slds-card__body">
                     <div>
-                      <table class="slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                      <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal">
                         <thead>
                           <tr class="slds-no-hover">
-                            <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Name</th>
-                            <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Company</th>
-                            <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Title</th>
-                            <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Email</th>
+                            <th class="slds-text-heading_label slds-size_1-of-4" scope="col">Name</th>
+                            <th class="slds-text-heading_label slds-size_1-of-4" scope="col">Company</th>
+                            <th class="slds-text-heading_label slds-size_1-of-4" scope="col">Title</th>
+                            <th class="slds-text-heading_label slds-size_1-of-4" scope="col">Email</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr class="slds-hint-parent">
-                            <td class="slds-size--1-of-4" data-label="Name">Dom</td>
-                            <td class="slds-size--1-of-4" data-label="Company">Salesforce</td>
-                            <td class="slds-size--1-of-4" data-label="Title">Tech vagabond</td>
-                            <td class="slds-size--1-of-4" data-label="Twitter"><a href="https://twitter.com/swervo" title="@swervo">@swervo</a></td>
+                            <td class="slds-size_1-of-4" data-label="Name">Dom</td>
+                            <td class="slds-size_1-of-4" data-label="Company">Salesforce</td>
+                            <td class="slds-size_1-of-4" data-label="Title">Tech vagabond</td>
+                            <td class="slds-size_1-of-4" data-label="Twitter"><a href="https://twitter.com/swervo" title="@swervo">@swervo</a></td>
                             <td>
                               <div class="slds-dropdown-trigger">
-                                <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-dropdown-trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                                <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-dropdown-trigger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon_hint slds-button__icon_small">
                                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
                                   </svg>
                                   <span class="slds-assistive-text">Show More</span>
                                 </button>
-                                <div class="slds-dropdown slds-dropdown--right slds-dropdown--actions slds-dropdown--menu">
+                                <div class="slds-dropdown slds-dropdown_right slds-dropdown_actions slds-dropdown_menu">
                                   <ul id="menu2" class="slds-dropdown__list" aria-labelledby="drop5">
                                     <li class="slds-dropdown__item"><a href="#">Action</a></li>
                                     <li class="slds-dropdown__item"><a href="#">Another action</a></li>
@@ -438,25 +438,25 @@
                   </section>
                   <!-- / CARD BODY = SECTION + TABLE -->
                   <footer class="slds-card__footer slds-grid">
-                    <div class="slds-col slds-no-flex slds-m-right--medium">
+                    <div class="slds-col slds-no-flex slds-m-right_medium">
                       <div class="slds-button-group" role="group" data-toggle="buttons" data-grouptype="checkbox">
-                        <button class="slds-button slds-button--destructive slds-button--small">Latch</button>
-                        <button class="slds-button slds-button--destructive slds-button--small">Button</button>
-                        <button class="slds-button slds-button--destructive slds-button--small slds-button--last">Set</button>
+                        <button class="slds-button slds-button_destructive slds-button_small">Latch</button>
+                        <button class="slds-button slds-button_destructive slds-button_small">Button</button>
+                        <button class="slds-button slds-button_destructive slds-button_small slds-button_last">Set</button>
                       </div>
                     </div>
                     <div class="slds-col slds-no-flex">
-                      <button class="slds-button slds-button--neutral slds-not-selected" data-toggle="button" data-buttontype="stateful" aria-live="assertive">
+                      <button class="slds-button slds-button_neutral slds-not-selected" data-toggle="button" data-buttontype="stateful" aria-live="assertive">
                         <span class="slds-text-not-selected">
-                          <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <svg aria-hidden="true" class="slds-button__icon_stateful slds-button__icon_left">
                             <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                           </svg>Follow</span>
                         <span class="slds-text-selected">
-                          <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <svg aria-hidden="true" class="slds-button__icon_stateful slds-button__icon_left">
                             <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
                           </svg>Following</span>
                         <span class="slds-text-selected-focus">
-                          <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
+                          <svg aria-hidden="true" class="slds-button__icon_stateful slds-button__icon_left">
                             <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                           </svg>Unfollow</span>
                       </button>
@@ -476,29 +476,29 @@
               <span class="slds-assistive-text">Task</span>
               <div class="slds-media">
                 <div class="slds-media__body">
-                  <div class="slds-media slds-media--timeline slds-timeline__media--task">
+                  <div class="slds-media slds-media_timeline slds-timeline__media_task">
                     <div class="slds-media__figure slds-timeline__icon">
                       <div class="slds-icon_container">
-                        <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-task">
+                        <svg aria-hidden="true" class="slds-icon slds-icon_small slds-icon-standard-task">
                           <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
                         </svg>
                       </div>
                     </div>
                     <div class="slds-media__body">
-                      <div class="slds-media slds-tile slds-media--small">
+                      <div class="slds-media slds-tile slds-media_small">
                         <div class="slds-media__body">
                           <p class="slds-tile__title slds-truncate"><a href="#" data-bind="text: notes"></a></p>
-                          <ul class="slds-tile__detail slds-list--horizontal slds-text-body--small">
-                            <li class="slds-list__item slds-m-right--large">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Contact:</dt>
-                                <dd class="slds-dl--inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
+                          <ul class="slds-tile__detail slds-list_horizontal slds-text-body_small">
+                            <li class="slds-list__item slds-m-right_large">
+                              <dl class="slds-dl_inline">
+                                <dt class="slds-dl_inline__label">Contact:</dt>
+                                <dd class="slds-dl_inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
                               </dl>
                             </li>
                             <li class="slds-list__item">
-                              <dl class="slds-dl--inline">
-                                <dt class="slds-dl--inline__label">Assigned to:</dt>
-                                <dd class="slds-dl--inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
+                              <dl class="slds-dl_inline">
+                                <dt class="slds-dl_inline__label">Assigned to:</dt>
+                                <dd class="slds-dl_inline__detail"><a data-bind="attr: {href: contact}, text: assignee">@swervo</a></dd>
                               </dl>
                             </li>
                           </ul>
@@ -507,10 +507,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="slds-media__figure slds-media__figure--reverse">
+                <div class="slds-media__figure slds-media__figure_reverse">
                   <div class="slds-timeline__actions">
                     <p class="slds-timeline__date" data-bind="text: when">In the future</p>
-                    <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+                    <button class="slds-button slds-button_icon-border-filled slds-button_icon-x-small">
                       <svg aria-hidden="true" class="slds-button__icon">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
                       </svg>
@@ -527,38 +527,38 @@
           <div class="slds-page-header" role="banner">
             <div class="slds-grid">
               <div class="slds-col slds-has-flexi-truncate">
-                <p class="slds-text-heading--label">Accounts</p>
+                <p class="slds-text-heading_label">Accounts</p>
                 <div class="slds-grid">
                   <div class="slds-grid slds-type-focus slds-no-space">
-                    <h1 class="slds-text-heading--medium slds-truncate" title="My Leads (truncates)">My Accounts</h1>
+                    <h1 class="slds-text-heading_medium slds-truncate" title="My Leads (truncates)">My Accounts</h1>
                   </div>
                 </div>
               </div>
               <div class="slds-col slds-no-flex slds-align-bottom">
                 <div class="slds-grid" data-bind="visible: isLoggedIn()">
-                  <button id="getAccounts" class="slds-button slds-button--neutral">Fetch Accounts</button>
+                  <button id="getAccounts" class="slds-button slds-button_neutral">Fetch Accounts</button>
                 </div>
                 <div class="slds-grid" data-bind="visible: !isLoggedIn()">
                   You must log in to fetch accounts.
                 </div>
               </div>
             </div>
-            <p class="slds-text-body--small slds-m-top--x-small"><span data-bind="text: totalAccounts"></span> items • Max first 10 shown</p>
+            <p class="slds-text-body_small slds-m-top_x-small"><span data-bind="text: totalAccounts"></span> items • Max first 10 shown</p>
           </div>
-          <table class="slds-table slds-table--bordered">
+          <table class="slds-table slds-table_bordered">
             <thead>
-              <tr class="slds-text-heading--label">
+              <tr class="slds-text-heading_label">
                 <th class="slds-cell-shrink" scope="col">
                   <label class="slds-checkbox" for="select-all">
                     <input name="checkbox" type="checkbox" id="select-all" />
-                    <span class="slds-checkbox--faux"></span>
+                    <span class="slds-checkbox_faux"></span>
                     <span class="slds-form-element__label slds-assistive-text">select all</span>
                   </label>
                 </th>
                 <th class="slds-is-sortable" scope="col">
                   <span class="slds-truncate">Account Name</span>
-                  <button class="slds-button slds-button--icon-bare slds-button--icon-border-small">
-                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon--small">
+                  <button class="slds-button slds-button_icon-bare slds-button_icon-border-small">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_small">
                       <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
                     </svg>
                     <span class="slds-assistive-text">Sort</span>
@@ -582,12 +582,12 @@
               </tr>
             </thead>
             <tbody data-bind="foreach: accounts">
-              
+
               <tr class="slds-hint-parent">
                 <td class="slds-row-select">
                   <label class="slds-checkbox" for="select-row1">
                     <input name="select-row1" type="checkbox" id="select-row1" />
-                    <span class="slds-checkbox--faux"></span>
+                    <span class="slds-checkbox_faux"></span>
                     <span class="slds-form-element__label slds-assistive-text">select row1</span>
                   </label>
                 </td>
@@ -605,7 +605,7 @@
                   <span class="slds-truncate" data-bind="text: employees"></span>
                 </td>
                 <td data-label="contact" data-bind="text: city">
-                  <span class="slds-truncate">--</span>
+                  <span class="slds-truncate">_</span>
                 </td>
               </tr>
 
@@ -614,38 +614,38 @@
           <div class="slds-page-header" role="banner">
             <div class="slds-grid">
               <div class="slds-col slds-has-flexi-truncate">
-                <p class="slds-text-heading--label">Contacts</p>
+                <p class="slds-text-heading_label">Contacts</p>
                 <div class="slds-grid">
                   <div class="slds-grid slds-type-focus slds-no-space">
-                    <h1 class="slds-text-heading--medium slds-truncate" title="My Contacts">My Contacts</h1>
+                    <h1 class="slds-text-heading_medium slds-truncate" title="My Contacts">My Contacts</h1>
                   </div>
                 </div>
               </div>
               <div class="slds-col slds-no-flex slds-align-bottom">
                 <div class="slds-grid" data-bind="visible: isLoggedIn()">
-                  <button id="getContacts" class="slds-button slds-button--neutral">Fetch Contacts</button>
+                  <button id="getContacts" class="slds-button slds-button_neutral">Fetch Contacts</button>
                 </div>
                 <div class="slds-grid" data-bind="visible: !isLoggedIn()">
                   You must log in to fetch accounts.
                 </div>
               </div>
             </div>
-            <p class="slds-text-body--small slds-m-top--x-small"><span data-bind="text: totalContacts"></span> items • Max first 10 shown</p>
+            <p class="slds-text-body_small slds-m-top_x-small"><span data-bind="text: totalContacts"></span> items • Max first 10 shown</p>
           </div>
-          <table class="slds-table slds-table--bordered">
+          <table class="slds-table slds-table_bordered">
             <thead>
-              <tr class="slds-text-heading--label">
+              <tr class="slds-text-heading_label">
                 <th class="slds-cell-shrink" scope="col">
                   <label class="slds-checkbox" for="select-all">
                     <input name="checkbox" type="checkbox" id="select-all" />
-                    <span class="slds-checkbox--faux"></span>
+                    <span class="slds-checkbox_faux"></span>
                     <span class="slds-form-element__label slds-assistive-text">select all</span>
                   </label>
                 </th>
                 <th class="slds-is-sortable" scope="col">
                   <span class="slds-truncate">Contact Name</span>
-                  <button class="slds-button slds-button--icon-bare slds-button--icon-border-small">
-                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon--small">
+                  <button class="slds-button slds-button_icon-bare slds-button_icon-border-small">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_small">
                       <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
                     </svg>
                     <span class="slds-assistive-text">Sort</span>
@@ -674,7 +674,7 @@
                 <td class="slds-row-select">
                   <label class="slds-checkbox" for="select-row1">
                     <input name="select-row1" type="checkbox" id="select-row1" />
-                    <span class="slds-checkbox--faux"></span>
+                    <span class="slds-checkbox_faux"></span>
                     <span class="slds-form-element__label slds-assistive-text">select row1</span>
                   </label>
                 </td>
@@ -701,26 +701,26 @@
         </div>
         <!-- DOWNLOADS -->
         <div id="downloads" class="slds-tabs__content slds-hide" role="tabpanel">
-          <ul class="slds-grid slds-wrap slds-grid--align-spread slds-grid--pull-padded-large">
-            <li class="slds-col--padded-large slds-size--1-of-1 slds-large-size--1-of-2">
+          <ul class="slds-grid slds-wrap slds-grid_align-spread slds-grid_pull-padded-large">
+            <li class="slds-col_padded-large slds-size_1-of-1 slds-large-size_1-of-2">
               <div class="slds-card">
                 <div class="slds-card__header">
-                  <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                  <div class="slds-media slds-media_center slds-has-flexi-truncate">
                     <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-case slds-icon--small">
+                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-case slds-icon_small">
                         <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
                       </svg>
                       <span class="slds-assistive-text">Case icon</span>
                     </div>
                     <div class="slds-media__body">
-                      <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
-                        <h2 class="slds-text-heading--small slds-truncate">For production</h2>
+                      <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                        <h2 class="slds-text-heading_small slds-truncate">For production</h2>
                         <span class="slds-badge">Prod</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="slds-card__body slds-card__body--inner">
+                <div class="slds-card__body slds-card__body_inner">
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon slds-icon-standard-case">
@@ -729,11 +729,11 @@
                       <span class="slds-assistive-text">Case icon</span>
                     </div>
                     <div class="slds-media__body">
-                      <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                         <p class="slds-tile__title slds-truncate"><a href="dist/bootforce.min.js">bootforce.min.js</a></p>
                         <span class="slds-badge">Minified</span>
                       </div>
-                      <div class="slds-tile__detail slds-text-body--small">
+                      <div class="slds-tile__detail slds-text-body_small">
                         <p class="slds-truncate">29 KB</p>
                       </div>
                     </div>
@@ -742,25 +742,25 @@
                 <div class="slds-card__footer">Footer here</div>
               </div>
             </li>
-            <li class="slds-col--padded-large slds-size--1-of-1 slds-large-size--1-of-2">
+            <li class="slds-col_padded-large slds-size_1-of-1 slds-large-size_1-of-2">
               <div class="slds-card">
                 <div class="slds-card__header">
-                  <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                  <div class="slds-media slds-media_center slds-has-flexi-truncate">
                     <div class="slds-media__figure">
-                      <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44 slds-icon--small">
+                      <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44 slds-icon_small">
                         <use xlink:href="/assets/icons/custom-sprite/svg/symbols.svg#custom44"></use>
                       </svg>
                       <span class="slds-assistive-text">Hammer icon</span>
                     </div>
                     <div class="slds-media__body">
-                      <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
-                        <h2 class="slds-text-heading--small slds-truncate">For development</h2>
+                      <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                        <h2 class="slds-text-heading_small slds-truncate">For development</h2>
                         <span class="slds-badge">Dev</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="slds-card__body slds-card__body--inner">
+                <div class="slds-card__body slds-card__body_inner">
                   <div class="slds-media slds-tile">
                     <div class="slds-media__figure">
                       <svg aria-hidden="true" class="slds-icon icon-svg slds-icon-custom-44">
@@ -769,11 +769,11 @@
                       <span class="slds-assistive-text">Hammer icon</span>
                     </div>
                     <div class="slds-media__body">
-                      <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                      <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                         <p class="slds-tile__title slds-truncate"><a href="dist/bootforce.js">bootforce.js</a></p>
                         <span class="slds-badge">Unminified</span>
                       </div>
-                      <div class="slds-tile__detail slds-text-body--small">
+                      <div class="slds-tile__detail slds-text-body_small">
                         <p class="slds-truncate">77 KB</p>
                       </div>
                     </div>
@@ -788,9 +788,9 @@
     </div>
 
     <!-- FOOTER -->
-    <footer role="contentinfo" class="slds-p-around--large">
+    <footer role="contentinfo" class="slds-p-around_large">
       <!-- LAYOUT GRID -->
-      <div class="slds-grid slds-grid--align-spread">
+      <div class="slds-grid slds-grid_align-spread">
         <p class="slds-col">Salesforce Lightning Design System Example</p>
         <p class="slds-col">&copy; Your Name Here</p>
       </div>
@@ -802,15 +802,15 @@
   <div id="loginDialog" aria-hidden="false" role="dialog" class="slds-modal">
     <div class="slds-modal__container">
       <div class="slds-modal__header">
-        <h2 class="slds-text-heading--medium">Connect to Salesforce</h2>
+        <h2 class="slds-text-heading_medium">Connect to Salesforce</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
-          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon_inverse slds-button__icon_large">
             <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
       </div>
-      <div class="slds-modal__content slds-p-around--medium">
+      <div class="slds-modal__content slds-p-around_medium">
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="orgType">Connecting to:</label>
           <div class="slds-form-element__control">
@@ -822,8 +822,8 @@
         </div>
       </div>
       <div class="slds-modal__footer">
-        <button id="loginCancel" class="slds-button slds-button--neutral">Cancel</button>
-        <button id="loginConnect" class="slds-button slds-button--brand">Connect</button>
+        <button id="loginCancel" class="slds-button slds-button_neutral">Cancel</button>
+        <button id="loginConnect" class="slds-button slds-button_brand">Connect</button>
       </div>
     </div>
   </div>
@@ -831,20 +831,20 @@
   <div id="logoutDialog" aria-hidden="false" role="dialog" class="slds-modal">
     <div class="slds-modal__container">
       <div class="slds-modal__header">
-        <h2 class="slds-text-heading--medium">Log out of Salesforce</h2>
+        <h2 class="slds-text-heading_medium">Log out of Salesforce</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
-          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon_inverse slds-button__icon_large">
             <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
       </div>
-      <div class="slds-modal__content slds-p-around--medium">
+      <div class="slds-modal__content slds-p-around_medium">
         <div>Are you sure you want to log out?</div>
       </div>
       <div class="slds-modal__footer">
-        <button id="logoutCancel" class="slds-button slds-button--neutral">Cancel</button>
-        <button id="logout" class="slds-button slds-button--brand">Logout</button>
+        <button id="logoutCancel" class="slds-button slds-button_neutral">Cancel</button>
+        <button id="logout" class="slds-button slds-button_brand">Logout</button>
       </div>
     </div>
   </div>
@@ -852,22 +852,22 @@
   <div id="modalTwo" aria-hidden="false" role="dialog" class="slds-modal">
     <div class="slds-modal__container">
       <div class="slds-modal__header">
-        <h2 class="slds-text-heading--medium">Put title here</h2>
+        <h2 class="slds-text-heading_medium">Put title here</h2>
         <button class="slds-button slds-modal__close" data-dismiss="modal">
-          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--inverse slds-button__icon--large">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon_inverse slds-button__icon_large">
             <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
           </svg>
           <span class="slds-assistive-text">Close</span>
         </button>
       </div>
-      <div class="slds-modal__content slds-p-around--medium">
+      <div class="slds-modal__content slds-p-around_medium">
         <div>
           <p>Replace me with form elements</p>
         </div>
       </div>
       <div class="slds-modal__footer">
-        <button class="slds-button slds-button--neutral">Cancel</button>
-        <button class="slds-button slds-button--neutral slds-button--brand">Save</button>
+        <button class="slds-button slds-button_neutral">Cancel</button>
+        <button class="slds-button slds-button_neutral slds-button_brand">Save</button>
       </div>
     </div>
   </div>
@@ -886,20 +886,20 @@
     </div>
   </div>
   <div id="notificationContainer" class="slds-notify-container">
-    <div class="slds-notify slds-notify--alert slds-theme--alert-texture" role="alert">
-      <button class="slds-button slds-button--icon-inverse slds-notify__close" data-dismiss="alert">
+    <div class="slds-notify slds-notify_alert slds-theme_alert-texture" role="alert">
+      <button class="slds-button slds-button_icon-inverse slds-notify__close" data-dismiss="alert">
         <svg aria-hidden="true" class="slds-button__icon">
           <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
         </svg>
         <span class="slds-assistive-text">Close</span>
       </button>
       <span class="slds-assistive-text">Info</span>
-      <h2>Bootforce updated to v2.1.2 of the <a href="https://www.lightningdesignsystem.com/">SLDS</a></h2>
+      <h2>Bootforce updated to v2.8.1 of the <a href="https://www.lightningdesignsystem.com/">SLDS</a></h2>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-  <script data-main="scripts/main" src="lib/requirejs/require.js"></script>
+  <script data-main="scripts/main" src="node_modules/requirejs/require.js"></script>
   <!-- @endif -->
   <!-- @if NODE_ENV == 'PRODUCTION' -->
   <script src="scripts/main.min.js"></script>
@@ -917,4 +917,3 @@
 </body>
 
 </html>
-

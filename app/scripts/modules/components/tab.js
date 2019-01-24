@@ -66,9 +66,11 @@
 
         Tab.prototype.activate = function(element, container, callback) {
             var activeSuffix = 'active';
+            var inactiveSuffix = '';
             if (callback) {
                 // this is the toggle content call
                 activeSuffix = 'show';
+                inactiveSuffix = 'hide';
             }
             var $active = container.find('> .slds-' + activeSuffix);
             var transition = callback && $.support.transition &&
@@ -77,6 +79,7 @@
             function next() {
                 $active
                     .removeClass('slds-' + activeSuffix)
+                    .addClass('slds-' + inactiveSuffix)
                     .find('> .dropdown-menu > .slds-' + activeSuffix)
                     .removeClass('slds-' + activeSuffix)
                     .end()
@@ -85,6 +88,7 @@
 
 
                 element
+                    .removeClass('slds-' + inactiveSuffix)
                     .addClass('slds-' + activeSuffix)
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', true);

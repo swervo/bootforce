@@ -1,9 +1,9 @@
 /* global define */
+'use strict';
 
 define([
     'knockout'
 ], function(ko) {
-    'use strict';
 
     function Account(anAccountObj) {
         this.id = anAccountObj.Id;

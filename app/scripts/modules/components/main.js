@@ -1,7 +1,6 @@
 /* global requirejs */
-
+'use strict';
 (function() {
-    'use strict';
 
     requirejs.config({
         baseUrl: 'scripts'

@@ -1,9 +1,9 @@
 /* global define */
+'use strict';
 
 define([
     'knockout'
 ], function(ko) {
-    'use strict';
 
     function Todo(aTodoObj) {
         this.contact = aTodoObj.contact;

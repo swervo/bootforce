@@ -13,7 +13,7 @@
  * $color-background: rgb(244, 246, 249) !default;
  * Here is the override:
  */
-$color-background: powderblue;
+$color-background: powderblue !default;
 
 /**
  * EXAMPLE
@@ -22,3 +22,5 @@ $color-background: powderblue;
  * Here is the override:
  */
 // $font-family: 'gill sans';
+
+$static-font-path: '../assets/fonts/webfonts';

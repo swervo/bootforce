@@ -1,10 +1,10 @@
 /* global define */
+'use strict';
 
 define([
     'jsforce',
     'org/main'
 ], function(f, org) {
-    'use strict';
     window.force = f;
 
     var $logoutDialog = $('#logoutDialog');
