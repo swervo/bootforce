@@ -27523,10 +27523,10 @@ module.exports = property;
 });
 /* global define */
 
+
 define('modules/login/LoginDialog',[
     'jsforce'
 ], function(f) {
-    'use strict';
 
     // function loginPanel(aCallback) {
     var $loginDialog = $('#loginDialog');
@@ -27535,6 +27535,11 @@ define('modules/login/LoginDialog',[
     var $loginOrgType = $('#loginOrgType', $loginDialog);
     var $logInDeferred;
     var orgTypeLoginUrl = $loginOrgType[0].options[0].value;
+
+    function closeDialog() {
+        $loginDialog.modal('hide');
+    }
+
     function tryLogin() {
         f.browser.login({
             loginUrl: orgTypeLoginUrl
@@ -27545,9 +27550,6 @@ define('modules/login/LoginDialog',[
                 $logInDeferred.reject(err);
             }
         });
-    }
-    function closeDialog() {
-        $loginDialog.modal('hide');
     }
 
     $loginConnect.on('click', tryLogin);
@@ -27584,10 +27586,10 @@ define('modules/login/LoginDialog',[
 
 /* global define */
 
+
 define('org/contacts',[
     'knockout',
 ], function(ko) {
-    'use strict';
 
     function Contact(aContactObj) {
         this.name = aContactObj.Name;
@@ -27631,10 +27633,10 @@ define('org/contacts',[
 
 /* global define */
 
+
 define('org/accounts',[
     'knockout'
 ], function(ko) {
-    'use strict';
 
     function Account(anAccountObj) {
         this.id = anAccountObj.Id;
@@ -27680,10 +27682,10 @@ define('org/accounts',[
 
 /* global define */
 
+
 define('org/todos',[
     'knockout'
 ], function(ko) {
-    'use strict';
 
     function Todo(aTodoObj) {
         this.contact = aTodoObj.contact;
@@ -27726,6 +27728,7 @@ define('org/todos',[
 
 /* global define */
 
+
 /* SINGLETON */
 
 define(
@@ -27736,7 +27739,6 @@ define(
         'org/todos'
     ],
     function(ko, Contacts, Accounts, Todos) {
-        'use strict';
         var OrgModel = (function() {
             function OrgModel() {
                 Contacts.call(this);
@@ -27766,6 +27768,7 @@ define(
                 return this.connector.logout();
             };
             OrgModel.prototype.getUserProfile = function() {
+                var $deferred = $.Deferred();
                 this.connector.identity().then(function(res, err) {
                     if (err) {
                         $deferred.reject(err);
@@ -27780,7 +27783,6 @@ define(
                     }
                     $deferred.resolve();
                 }.bind(this));
-                var $deferred = $.Deferred();
                 return $deferred.promise();
             };
             return OrgModel;
@@ -27793,11 +27795,11 @@ define(
 define('org/OrgModel',[
     'org/OrgModelImp'
 ], function(OrgModel) {
-    'use strict';
     return new OrgModel();
 });
 
 /* global define */
+
 
 define('org/main',[
     'jsforce',
@@ -27805,7 +27807,6 @@ define('org/main',[
     'knockout',
     'org/OrgModel'
 ], function(f, ko, OrgModel) {
-    'use strict';
 
     window.OrgModel = OrgModel;
     var isInitialised = false;
@@ -27868,11 +27869,11 @@ define('org/main',[
 
 /* global define */
 
+
 define('modules/login/LogoutDialog',[
     'jsforce',
     'org/main'
 ], function(f, org) {
-    'use strict';
     window.force = f;
 
     var $logoutDialog = $('#logoutDialog');
@@ -27897,11 +27898,11 @@ define('modules/login/LogoutDialog',[
 
 /* global define */
 
+
 define('modules/login/main',[
     'modules/login/LoginDialog',
     'modules/login/LogoutDialog'
 ], function(loginDialog) {
-    'use strict';
 
     function init() {
         var $connectionDeferred = $.Deferred();
@@ -27934,7 +27935,6 @@ define('modules/login/main',[
 
 
 (function() {
-    'use strict';
     require([], function() {
 
         // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
@@ -28008,8 +28008,8 @@ define("modules/components/utils/transition", function(){});
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+
 (function() {
-    'use strict';
     require([], function() {
 
         // ALERT CLASS DEFINITION
@@ -28039,7 +28039,7 @@ define("modules/components/utils/transition", function(){});
             }
 
             if (!$parent.length) {
-                $parent = $this.closest('.slds-notify--alert');
+                $parent = $this.closest('.slds-notify_alert');
             }
 
             $parent.trigger(e = $.Event('close.bs.alert'));
@@ -28174,9 +28174,11 @@ define("modules/components/alert", function(){});
 
         Tab.prototype.activate = function(element, container, callback) {
             var activeSuffix = 'active';
+            var inactiveSuffix = '';
             if (callback) {
                 // this is the toggle content call
                 activeSuffix = 'show';
+                inactiveSuffix = 'hide';
             }
             var $active = container.find('> .slds-' + activeSuffix);
             var transition = callback && $.support.transition &&
@@ -28185,6 +28187,7 @@ define("modules/components/alert", function(){});
             function next() {
                 $active
                     .removeClass('slds-' + activeSuffix)
+                    .addClass('slds-' + inactiveSuffix)
                     .find('> .dropdown-menu > .slds-' + activeSuffix)
                     .removeClass('slds-' + activeSuffix)
                     .end()
@@ -28193,6 +28196,7 @@ define("modules/components/alert", function(){});
 
 
                 element
+                    .removeClass('slds-' + inactiveSuffix)
                     .addClass('slds-' + activeSuffix)
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', true);
@@ -28285,8 +28289,8 @@ define("modules/components/tab", function(){});
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+
 (function() {
-    'use strict';
     require([], function() {
 
         // BUTTON PUBLIC CLASS DEFINITION
@@ -28412,7 +28416,6 @@ define("modules/components/button", function(){});
 
 
 (function() {
-    'use strict';
     require([], function() {
 
         // MODAL CLASS DEFINITION
@@ -28603,7 +28606,7 @@ define("modules/components/button", function(){});
                     .addClass('slds-backdrop')
                     .appendTo(this.$body);
                 setTimeout(function(aScope) {
-                    aScope.$backdrop.addClass('slds-backdrop--open');
+                    aScope.$backdrop.addClass('slds-backdrop_open');
                 }, 0, this);
                 // this.$backdrop = $(document.createElement('div'))
                 //     .addClass('modal-backdrop ' + animate)
@@ -28635,7 +28638,7 @@ define("modules/components/button", function(){});
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('slds-backdrop--open');
+                this.$backdrop.removeClass('slds-backdrop_open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();
@@ -28880,12 +28883,12 @@ define("modules/components/modal", function(){});
         };
 
         Tooltip.prototype.SLDSPOSCLASSES = {
-            'top': 'slds-nubbin--bottom',
-            'right': 'slds-nubbin--left',
-            'bottom': 'slds-nubbin--top',
-            'left': 'slds-nubbin--right'
+            'top': 'slds-nubbin_bottom',
+            'right': 'slds-nubbin_left',
+            'bottom': 'slds-nubbin_top',
+            'left': 'slds-nubbin_right'
         };
-        
+
         Tooltip.prototype.getDefaults = function() {
             return Tooltip.DEFAULTS;
         };
@@ -29431,7 +29434,6 @@ define("modules/components/tooltip", function(){});
 
 
 (function() {
-    'use strict';
 
     require([], function() {
 
@@ -29640,7 +29642,6 @@ define("modules/components/dropdown", function(){});
  * ======================================================================== */
 
 (function() {
-    'use strict';
 
     require([], function() {
 
@@ -29661,7 +29662,7 @@ define("modules/components/dropdown", function(){});
             placement: 'right',
             trigger: 'click',
             content: '',
-            template: '<div class="slds-popover slds-nubbin--left" role="dialog">'
+            template: '<div class="slds-popover slds-nubbin_left" role="dialog">'
                 + '<div class="slds-popover__header"></div>'
                 + '<div class="slds-popover__body"></div>'
                 + '</div>'
@@ -29762,9 +29763,9 @@ define("modules/components/popover", function(){});
 
 /* global define */
 
+
 define('modules/components/responsiveMenu',[
 ], function() {
-    'use strict';
     var isOpen = false;
     var $bfBurger = $('#bfBurger');
     var $bfMenu = $('#bfMenu');
@@ -29799,7 +29800,6 @@ define('modules/components/responsiveMenu',[
 /* global requirejs */
 
 (function() {
-    'use strict';
 
     requirejs.config({
         baseUrl: 'scripts'
@@ -29825,14 +29825,28 @@ define("modules/components/main", function(){});
 
 /* global define */
 
+
 define('modules/data/accounts',[
     'org/OrgModel'
 ], function(OrgModel) {
-    'use strict';
-
     var isInitialised = false;
     var $getAccountsButton = $('#getAccounts');
     var $accountsLoadingAnim = $('#accountsLoading');
+
+
+    function getAccounts() {
+        // show the loading anim
+        $accountsLoadingAnim.removeClass('slds-hide');
+        $.when(OrgModel.getAccounts())
+        .done(function() {
+            //hide the loading anim
+            $accountsLoadingAnim.addClass('slds-hide');
+        })
+        .fail(function(err) {
+            alert(err.message);
+            // show a notification
+        });
+    }
 
     function init() {
         if (!isInitialised) {
@@ -29841,54 +29855,40 @@ define('modules/data/accounts',[
         }
     }
 
-    function getAccounts() {
-        // show the loading anim
-        $accountsLoadingAnim.removeClass('slds-hide');
-        $.when(OrgModel.getAccounts())
-            .done(function() {
-                //hide the loading anim
-                $accountsLoadingAnim.addClass('slds-hide');
-            })
-            .fail(function(err) {
-                alert(err.message);
-                // show a notification
-            });
-    }
-
     init();
 
 });
 
 /* global define */
 
+
 define('modules/data/contacts',[
     'org/OrgModel'
 ], function(OrgModel) {
-    'use strict';
-
     var isInitialised = false;
     var $getAccountsButton = $('#getContacts');
     var $contactsLoadingAnim = $('#accountsLoading');
+
+
+    function getContacts() {
+        // show the loading anim
+        $contactsLoadingAnim.removeClass('slds-hide');
+        $.when(OrgModel.getContacts())
+        .done(function() {
+            //hide the loading anim
+            $contactsLoadingAnim.addClass('slds-hide');
+        })
+        .fail(function(err) {
+            alert(err.message);
+            // show a notification
+        });
+    }
 
     function init() {
         if (!isInitialised) {
             isInitialised = true;
             $getAccountsButton.on('click', getContacts);
         }
-    }
-
-    function getContacts() {
-        // show the loading anim
-        $contactsLoadingAnim.removeClass('slds-hide');
-        $.when(OrgModel.getContacts())
-            .done(function() {
-                //hide the loading anim
-                $contactsLoadingAnim.addClass('slds-hide');
-            })
-            .fail(function(err) {
-                alert(err.message);
-                // show a notification
-            });
     }
 
     init();

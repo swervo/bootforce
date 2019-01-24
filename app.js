@@ -33,7 +33,6 @@ var server = new Server(parseInt(app.port, 10),
 );
 
 server.start(function (error) {
-    console.log(error);
     if (error) {
         debug('Unable to start server. Reason: ', error);
         process.exit(2);

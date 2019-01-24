@@ -445,7 +445,6 @@ define("../lib/almond/almond", function(){});
 
 
 (function() {
-    'use strict';
     require([], function() {
 
         // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
@@ -519,8 +518,8 @@ define("modules/components/utils/transition", function(){});
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+
 (function() {
-    'use strict';
     require([], function() {
 
         // ALERT CLASS DEFINITION
@@ -550,7 +549,7 @@ define("modules/components/utils/transition", function(){});
             }
 
             if (!$parent.length) {
-                $parent = $this.closest('.slds-notify--alert');
+                $parent = $this.closest('.slds-notify_alert');
             }
 
             $parent.trigger(e = $.Event('close.bs.alert'));
@@ -685,9 +684,11 @@ define("modules/components/alert", function(){});
 
         Tab.prototype.activate = function(element, container, callback) {
             var activeSuffix = 'active';
+            var inactiveSuffix = '';
             if (callback) {
                 // this is the toggle content call
                 activeSuffix = 'show';
+                inactiveSuffix = 'hide';
             }
             var $active = container.find('> .slds-' + activeSuffix);
             var transition = callback && $.support.transition &&
@@ -696,6 +697,7 @@ define("modules/components/alert", function(){});
             function next() {
                 $active
                     .removeClass('slds-' + activeSuffix)
+                    .addClass('slds-' + inactiveSuffix)
                     .find('> .dropdown-menu > .slds-' + activeSuffix)
                     .removeClass('slds-' + activeSuffix)
                     .end()
@@ -704,6 +706,7 @@ define("modules/components/alert", function(){});
 
 
                 element
+                    .removeClass('slds-' + inactiveSuffix)
                     .addClass('slds-' + activeSuffix)
                     .find('[data-toggle="tab"]')
                     .attr('aria-expanded', true);
@@ -796,8 +799,8 @@ define("modules/components/tab", function(){});
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+
 (function() {
-    'use strict';
     require([], function() {
 
         // BUTTON PUBLIC CLASS DEFINITION
@@ -923,7 +926,6 @@ define("modules/components/button", function(){});
 
 
 (function() {
-    'use strict';
     require([], function() {
 
         // MODAL CLASS DEFINITION
@@ -1114,7 +1116,7 @@ define("modules/components/button", function(){});
                     .addClass('slds-backdrop')
                     .appendTo(this.$body);
                 setTimeout(function(aScope) {
-                    aScope.$backdrop.addClass('slds-backdrop--open');
+                    aScope.$backdrop.addClass('slds-backdrop_open');
                 }, 0, this);
                 // this.$backdrop = $(document.createElement('div'))
                 //     .addClass('modal-backdrop ' + animate)
@@ -1146,7 +1148,7 @@ define("modules/components/button", function(){});
                     callback();
 
             } else if (!this.isShown && this.$backdrop) {
-                this.$backdrop.removeClass('slds-backdrop--open');
+                this.$backdrop.removeClass('slds-backdrop_open');
 
                 var callbackRemove = function() {
                     that.removeBackdrop();
@@ -1391,12 +1393,12 @@ define("modules/components/modal", function(){});
         };
 
         Tooltip.prototype.SLDSPOSCLASSES = {
-            'top': 'slds-nubbin--bottom',
-            'right': 'slds-nubbin--left',
-            'bottom': 'slds-nubbin--top',
-            'left': 'slds-nubbin--right'
+            'top': 'slds-nubbin_bottom',
+            'right': 'slds-nubbin_left',
+            'bottom': 'slds-nubbin_top',
+            'left': 'slds-nubbin_right'
         };
-        
+
         Tooltip.prototype.getDefaults = function() {
             return Tooltip.DEFAULTS;
         };
@@ -1942,7 +1944,6 @@ define("modules/components/tooltip", function(){});
 
 
 (function() {
-    'use strict';
 
     require([], function() {
 
@@ -2151,7 +2152,6 @@ define("modules/components/dropdown", function(){});
  * ======================================================================== */
 
 (function() {
-    'use strict';
 
     require([], function() {
 
@@ -2172,7 +2172,7 @@ define("modules/components/dropdown", function(){});
             placement: 'right',
             trigger: 'click',
             content: '',
-            template: '<div class="slds-popover slds-nubbin--left" role="dialog">'
+            template: '<div class="slds-popover slds-nubbin_left" role="dialog">'
                 + '<div class="slds-popover__header"></div>'
                 + '<div class="slds-popover__body"></div>'
                 + '</div>'
@@ -2273,9 +2273,9 @@ define("modules/components/popover", function(){});
 
 /* global define */
 
+
 define('modules/components/responsiveMenu',[
 ], function() {
-    'use strict';
     var isOpen = false;
     var $bfBurger = $('#bfBurger');
     var $bfMenu = $('#bfMenu');
@@ -2310,7 +2310,6 @@ define('modules/components/responsiveMenu',[
 /* global requirejs */
 
 (function() {
-    'use strict';
 
     requirejs.config({
         baseUrl: 'scripts'
