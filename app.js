@@ -41,5 +41,3 @@ server.start(function (error) {
 
     debug('Server up and running on port ', app.port);
 });
-
-console.log(serverURL);

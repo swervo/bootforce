@@ -8,69 +8,71 @@ var once = require('once');
 var path = require('path');
 var debug = require('debug')('main');
 
-module.exports = Server;
+class Server {
+    constructor(port, serverURL, silent) {
+        this._port = port;
+        this._serverURL = serverURL;
+        this._silent = !!silent;
+        this.app = null;
+    }
 
-function Server(port, serverURL, silent) {
-    this._port = port;
-    this._serverURL = serverURL;
-    this._silent = !!silent;
-    this.app = null;
+    // Adding a method to the constructor
+    _initialize (callback) {
+        this.app = express();
+        this.app.httpServer = http.createServer(this.app);
+
+
+        this.app.set('port', this._port);
+        this.app.use(express.static(path.join(__dirname, '../build')));
+
+        callback(null);
+    }
+
+    _listen (callback) {
+
+        callback = once(callback);
+
+        this.app.httpServer.listen(this.app.get('port'), function (error) {
+            if (error) {
+                return callback(error);
+            }
+            callback();
+        });
+
+        this.app.httpServer.on('error', function (error) {
+            callback(error);
+        });
+    }
+
+    // public API
+    start (callback) {
+        console.log('hey');
+        var that = this;
+
+        if (this.app) {
+            return callback(new Error('Server is already up and running.'));
+        }
+
+        this._initialize(function (error) {
+            if (error) {
+                return callback(error);
+            }
+            that._listen(callback);
+        });
+    }
+
+    stop (callback) {
+        var that = this;
+        if (!this.app.httpServer) {
+            return callback();
+        }
+
+        this.app.httpServer.close(function () {
+            that.app.httpServer.unref();
+            that.app = null;
+            callback();
+        });
+    }
 }
 
-Server.prototype._initialize = function (callback) {
-    this.app = express();
-    this.app.httpServer = http.createServer(this.app);
-
-
-    this.app.set('port', this._port);
-    console.log(__dirname);
-    this.app.use(express.static(path.join(__dirname, '../build')));
-
-    callback(null);
-};
-
-Server.prototype._listen = function (callback) {
-
-    callback = once(callback);
-
-    this.app.httpServer.listen(this.app.get('port'), function (error) {
-        if (error) {
-            return callback(error);
-        }
-        callback();
-    });
-
-    this.app.httpServer.on('error', function (error) {
-        callback(error);
-    });
-};
-
-// public API
-Server.prototype.start = function (callback) {
-    console.log('hey');
-    var that = this;
-
-    if (this.app) {
-        return callback(new Error('Server is already up and running.'));
-    }
-
-    this._initialize(function (error) {
-        if (error) {
-            return callback(error);
-        }
-        that._listen(callback);
-    });
-};
-
-Server.prototype.stop = function (callback) {
-    var that = this;
-    if (!this.app.httpServer) {
-        return callback();
-    }
-
-    this.app.httpServer.close(function () {
-        that.app.httpServer.unref();
-        that.app = null;
-        callback();
-    });
-};
+module.exports = Server;
