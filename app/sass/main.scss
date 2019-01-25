@@ -6,6 +6,7 @@
 
 
 @import 'tokens/overrides';
+@import 'tokens/custom';
 @import 'hacks/mixins';
 @import 'hacks/hacks';
 
@@ -28,28 +29,11 @@
 // Print
 @import 'vendor/html5boilerplate-print';
 
-  // // Dependencies
-  // 'design-tokens',
-  // 'config',
-  // 'vendor/deprecate',
-  // 'dependencies/index',
-  // 'core/font',
-
-  // // Resets
-  // 'vendor/normalize',
-  // 'core/core',
-
-  // // Framework
-  // 'components/index',
-  // 'utilities/index',
-
-  // // Print
-  // 'vendor/html5boilerplate-print';
-
 @import 'extensions/main';
 
 @import 'hacks/overwrites';
 @import 'custom/login';
+@import 'custom/helpers';
 
 /**
  * Import the css for the github ribbon

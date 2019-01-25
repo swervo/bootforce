@@ -15,7 +15,7 @@
 </head>
 
 <body id="app">
-  <main class="slds-container_x-large slds-container_center">
+  <main class="slds-container_x-large slds-container_center slds-is-relative bootforce-overflow-x_hidden">
     <div class="slds-grid slds-wrap slds-grid_vertical-align-center">
       <div class="slds-col_padded">
 
@@ -35,12 +35,12 @@
 
     <div class="slds-tabs_scoped">
       <div class="slds-container_fluid slds-responsive_menu__background">
-        <ul id="bfMenu" class="slds-tabs_scoped__nav slds-responsive_menu" role="tablist">
+        <ul id="bfMenu" class="slds-tabs_scoped__nav slds-responsive_menu slds-grid_vertical-align-center" role="tablist">
           <li class="slds-tabs_scoped__item slds-text-heading_label slds-active" title="Bootforce" role="presentation"><a href="#bootforce" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="0" aria-selected="true">Bootforce</a></li>
           <li class="slds-tabs_scoped__item slds-text-heading_label" title="Roadmap" role="presentation"><a href="#roadmap" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Roadmap</a></li>
           <li class="slds-tabs_scoped__item slds-text-heading_label" title="Data" role="presentation"><a href="#data" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Data</a></li>
           <li class="slds-tabs_scoped__item slds-text-heading_label" title="Downloads" role="presentation"><a href="#downloads" class="slds-tabs_scoped__link" data-toggle="tab" role="tab" tabindex="-1" aria-selected="false">Downloads</a></li>
-          <li class="slds-col_bump-left slds-m-top_xx-small">
+          <li class="slds-col_bump-left">
 
             <button id="login" class="slds-button slds-button_neutral slds-m-left_small" data-toggle="modal" data-target="#loginDialog">
               Log in

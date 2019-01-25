@@ -35291,6 +35291,18 @@ a.slds-button--inverse:focus {
   display: none;
 }
 
+.bootforce-overflow-x_hidden {
+  overflow-x: hidden;
+}
+
+.bootforce-overflow-y_hidden {
+  overflow-y: hidden;
+}
+
+.bootforce-overflow_hidden {
+  overflow: hidden;
+}
+
 /**
  * Import the css for the github ribbon
  */
