@@ -12,22 +12,6 @@ module.exports = function(grunt) {
             ' * Bootforce owes much to Bootstrap "http://getbootstrap.com"\n' +
             ' * Licensed under the <%= pkg.license %> license\n' +
             ' */\n',
-        'bower-install-simple': {
-            options: {
-                color: true,
-                directory: 'app/lib'
-            },
-            'prod': {
-                options: {
-                    production: true
-                }
-            },
-            'dev': {
-                options: {
-                    production: false
-                }
-            }
-        },
         env: {
             options: {
                 /* Shared Options Hash */
@@ -75,7 +59,8 @@ module.exports = function(grunt) {
                 outputStyle: 'expanded',
                 sourceComments: false,
                 includePaths: [
-                    'node_modules/@salesforce-ux/design-system/scss'
+                    'node_modules/@salesforce-ux/design-system/scss',
+                    'node_modules/github-fork-ribbon-css'
                 ]
             },
             dist: {
@@ -106,7 +91,11 @@ module.exports = function(grunt) {
                 options: {
                     baseUrl: 'app/scripts',
                     mainConfigFile: 'app/scripts/main.js',
-                    name: '../lib/almond/almond',
+                    name: '../../node_modules/almond/almond',
+                    paths: {
+                        knockout: '../../node_modules/knockout/build/output/knockout-latest',
+                        jsforce: '../../node_modules/jsforce/build/jsforce'
+                    },
                     include: ['main'],
                     insertRequire: ['main'],
                     removeCombined: true,
@@ -118,7 +107,7 @@ module.exports = function(grunt) {
                 options: {
                     baseUrl: 'app/scripts',
                     mainConfigFile: 'app/scripts/modules/components/main.js',
-                    name: '../lib/almond/almond',
+                    name: '../../node_modules/almond/almond',
                     include: ['modules/components/main.js'],
                     insertRequire: ['modules/components/main.js'],
                     removeCombined: true,
@@ -211,9 +200,6 @@ module.exports = function(grunt) {
         }
     });
 
-    // Bower integration
-    grunt.registerTask('bower', ['bower-install-simple']);
-
     grunt.registerTask('server', ['connect:build']);
 
     grunt.registerTask('sassCompile', ['sass', 'notify:sass']);
@@ -223,7 +209,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'jshint',
-        'bower',
         'main',
         'dist',
         'env:prod',

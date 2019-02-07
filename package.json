@@ -2,21 +2,36 @@
   "name": "bootforce",
   "version": "0.0.2",
   "description": "Port of Bootstrap javascript to support the Salesforce Lightning Design System",
-  "main": "Gruntfile.js",
+  "main": "app.js",
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@salesforce-ux/design-system": "^2.8.1",
     "commander": "^2.19.0",
     "debug": "^4.1.1",
     "express": "^4.16.4",
+    "github-fork-ribbon-css": "^0.2.1",
+    "jquery": "^3.3.1",
+    "jsforce": "^1.9.1",
+    "knockout": "^3.4.2",
+    "moment": "^2.24.0",
     "once": "^1.3.2",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "uuid": "^3.3.2"
   },
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.8.4",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "almond": "^0.3.3",
+    "babel-watch": "^2.0.8",
     "connect-livereload": "^0.5.3",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "grunt": "^1.0.3",
-    "grunt-bower-install-simple": "^1.1.0",
     "grunt-cli": "^1.3.2",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "^2.0.0",
@@ -34,7 +49,11 @@
     "node-sass": "^4.11.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "start": "node app.js",
+    "dev": "DEBUG='*' NODE_ENV=dev node app.js",
+    "debug": "DEBUG='*' node app.js",
+    "test": "grunt test",
+    "build": "babel server/app.js --out-dir server/build"
   },
   "repository": {
     "type": "git",
