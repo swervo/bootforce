@@ -10,3 +10,8 @@
     opacity: 1;
   }
 }
+
+// Fix the github ribbon issue with border-box everywhere
+.github-fork-ribbon:before, .github-fork-ribbon:after {
+  box-sizing: content-box;
+}
