@@ -26,17 +26,23 @@ define([
             }, this);
         },
         getTodos: function() {
-            var todoPromise = $.getJSON('scripts/todos.json');
-            todoPromise.success(function(aData) {
-                this.updateTodos(aData);
-            }.bind(this));
-            todoPromise.error(function(e) {
-                console.log(e);
-                console.log('json load error');
+            $.ajax({
+                url: '/data/api/todos',
+                context: this
+            }).done(function (aData) {
+                this.updateTodos(JSON.parse(aData));
             });
-            todoPromise.complete(function() {
-                console.log('data load done');
-            });
+            // var todoPromise = $.getJSON('scripts/todos.json');
+            // todoPromise.success(function(aData) {
+            //     this.updateTodos(aData);
+            // }.bind(this));
+            // todoPromise.error(function(e) {
+            //     console.log(e);
+            //     console.log('json load error');
+            // });
+            // todoPromise.complete(function() {
+            //     console.log('data load done');
+            // });
         }
     };
 

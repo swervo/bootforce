@@ -182,12 +182,6 @@ module.exports = function(grunt) {
                     dest: 'build/dist/scripts/bootforce.min.js',
                     src: 'dist/bootforce.min.js'
                 }]
-            },
-            data: {
-                files: [{
-                    dest: 'build/scripts/todos.json',
-                    src: 'app/scripts/todos.json'
-                }]
             }
         },
         notify: {
@@ -214,7 +208,6 @@ module.exports = function(grunt) {
         'env:prod',
         'copy:static',
         'copy:dev',
-        'copy:data',
         'preprocess:prod',
         'connect:deploy'
     ]);
