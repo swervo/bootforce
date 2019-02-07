@@ -34,7 +34,6 @@ var server = new Server(
 );
 
 server.start(function (error) {
-    console.log(error);
     if (error) {
         debug('Unable to start server. Reason: ', error);
         process.exit(2);

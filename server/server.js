@@ -54,7 +54,6 @@ class Server {
 
     // public API
     start (callback) {
-        console.log('hey');
         var that = this;
 
         if (this.app) {
