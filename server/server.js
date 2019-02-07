@@ -7,6 +7,7 @@ var http = require('http');
 var once = require('once');
 var path = require('path');
 var debug = require('debug')('main');
+var mTodos = require('./controllers/todos');
 
 class Server {
     constructor(port, serverURL, silent) {
@@ -23,8 +24,15 @@ class Server {
 
 
         this.app.set('port', this._port);
-        this.app.use(express.static(path.join(__dirname, '../build')));
+        if (process.env.NODE_ENV === 'dev') {
+            this.app.use(express.static(path.join(__dirname, '../app')));
+        } else {
+            this.app.use(express.static(path.join(__dirname, '../build')));
+        }
+        this.app.use(express.static(path.join(__dirname, '../node_modules')));
+        this.app.get('/data/api/todos', mTodos.getTodos);
 
+        mTodos.init();
         callback(null);
     }
 
