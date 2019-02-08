@@ -135,32 +135,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        imagemin: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'app/assets/',
-                    src: ['**/*.png'],
-                    dest: 'dist/assets/',
-                    ext: '.png'
-                }]
-            },
-            jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'app/assets/',
-                    src: ['**/*.jpg'],
-                    dest: 'dist/assets/',
-                    ext: '.jpg'
-                }]
-            }
-        },
         copy: {
             static: {
                 files: [{
